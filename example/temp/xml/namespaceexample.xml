@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="namespaceexample" kind="namespace" language="C++">
+    <compoundname>example</compoundname>
+    <innerclass refid="classexample_1_1_animal" prot="public">example::Animal</innerclass>
+    <innerclass refid="classexample_1_1_bird" prot="public">example::Bird</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="animal_8h_1a3f4ef5eb79454b95a62f0a814765786c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void example::some_global_function</definition>
+        <argsstring>(Animal *animal)</argsstring>
+        <name>some_global_function</name>
+        <param>
+          <type><ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> *</type>
+          <declname>animal</declname>
+        </param>
+        <briefdescription>
+<para>Some random global function that modifies <ref refid="classexample_1_1_animal" kindref="compound">Animal</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>animal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to the animal instance </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/animal.h" line="82" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/animal.h" line="6" column="1"/>
+  </compounddef>
+</doxygen>

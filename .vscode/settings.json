@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.nut": "lua",
+        "*akefile": "makefile2",
+        ".make": "makefile2",
+        ".mk": "makefile2",
+        "xstring": "cpp"
+    }
+}

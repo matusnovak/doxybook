@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classexample_1_1_bird" kind="class" language="C++" prot="public">
+    <compoundname>example::Bird</compoundname>
+    <basecompoundref refid="classexample_1_1_animal" prot="public" virt="non-virtual">example::Animal</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classexample_1_1_bird_1a3e9a914edb8db0a5ecb68f1a8230a671" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>example::Bird::Bird</definition>
+        <argsstring>(const std::string &amp;name, Bird *mother=nullptr, Bird *father=nullptr)</argsstring>
+        <name>Bird</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> *</type>
+          <declname>mother</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type><ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> *</type>
+          <declname>father</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="9" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_bird_1a0cca7cb1f27a09fc21f763eb6a5be07f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>example::Bird::Bird</definition>
+        <argsstring>(const Bird &amp;other)=delete</argsstring>
+        <name>Bird</name>
+        <param>
+          <type>const <ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="10" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_bird_1a183101969ac7abd593f41a0197bd9c68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>example::Bird::Bird</definition>
+        <argsstring>(Bird &amp;&amp;Bird) noexcept</argsstring>
+        <name>Bird</name>
+        <param>
+          <type><ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> &amp;&amp;</type>
+          <declname>Bird</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="11" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_bird_1a3209f795942057f0da73316dda7b4c39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>example::Bird::~Bird</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Bird</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="12" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_bird_1ae9c126dd4739755af505cd5a43c9f1de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void example::Bird::swap</definition>
+        <argsstring>(Bird &amp;other) noexcept</argsstring>
+        <name>swap</name>
+        <param>
+          <type><ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_bird_1aa3877f1e70aba0d25ef757c248f69d13" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void example::Bird::move</definition>
+        <argsstring>() override</argsstring>
+        <name>move</name>
+        <reimplements refid="classexample_1_1_animal_1aaee0d759d18beaca18670d2a794b1445">move</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_bird_1ae61379b32b53508e9a2398305826667a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void example::Bird::make_sound</definition>
+        <argsstring>() override</argsstring>
+        <name>make_sound</name>
+        <reimplements refid="classexample_1_1_animal_1a6939f9fed1a387b128d3947afc239873">make_sound</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_bird_1a14c736790bab9fdcad79095ec7e43e83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> &amp;</type>
+        <definition>Bird&amp; example::Bird::operator=</definition>
+        <argsstring>(const Bird &amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_bird_1a5f431ca5c2a97f9c62ae688078a5a8a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> &amp;</type>
+        <definition>Bird&amp; example::Bird::operator=</definition>
+        <argsstring>(Bird &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/bird.h" line="19" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>example::Bird</label>
+        <link refid="classexample_1_1_bird"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>example::Animal</label>
+        <link refid="classexample_1_1_animal"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>example::Bird</label>
+        <link refid="classexample_1_1_bird"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>example::Animal</label>
+        <link refid="classexample_1_1_animal"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>mother</edgelabel>
+          <edgelabel>father</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/bird.h" line="7" column="1" bodyfile="src/bird.h" bodystart="7" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a79d1b3d3c02b6b09d6abf608cf9045f6" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>AMPHIBIAN</name></member>
+      <member refid="classexample_1_1_animal_1acef1db6802de001a01c403afeca90c86" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>Animal</name></member>
+      <member refid="classexample_1_1_animal_1a612d7d2e9631e6f241e871b3785f4cdf" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>Animal</name></member>
+      <member refid="classexample_1_1_animal_1a29db85a24acf4fd5fb353c871eb086ed" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>Animal</name></member>
+      <member refid="classexample_1_1_bird_1a3e9a914edb8db0a5ecb68f1a8230a671" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>Bird</name></member>
+      <member refid="classexample_1_1_bird_1a0cca7cb1f27a09fc21f763eb6a5be07f" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>Bird</name></member>
+      <member refid="classexample_1_1_bird_1a183101969ac7abd593f41a0197bd9c68" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>Bird</name></member>
+      <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a6205637d5a9711b5bece4f961915bf59" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>BIRD</name></member>
+      <member refid="classexample_1_1_animal_1aeaabef8bc7cd869f09db725e0fcc5092" prot="protected" virt="non-virtual"><scope>example::Bird</scope><name>father</name></member>
+      <member refid="classexample_1_1_animal_1a1d509e63586d5fe3edc86d393f88910b" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>find_child_by_name</name></member>
+      <member refid="classexample_1_1_animal_1a7ff2cbf990657553d95f6d15fb0f4568" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>find_parent_by_name</name></member>
+      <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a0c9b7474bcd06a73ad5c1ae3b0b05bb8" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>FISH</name></member>
+      <member refid="classexample_1_1_animal_1ab4e7a34b9637acc89c55eec9405f1f6e" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>get_name</name></member>
+      <member refid="classexample_1_1_animal_1a7558cb43e67bc800961b451dd546db74" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>get_num_of_eyes</name></member>
+      <member refid="classexample_1_1_animal_1ad6aee00ea8d457d2bd7becbe107f2d9a" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>get_num_of_limbs</name></member>
+      <member refid="classexample_1_1_animal_1ab985ec14c22d9f3b80c1a4a911300062" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>get_parents</name></member>
+      <member refid="classexample_1_1_animal_1a71d036f82dfe3e7dbefb334a92f91275" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>has_tail</name></member>
+      <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a4be27b9504bb7b14709c0315ea0b4ca3" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>INSECT</name></member>
+      <member refid="classexample_1_1_bird_1ae61379b32b53508e9a2398305826667a" prot="public" virt="virtual"><scope>example::Bird</scope><name>make_sound</name></member>
+      <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69aa4d73065e1a5df2bd56d98ea430f3e68" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>MAMMAL</name></member>
+      <member refid="classexample_1_1_animal_1a77ebfd8268da42527748bc17f458c02c" prot="protected" virt="non-virtual"><scope>example::Bird</scope><name>mother</name></member>
+      <member refid="classexample_1_1_bird_1aa3877f1e70aba0d25ef757c248f69d13" prot="public" virt="virtual"><scope>example::Bird</scope><name>move</name></member>
+      <member refid="classexample_1_1_animal_1a9362efc813ef23964f7f6f57640a12e7" prot="protected" virt="non-virtual"><scope>example::Bird</scope><name>name</name></member>
+      <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a6e5479b6b33bfb1d1ddcadee8c18bf5d" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>NONE</name></member>
+      <member refid="classexample_1_1_bird_1a14c736790bab9fdcad79095ec7e43e83" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>operator=</name></member>
+      <member refid="classexample_1_1_bird_1a5f431ca5c2a97f9c62ae688078a5a8a0" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>operator=</name></member>
+      <member refid="classexample_1_1_animal_1a021864d5b75ff00550cd4ffe65f4014d" prot="public" virt="non-virtual" ambiguityscope="example::Animal::"><scope>example::Bird</scope><name>operator=</name></member>
+      <member refid="classexample_1_1_animal_1a055b1b5d5ffaa302068e7000b1b9f4f7" prot="public" virt="non-virtual" ambiguityscope="example::Animal::"><scope>example::Bird</scope><name>operator=</name></member>
+      <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a954a217544b4717d06254df10b3e4c34" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>REPTILE</name></member>
+      <member refid="classexample_1_1_bird_1ae9c126dd4739755af505cd5a43c9f1de" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>swap</name></member>
+      <member refid="classexample_1_1_animal_1affec460d5bc2fb8d650fcf5b7b8cf396" prot="public" virt="non-virtual" ambiguityscope="example::Animal::"><scope>example::Bird</scope><name>swap</name></member>
+      <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>Type</name></member>
+      <member refid="classexample_1_1_animal_1a3f655bd72ea96eba32d8332a1b44e70b" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>~Animal</name></member>
+      <member refid="classexample_1_1_bird_1a3209f795942057f0da73316dda7b4c39" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>~Bird</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

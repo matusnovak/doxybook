@@ -1,0 +1,2 @@
+cd example
+doxygen Doxyfile
