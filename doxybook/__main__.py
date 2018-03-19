@@ -5,15 +5,16 @@ import xml.etree.ElementTree
 from doxybook.loader import loadRoot
 from doxybook.kind import Kind
 from doxybook.node import Node
-import doxybook.generators.classindex as classIndexWriter
-import doxybook.generators.classhierarchy as classHierarchyWriter
-import doxybook.generators.member as memberWriter
+from doxybook.generators.classindex import generateClassIndex
+from doxybook.generators.classhierarchy import generateHierarchy
+from doxybook.generators.member import generateMember
+from doxybook.cache import Cache
 
-def writeMembers(outputDir: str, node: Node):
+def writeMembers(indexDir: str, outputDir: str, node: Node, cache: Cache):
     for member in node.members:
         if member.kind == Kind.STRUCT or member.kind == Kind.NAMESPACE or member.kind == Kind.CLASS:
-            memberWriter.generate(outputDir, member)
-            writeMembers(outputDir, member)
+            generateMember(indexDir, outputDir, member, cache)
+            writeMembers(indexDir, outputDir, member, cache)
 
 def main():
     parser = argparse.ArgumentParser(description='Convert doxygen XML output into GitBook markdown output.')
@@ -29,11 +30,13 @@ def main():
     )
 
     args = parser.parse_args()
-    root = loadRoot(args.input)
 
-    classIndexWriter.generate(args.output, root)
-    classHierarchyWriter.generate(args.output, root)
-    writeMembers(args.output, root)
+    cache = Cache()
+    root = loadRoot(cache, args.input)
+
+    generateClassIndex(args.output, root)
+    generateHierarchy(args.output, root)
+    writeMembers(args.input, args.output, root, cache)
 
 if __name__ == '__main__':
     main()

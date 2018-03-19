@@ -3,6 +3,7 @@
   <compounddef id="classexample_1_1_animal" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>example::Animal</compoundname>
     <derivedcompoundref refid="classexample_1_1_bird" prot="public" virt="non-virtual">example::Bird</derivedcompoundref>
+    <includes refid="animal_8h" local="no">animal.h</includes>
     <innerclass refid="structexample_1_1_animal_1_1_result" prot="public">example::Animal::Result</innerclass>
       <sectiondef kind="public-type">
       <memberdef kind="enum" id="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69" prot="public" static="no">
@@ -62,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="12" column="1" bodyfile="src/animal.h" bodystart="12" bodyend="20"/>
+        <location file="src/animal.h" line="17" column="1" bodyfile="src/animal.h" bodystart="17" bodyend="25"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -77,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="72" column="1" bodyfile="src/animal.h" bodystart="72" bodyend="-1"/>
+        <location file="src/animal.h" line="77" column="1" bodyfile="src/animal.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexample_1_1_animal_1aeaabef8bc7cd869f09db725e0fcc5092" prot="protected" static="no" mutable="no">
         <type><ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> *</type>
@@ -90,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="73" column="1" bodyfile="src/animal.h" bodystart="73" bodyend="-1"/>
+        <location file="src/animal.h" line="78" column="1" bodyfile="src/animal.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexample_1_1_animal_1a9362efc813ef23964f7f6f57640a12e7" prot="protected" static="no" mutable="no">
         <type>std::string</type>
@@ -103,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="74" column="1" bodyfile="src/animal.h" bodystart="74" bodyend="-1"/>
+        <location file="src/animal.h" line="79" column="1" bodyfile="src/animal.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -122,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="29" column="1"/>
+        <location file="src/animal.h" line="34" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a1d509e63586d5fe3edc86d393f88910b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> *</type>
@@ -139,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="30" column="1"/>
+        <location file="src/animal.h" line="35" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -172,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="32" column="1"/>
+        <location file="src/animal.h" line="37" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a612d7d2e9631e6f241e871b3785f4cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -189,7 +190,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="33" column="1"/>
+        <location file="src/animal.h" line="38" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a29db85a24acf4fd5fb353c871eb086ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -206,7 +207,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="34" column="1"/>
+        <location file="src/animal.h" line="39" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a3f655bd72ea96eba32d8332a1b44e70b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -219,7 +220,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="35" column="1"/>
+        <location file="src/animal.h" line="40" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1affec460d5bc2fb8d650fcf5b7b8cf396" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -236,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="37" column="1"/>
+        <location file="src/animal.h" line="42" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1ad6aee00ea8d457d2bd7becbe107f2d9a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -250,7 +251,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="43" column="1"/>
+        <location file="src/animal.h" line="48" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a7558cb43e67bc800961b451dd546db74" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -264,7 +265,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="49" column="1"/>
+        <location file="src/animal.h" line="54" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a71d036f82dfe3e7dbefb334a92f91275" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -278,7 +279,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="55" column="1"/>
+        <location file="src/animal.h" line="60" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1aaee0d759d18beaca18670d2a794b1445" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -292,7 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="57" column="1"/>
+        <location file="src/animal.h" line="62" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a6939f9fed1a387b128d3947afc239873" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -306,7 +307,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="58" column="1"/>
+        <location file="src/animal.h" line="63" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1ab985ec14c22d9f3b80c1a4a911300062" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::pair&lt; <ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> *, <ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> * &gt;</type>
@@ -319,7 +320,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="60" column="1" bodyfile="src/animal.h" bodystart="60" bodyend="62"/>
+        <location file="src/animal.h" line="65" column="1" bodyfile="src/animal.h" bodystart="65" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1ab4e7a34b9637acc89c55eec9405f1f6e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const std::string &amp;</type>
@@ -332,7 +333,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="64" column="1" bodyfile="src/animal.h" bodystart="64" bodyend="66"/>
+        <location file="src/animal.h" line="69" column="1" bodyfile="src/animal.h" bodystart="69" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a021864d5b75ff00550cd4ffe65f4014d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> &amp;</type>
@@ -349,7 +350,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="68" column="1"/>
+        <location file="src/animal.h" line="73" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classexample_1_1_animal_1a055b1b5d5ffaa302068e7000b1b9f4f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> &amp;</type>
@@ -366,13 +367,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="69" column="1"/>
+        <location file="src/animal.h" line="74" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-    </briefdescription>
+<para>Base class for all animals from which <ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> derives. </para>    </briefdescription>
     <detaileddescription>
-    </detaileddescription>
+<para>Lorem Ipsum Donor. Some <ulink url="http://github.com">Random link with <bold>bold</bold> and <emphasis>italics</emphasis></ulink> <simplesect kind="see"><para><ref refid="classexample_1_1_bird" kindref="compound">Bird</ref> </para></simplesect>
+</para>    </detaileddescription>
     <inheritancegraph>
       <node id="1">
         <label>example::Bird</label>
@@ -395,7 +397,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/animal.h" line="7" column="1" bodyfile="src/animal.h" bodystart="7" bodyend="75"/>
+    <location file="src/animal.h" line="12" column="1" bodyfile="src/animal.h" bodystart="12" bodyend="80"/>
     <listofallmembers>
       <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a79d1b3d3c02b6b09d6abf608cf9045f6" prot="public" virt="non-virtual"><scope>example::Animal</scope><name>AMPHIBIAN</name></member>
       <member refid="classexample_1_1_animal_1acef1db6802de001a01c403afeca90c86" prot="public" virt="non-virtual"><scope>example::Animal</scope><name>Animal</name></member>

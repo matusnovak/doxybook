@@ -4,6 +4,11 @@
 #include <string>
 
 namespace example {
+    /*!
+     * @brief Base class for all animals from which Bird derives
+     * @details Lorem Ipsum Donor. Some [Random link with **bold** and _italics_](http://github.com)
+     * @see Bird
+     */
     class Animal {
     public:
         /*!

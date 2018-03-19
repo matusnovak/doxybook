@@ -1,4 +1,5 @@
 # Class Hierarchy
+
 This inheritance list is sorted roughly, but not completely, alphabetically:
 * namespace [example](example.md)
   * class [Animal](example_Animal.md)

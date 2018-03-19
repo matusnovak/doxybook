@@ -4,6 +4,7 @@ import xml.etree.ElementTree
 from doxybook.node import Node
 from doxybook.kind import Kind, isKindLanguage
 from doxybook.utils import tokenize
+from doxybook.cache import Cache
 
 def parseRoot(root: xml.etree.ElementTree):
     parent = Node('root', 'root', Kind.ROOT)
@@ -54,17 +55,18 @@ def reparseRoot(rootNode: Node, newRoot: Node):
                     lastEnum = subchild
         rootNode.members.pop(0)
 
-def finalize(node: Node):
+def finalize(cache: Cache, node: Node):
     node.finalize()
+    cache.add(node.refid, node)
     for child in node.members:
-        finalize(child)
+        finalize(cache, child)
 
 def debug(node: Node, indent: str = ''):
-    print(indent, 'Node name:', node.name, 'kind:', node.kind, 'full', node.getFullName(False))
+    print(indent, 'Node name:', node.name, 'refid:', node.refid)
     for member in node.members:
         debug(member, indent + '  |-')
 
-def loadRoot(dirPath: str) -> Node:
+def loadRoot(cache: Cache, dirPath: str) -> Node:
     print("XML index from: " + dirPath)
     e = xml.etree.ElementTree.parse(os.path.join(dirPath, 'index.xml')).getroot()
     
@@ -72,7 +74,7 @@ def loadRoot(dirPath: str) -> Node:
     
     rootNode = parseRoot(e)
     reparseRoot(rootNode, outNode)
-    finalize(outNode)
+    finalize(cache, outNode)
     
     debug(outNode)
     return outNode
