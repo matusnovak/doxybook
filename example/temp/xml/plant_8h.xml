@@ -2,6 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
   <compounddef id="plant_8h" kind="file" language="C++">
     <compoundname>plant.h</compoundname>
+    <includedby refid="example_8h" local="yes">src/example.h</includedby>
+    <invincdepgraph>
+      <node id="24">
+        <label>src/plant.h</label>
+        <link refid="plant.h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>src/example.h</label>
+        <link refid="example_8h_source"/>
+      </node>
+    </invincdepgraph>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="markdown-demo_8md" kind="file" language="Markdown">
+    <compoundname>markdown-demo.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Markdown<sp/>test</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**I<sp/>highly<sp/>do<sp/>not<sp/>recommend<sp/>to<sp/>use<sp/>markdown<sp/>through<sp/>Doxygen!<sp/>The<sp/>source<sp/>markdown<sp/>file<sp/>will<sp/>go<sp/>through<sp/>Doxygen<sp/>to<sp/>xml<sp/>and<sp/>then<sp/>from<sp/>xml<sp/>through<sp/>doxybook<sp/>back<sp/>into<sp/>markdown.<sp/>If<sp/>you<sp/>REALLY<sp/>need<sp/>to<sp/>use<sp/>markdown<sp/>through<sp/>Doxygen,<sp/>it<sp/>is<sp/>here,<sp/>but<sp/>limited.<sp/>IMHO,<sp/>just<sp/>write<sp/>a<sp/>simple<sp/>shell<sp/>script<sp/>to<sp/>copy<sp/>the<sp/>necessary<sp/>markdown<sp/>files<sp/>into<sp/>GitBook<sp/>directly.<sp/>Anyway,<sp/>the<sp/>markdown<sp/>below<sp/>is<sp/>copied<sp/>from<sp/>here:<sp/>https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet<sp/>and<sp/>most<sp/>of<sp/>it<sp/>works<sp/>through<sp/>doxybook.**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Headers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```markdown</highlight></codeline>
+<codeline><highlight class="normal">#<sp/>H1</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>H2</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>H3</highlight></codeline>
+<codeline><highlight class="normal">####<sp/>H4</highlight></codeline>
+<codeline><highlight class="normal">#####<sp/>H5</highlight></codeline>
+<codeline><highlight class="normal">######<sp/>H6</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alternatively,<sp/>for<sp/>H1<sp/>and<sp/>H2,<sp/>an<sp/>underline-ish<sp/>style:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alt-H1</highlight></codeline>
+<codeline><highlight class="normal">======</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alt-H2</highlight></codeline>
+<codeline><highlight class="normal">------</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>H1</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>H2</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>H3</highlight></codeline>
+<codeline><highlight class="normal">####<sp/>H4</highlight></codeline>
+<codeline><highlight class="normal">#####<sp/>H5</highlight></codeline>
+<codeline><highlight class="normal">######<sp/>H6</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alternatively,<sp/>for<sp/>H1<sp/>and<sp/>H2,<sp/>an<sp/>underline-ish<sp/>style:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alt-H1</highlight></codeline>
+<codeline><highlight class="normal">======</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alt-H2</highlight></codeline>
+<codeline><highlight class="normal">------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Emphasis</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```markdown</highlight></codeline>
+<codeline><highlight class="normal">Emphasis,<sp/>aka<sp/>italics,<sp/>with<sp/>*asterisks*<sp/>or<sp/>_underscores_.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Strong<sp/>emphasis,<sp/>aka<sp/>bold,<sp/>with<sp/>**asterisks**<sp/>or<sp/>__underscores__.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Combined<sp/>emphasis<sp/>with<sp/>**asterisks<sp/>and<sp/>_underscores_**.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Strikethrough<sp/>uses<sp/>two<sp/>tildes.<sp/>~~Scratch<sp/>this.~~</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Emphasis,<sp/>aka<sp/>italics,<sp/>with<sp/>*asterisks*<sp/>or<sp/>_underscores_.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Strong<sp/>emphasis,<sp/>aka<sp/>bold,<sp/>with<sp/>**asterisks**<sp/>or<sp/>__underscores__.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Combined<sp/>emphasis<sp/>with<sp/>**asterisks<sp/>and<sp/>_underscores_**.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Strikethrough<sp/>uses<sp/>two<sp/>tildes.<sp/>~~Scratch<sp/>this.~~</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Lists</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```markdown</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>First<sp/>ordered<sp/>list<sp/>item</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Another<sp/>item</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Unordered<sp/>sub-list.<sp/></highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Actual<sp/>numbers<sp/>don&apos;t<sp/>matter,<sp/>just<sp/>that<sp/>it&apos;s<sp/>a<sp/>number</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>1.<sp/>Ordered<sp/>sub-list</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>And<sp/>another<sp/>item.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>You<sp/>can<sp/>have<sp/>properly<sp/>indented<sp/>paragraphs<sp/>within<sp/>list<sp/>items.<sp/>Notice<sp/>the<sp/>blank<sp/>line<sp/>above,<sp/>and<sp/>the<sp/>leading<sp/>spaces<sp/>(at<sp/>least<sp/>one,<sp/>but<sp/>we&apos;ll<sp/>use<sp/>three<sp/>here<sp/>to<sp/>also<sp/>align<sp/>the<sp/>raw<sp/>Markdown).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>To<sp/>have<sp/>a<sp/>line<sp/>break<sp/>without<sp/>a<sp/>paragraph,<sp/>you<sp/>will<sp/>need<sp/>to<sp/>use<sp/>two<sp/>trailing<sp/>spaces.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Note<sp/>that<sp/>this<sp/>line<sp/>is<sp/>separate,<sp/>but<sp/>within<sp/>the<sp/>same<sp/>paragraph.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>(This<sp/>is<sp/>contrary<sp/>to<sp/>the<sp/>typical<sp/>GFM<sp/>line<sp/>break<sp/>behaviour,<sp/>where<sp/>trailing<sp/>spaces<sp/>are<sp/>not<sp/>required.)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Unordered<sp/>list<sp/>can<sp/>use<sp/>asterisks</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Or<sp/>minuses</highlight></codeline>
+<codeline><highlight class="normal">+<sp/>Or<sp/>pluses</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>First<sp/>ordered<sp/>list<sp/>item</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Another<sp/>item</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Unordered<sp/>sub-list.<sp/></highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Actual<sp/>numbers<sp/>don&apos;t<sp/>matter,<sp/>just<sp/>that<sp/>it&apos;s<sp/>a<sp/>number</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>1.<sp/>Ordered<sp/>sub-list</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>And<sp/>another<sp/>item.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>You<sp/>can<sp/>have<sp/>properly<sp/>indented<sp/>paragraphs<sp/>within<sp/>list<sp/>items.<sp/>Notice<sp/>the<sp/>blank<sp/>line<sp/>above,<sp/>and<sp/>the<sp/>leading<sp/>spaces<sp/>(at<sp/>least<sp/>one,<sp/>but<sp/>we&apos;ll<sp/>use<sp/>three<sp/>here<sp/>to<sp/>also<sp/>align<sp/>the<sp/>raw<sp/>Markdown).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>To<sp/>have<sp/>a<sp/>line<sp/>break<sp/>without<sp/>a<sp/>paragraph,<sp/>you<sp/>will<sp/>need<sp/>to<sp/>use<sp/>two<sp/>trailing<sp/>spaces.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Note<sp/>that<sp/>this<sp/>line<sp/>is<sp/>separate,<sp/>but<sp/>within<sp/>the<sp/>same<sp/>paragraph.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>(This<sp/>is<sp/>contrary<sp/>to<sp/>the<sp/>typical<sp/>GFM<sp/>line<sp/>break<sp/>behaviour,<sp/>where<sp/>trailing<sp/>spaces<sp/>are<sp/>not<sp/>required.)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Unordered<sp/>list<sp/>can<sp/>use<sp/>asterisks</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Or<sp/>minuses</highlight></codeline>
+<codeline><highlight class="normal">+<sp/>Or<sp/>pluses</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Links</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```markdown</highlight></codeline>
+<codeline><highlight class="normal">[I&apos;m<sp/>an<sp/>inline-style<sp/>link](https://www.google.com)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[I&apos;m<sp/>an<sp/>inline-style<sp/>link<sp/>with<sp/>title](https://www.google.com<sp/>&quot;Google&apos;s<sp/>Homepage&quot;)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[I&apos;m<sp/>a<sp/>reference-style<sp/>link][Arbitrary<sp/>case-insensitive<sp/>reference<sp/>text]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[I&apos;m<sp/>a<sp/>relative<sp/>reference<sp/>to<sp/>a<sp/>repository<sp/>file](../blob/master/LICENSE)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[You<sp/>can<sp/>use<sp/>numbers<sp/>for<sp/>reference-style<sp/>link<sp/>definitions][1]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Or<sp/>leave<sp/>it<sp/>empty<sp/>and<sp/>use<sp/>the<sp/>[link<sp/>text<sp/>itself].</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">URLs<sp/>and<sp/>URLs<sp/>in<sp/>angle<sp/>brackets<sp/>will<sp/>automatically<sp/>get<sp/>turned<sp/>into<sp/>links.<sp/></highlight></codeline>
+<codeline><highlight class="normal">http://www.example.com<sp/>or<sp/>&lt;http://www.example.com&gt;<sp/>and<sp/>sometimes<sp/></highlight></codeline>
+<codeline><highlight class="normal">example.com<sp/>(but<sp/>not<sp/>on<sp/>Github,<sp/>for<sp/>example).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Some<sp/>text<sp/>to<sp/>show<sp/>that<sp/>the<sp/>reference<sp/>links<sp/>can<sp/>follow<sp/>later.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[arbitrary<sp/>case-insensitive<sp/>reference<sp/>text]:<sp/>https://www.mozilla.org</highlight></codeline>
+<codeline><highlight class="normal">[1]:<sp/>http://slashdot.org</highlight></codeline>
+<codeline><highlight class="normal">[link<sp/>text<sp/>itself]:<sp/>http://www.reddit.com</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[I&apos;m<sp/>an<sp/>inline-style<sp/>link](https://www.google.com)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[I&apos;m<sp/>an<sp/>inline-style<sp/>link<sp/>with<sp/>title](https://www.google.com<sp/>&quot;Google&apos;s<sp/>Homepage&quot;)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[I&apos;m<sp/>a<sp/>reference-style<sp/>link][Arbitrary<sp/>case-insensitive<sp/>reference<sp/>text]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[I&apos;m<sp/>a<sp/>relative<sp/>reference<sp/>to<sp/>a<sp/>repository<sp/>file](../blob/master/LICENSE)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[You<sp/>can<sp/>use<sp/>numbers<sp/>for<sp/>reference-style<sp/>link<sp/>definitions][1]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Or<sp/>leave<sp/>it<sp/>empty<sp/>and<sp/>use<sp/>the<sp/>[link<sp/>text<sp/>itself].</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">URLs<sp/>and<sp/>URLs<sp/>in<sp/>angle<sp/>brackets<sp/>will<sp/>automatically<sp/>get<sp/>turned<sp/>into<sp/>links.<sp/></highlight></codeline>
+<codeline><highlight class="normal">http://www.example.com<sp/>or<sp/>&lt;http://www.example.com&gt;<sp/>and<sp/>sometimes<sp/></highlight></codeline>
+<codeline><highlight class="normal">example.com<sp/>(but<sp/>not<sp/>on<sp/>Github,<sp/>for<sp/>example).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Some<sp/>text<sp/>to<sp/>show<sp/>that<sp/>the<sp/>reference<sp/>links<sp/>can<sp/>follow<sp/>later.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[arbitrary<sp/>case-insensitive<sp/>reference<sp/>text]:<sp/>https://www.mozilla.org</highlight></codeline>
+<codeline><highlight class="normal">[1]:<sp/>http://slashdot.org</highlight></codeline>
+<codeline><highlight class="normal">[link<sp/>text<sp/>itself]:<sp/>http://www.reddit.com</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Images</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```markdown</highlight></codeline>
+<codeline><highlight class="normal">Here&apos;s<sp/>our<sp/>logo<sp/>(hover<sp/>to<sp/>see<sp/>the<sp/>title<sp/>text):</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Inline-style:<sp/></highlight></codeline>
+<codeline><highlight class="normal">![alt<sp/>text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png<sp/>&quot;Logo<sp/>Title<sp/>Text<sp/>1&quot;)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Reference-style:<sp/></highlight></codeline>
+<codeline><highlight class="normal">![alt<sp/>text][logo]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[logo]:<sp/>https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png<sp/>&quot;Logo<sp/>Title<sp/>Text<sp/>2&quot;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Here&apos;s<sp/>our<sp/>logo<sp/>(hover<sp/>to<sp/>see<sp/>the<sp/>title<sp/>text):</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Inline-style:<sp/></highlight></codeline>
+<codeline><highlight class="normal">![alt<sp/>text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png<sp/>&quot;Logo<sp/>Title<sp/>Text<sp/>1&quot;)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Reference-style:<sp/></highlight></codeline>
+<codeline><highlight class="normal">![alt<sp/>text][logo]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[logo]:<sp/>https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png<sp/>&quot;Logo<sp/>Title<sp/>Text<sp/>2&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Tables</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```markdown</highlight></codeline>
+<codeline><highlight class="normal">Colons<sp/>can<sp/>be<sp/>used<sp/>to<sp/>align<sp/>columns.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Tables<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Are<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Cool<sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>-------------<sp/>|:-------------:|<sp/>-----:|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>col<sp/>3<sp/>is<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>right-aligned<sp/>|<sp/>$1600<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>col<sp/>2<sp/>is<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>centered<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/>$12<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>zebra<sp/>stripes<sp/>|<sp/>are<sp/>neat<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>$1<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>must<sp/>be<sp/>at<sp/>least<sp/>3<sp/>dashes<sp/>separating<sp/>each<sp/>header<sp/>cell.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>outer<sp/>pipes<sp/>(|)<sp/>are<sp/>optional,<sp/>and<sp/>you<sp/>don&apos;t<sp/>need<sp/>to<sp/>make<sp/>the<sp/></highlight></codeline>
+<codeline><highlight class="normal">raw<sp/>Markdown<sp/>line<sp/>up<sp/>prettily.<sp/>You<sp/>can<sp/>also<sp/>use<sp/>inline<sp/>Markdown.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Markdown<sp/>|<sp/>Less<sp/>|<sp/>Pretty</highlight></codeline>
+<codeline><highlight class="normal">---<sp/>|<sp/>---<sp/>|<sp/>---</highlight></codeline>
+<codeline><highlight class="normal">*Still*<sp/>|<sp/>`renders`<sp/>|<sp/>**nicely**</highlight></codeline>
+<codeline><highlight class="normal">1<sp/>|<sp/>2<sp/>|<sp/>3</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Colons<sp/>can<sp/>be<sp/>used<sp/>to<sp/>align<sp/>columns.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Tables<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Are<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Cool<sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>-------------<sp/>|:-------------:|<sp/>-----:|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>col<sp/>3<sp/>is<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>right-aligned<sp/>|<sp/>$1600<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>col<sp/>2<sp/>is<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>centered<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/>$12<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>zebra<sp/>stripes<sp/>|<sp/>are<sp/>neat<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>$1<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>must<sp/>be<sp/>at<sp/>least<sp/>3<sp/>dashes<sp/>separating<sp/>each<sp/>header<sp/>cell.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>outer<sp/>pipes<sp/>(|)<sp/>are<sp/>optional,<sp/>and<sp/>you<sp/>don&apos;t<sp/>need<sp/>to<sp/>make<sp/>the<sp/></highlight></codeline>
+<codeline><highlight class="normal">raw<sp/>Markdown<sp/>line<sp/>up<sp/>prettily.<sp/>You<sp/>can<sp/>also<sp/>use<sp/>inline<sp/>Markdown.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Markdown<sp/>|<sp/>Less<sp/>|<sp/>Pretty</highlight></codeline>
+<codeline><highlight class="normal">---<sp/>|<sp/>---<sp/>|<sp/>---</highlight></codeline>
+<codeline><highlight class="normal">*Still*<sp/>|<sp/>`renders`<sp/>|<sp/>**nicely**</highlight></codeline>
+<codeline><highlight class="normal">1<sp/>|<sp/>2<sp/>|<sp/>3</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Blockquotes</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```markdown</highlight></codeline>
+<codeline><highlight class="normal">&gt;<sp/>Blockquotes<sp/>are<sp/>very<sp/>handy<sp/>in<sp/>email<sp/>to<sp/>emulate<sp/>reply<sp/>text.</highlight></codeline>
+<codeline><highlight class="normal">&gt;<sp/>This<sp/>line<sp/>is<sp/>part<sp/>of<sp/>the<sp/>same<sp/>quote.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Quote<sp/>break.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&gt;<sp/>This<sp/>is<sp/>a<sp/>very<sp/>long<sp/>line<sp/>that<sp/>will<sp/>still<sp/>be<sp/>quoted<sp/>properly<sp/>when<sp/>it<sp/>wraps.<sp/>Oh<sp/>boy<sp/>let&apos;s<sp/>keep<sp/>writing<sp/>to<sp/>make<sp/>sure<sp/>this<sp/>is<sp/>long<sp/>enough<sp/>to<sp/>actually<sp/>wrap<sp/>for<sp/>everyone.<sp/>Oh,<sp/>you<sp/>can<sp/>*put*<sp/>**Markdown**<sp/>into<sp/>a<sp/>blockquote.<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&gt;<sp/>Blockquotes<sp/>are<sp/>very<sp/>handy<sp/>in<sp/>email<sp/>to<sp/>emulate<sp/>reply<sp/>text.</highlight></codeline>
+<codeline><highlight class="normal">&gt;<sp/>This<sp/>line<sp/>is<sp/>part<sp/>of<sp/>the<sp/>same<sp/>quote.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Quote<sp/>break.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&gt;<sp/>This<sp/>is<sp/>a<sp/>very<sp/>long<sp/>line<sp/>that<sp/>will<sp/>still<sp/>be<sp/>quoted<sp/>properly<sp/>when<sp/>it<sp/>wraps.<sp/>Oh<sp/>boy<sp/>let&apos;s<sp/>keep<sp/>writing<sp/>to<sp/>make<sp/>sure<sp/>this<sp/>is<sp/>long<sp/>enough<sp/>to<sp/>actually<sp/>wrap<sp/>for<sp/>everyone.<sp/>Oh,<sp/>you<sp/>can<sp/>*put*<sp/>**Markdown**<sp/>into<sp/>a<sp/>blockquote.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Inline<sp/>HTML</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```markdown</highlight></codeline>
+<codeline><highlight class="normal">&lt;dl&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;dt&gt;Definition<sp/>list&lt;/dt&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;dd&gt;Is<sp/>something<sp/>people<sp/>use<sp/>sometimes.&lt;/dd&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;dt&gt;Markdown<sp/>in<sp/>HTML&lt;/dt&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;dd&gt;Does<sp/>*not*<sp/>work<sp/>**very**<sp/>well.<sp/>Use<sp/>HTML<sp/>&lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/dl&gt;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;dl&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;dt&gt;Definition<sp/>list&lt;/dt&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;dd&gt;Is<sp/>something<sp/>people<sp/>use<sp/>sometimes.&lt;/dd&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;dt&gt;Markdown<sp/>in<sp/>HTML&lt;/dt&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;dd&gt;Does<sp/>*not*<sp/>work<sp/>**very**<sp/>well.<sp/>Use<sp/>HTML<sp/>&lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/dl&gt;</highlight></codeline>
+    </programlisting>
+    <location file="src/markdown-demo.md"/>
+  </compounddef>
+</doxygen>

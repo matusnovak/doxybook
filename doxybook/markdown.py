@@ -54,6 +54,52 @@ class MdBold(Md):
             child.render(f, '')
         f.write('**')
 
+class MdImage:
+    def __init__(self, url: str):
+        self.url = url
+
+    def render(self, f: MdRenderer, indent: str):
+        f.write('![Image](' + self.url + ')')
+
+class MdCode(Md):
+    def __init__(self, children: List[Md]):
+        Md.__init__(self, children)
+
+    def render(self, f: MdRenderer, indent: str):
+        f.write('`')
+        for child in self.children:
+            child.render(f, '')
+        f.write('`')
+
+class MdCodeBlock:
+    def __init__(self, lines: List[str], lang:str = 'cpp'):
+        self.lines = lines
+        self.lang = lang
+
+    def setLang(self, lang:str):
+        self.lang = lang
+
+    def append(self, line: str):
+        self.lines.append(line)
+
+    def render(self, f: MdRenderer, indent: str):
+        f.write('```' + self.lang + '\n')
+        for line in self.lines:
+            f.write(line)
+            f.write('\n')
+        f.write('```\n\n')
+
+class MdBlockQuote(Md):
+    def __init__(self, children: List[Md]):
+        Md.__init__(self, children)
+
+    def render(self, f: MdRenderer, indent: str):
+        f.write('\n')
+        for child in self.children:
+            f.write('> ')
+            child.render(f, '')
+            f.write('\n')
+
 class MdItalic(Md):
     def __init__(self, children: List[Md]):
         Md.__init__(self, children)
@@ -87,8 +133,21 @@ class MdLink(Md):
 class MdDocument(Md):
     def __init__(self):
         Md.__init__(self, [])
+        self.keywords = []
+    
+    def setKeywords(self, keywords: List[str]):
+        self.keywords = keywords
 
     def render(self, f: MdRenderer):
+        if len(self.keywords) > 0:
+            f.write('---\n')
+            f.write('search:\n')
+            f.write('    keywords: ' + str(self.keywords) + '\n')
+            f.write('---\n\n') 
+        else:
+            f.write('---\n')
+            f.write('search: false\n')
+            f.write('---\n\n') 
         for child in self.children:
             child.render(f, '')
 

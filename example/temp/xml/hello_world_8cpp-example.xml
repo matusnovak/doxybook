@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="hello_world_8cpp-example" kind="example">
+    <compoundname>hello_world.cpp</compoundname>
+    <detaileddescription>
+<para>This is a brief description to hello world example Lorem Ipsum Donor <programlisting><codeline><highlight class="preprocessor">#include<sp/>&quot;bird.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mother<sp/>=<sp/><ref refid="classexample_1_1_bird" kindref="compound">example::Bird</ref>(</highlight><highlight class="stringliteral">&quot;Mom&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>father<sp/>=<sp/><ref refid="classexample_1_1_bird" kindref="compound">example::Bird</ref>(</highlight><highlight class="stringliteral">&quot;Dad&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>child<sp/>=<sp/><ref refid="classexample_1_1_bird" kindref="compound">example::Bird</ref>(</highlight><highlight class="stringliteral">&quot;Junior&quot;</highlight><highlight class="normal">,<sp/>&amp;mother,<sp/>&amp;father);</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

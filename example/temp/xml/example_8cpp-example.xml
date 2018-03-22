@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="example_8cpp-example" kind="example">
+    <compoundname>example.cpp</compoundname>
+    <detaileddescription>
+<para>Base class for all animals from which Bird derives Lorem Ipsum Donor. Some <ulink url="http://github.com">Random link with <bold>bold</bold> and <emphasis>italics</emphasis></ulink> And the following <computeroutput>is</computeroutput> a typewritter font <computeroutput></computeroutput>  Bird <xrefsect id="bug_1_bug000001"><xreftitle>Bug</xreftitle><xrefdescription><para>Some random bug </para></xrefdescription></xrefsect><simplesect kind="note"><para>Some random note </para></simplesect>
+<simplesect kind="warning"><para>Some random warning <programlisting><codeline><highlight class="normal">Animal<sp/>animal<sp/>=<sp/>Animal(&quot;Hello<sp/>World&quot;,<sp/>nullptr,<sp/>nullptr);</highlight></codeline>
+<codeline><highlight class="normal">std::cout<sp/>&lt;&lt;<sp/>animal.get_name()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+</programlisting> </para></simplesect>
+<xrefsect id="test_1_test000001"><xreftitle>Test</xreftitle><xrefdescription><para>Some random test description </para></xrefdescription></xrefsect><xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>Some random todo </para></xrefdescription></xrefsect><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some random template paramater description which actually does not exist in the code! <programlisting><codeline><highlight class="preprocessor">#include<sp/>&quot;bird.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mother<sp/>=<sp/><ref refid="classexample_1_1_bird" kindref="compound">example::Bird</ref>(</highlight><highlight class="stringliteral">&quot;Mom&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>father<sp/>=<sp/><ref refid="classexample_1_1_bird" kindref="compound">example::Bird</ref>(</highlight><highlight class="stringliteral">&quot;Dad&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>child<sp/>=<sp/><ref refid="classexample_1_1_bird" kindref="compound">example::Bird</ref>(</highlight><highlight class="stringliteral">&quot;Junior&quot;</highlight><highlight class="normal">,<sp/>&amp;mother,<sp/>&amp;father);</highlight></codeline>
+</programlisting> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

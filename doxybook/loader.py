@@ -11,7 +11,6 @@ def parseRoot(root: xml.etree.ElementTree):
     for compound in root.iter('compound'):
         child = Node(compound.find('name').text, compound.get('refid'), Kind(compound.get('kind')))
         parent.addMember(child)
-        print('node', parent.name, 'has', len(parent.members), 'members')
         for member in compound.findall('member'):
             subchild = Node(member.find('name').text, member.get('refid'), Kind(member.get('kind')))
             child.addMember(subchild)
@@ -53,20 +52,23 @@ def reparseRoot(rootNode: Node, newRoot: Node):
 
                 if subchild.kind == Kind.ENUM:
                     lastEnum = subchild
+        else:
+            newRoot.addMember(child)
         rootNode.members.pop(0)
 
 def finalize(cache: Cache, node: Node):
     node.finalize()
     cache.add(node.refid, node)
+    node.members = sorted(node.members, key=lambda k : k.name) 
     for child in node.members:
         finalize(cache, child)
 
-def debug(node: Node, indent: str = ''):
+def debugNode(node: Node, indent: str = ''):
     print(indent, 'Node name:', node.name, 'refid:', node.refid)
     for member in node.members:
-        debug(member, indent + '  |-')
+        debugNode(member, indent + '  |-')
 
-def loadRoot(cache: Cache, dirPath: str) -> Node:
+def loadRoot(cache: Cache, dirPath: str, debug: bool) -> Node:
     print("XML index from: " + dirPath)
     e = xml.etree.ElementTree.parse(os.path.join(dirPath, 'index.xml')).getroot()
     
@@ -76,6 +78,7 @@ def loadRoot(cache: Cache, dirPath: str) -> Node:
     reparseRoot(rootNode, outNode)
     finalize(cache, outNode)
     
-    debug(outNode)
+    if debug:
+        debugNode(outNode)
     return outNode
     

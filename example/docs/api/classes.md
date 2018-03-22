@@ -1,11 +1,31 @@
+---
+search: false
+---
+
 # Class Index
 
 ## A
 
-* [Animal](example_Animal.md) ([example](example.md))
+* [**Animal**](classexample_1_1_animal.md) ([**example**](namespaceexample.md))
+
+
 ## B
 
-* [Bird](example_Bird.md) ([example](example.md))
+* [**Bird**](classexample_1_1_bird.md) ([**example**](namespaceexample.md))
+
+
+## C
+
+* [**CustomException**](classexample_1_1_custom_exception.md) ([**example**](namespaceexample.md))
+
+
 ## R
 
-* [Animal::Result](example_Animal_Result.md) ([example](example.md))
+* [**Animal::Result**](structexample_1_1_animal_1_1_result.md) ([**example**](namespaceexample.md))
+
+
+## S
+
+* [**SpecialBird**](classexample_1_1_special_bird.md) ([**example**](namespaceexample.md))
+
+

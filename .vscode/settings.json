@@ -4,6 +4,16 @@
         "*akefile": "makefile2",
         ".make": "makefile2",
         ".mk": "makefile2",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp",
+        "xmemory0": "cpp",
+        "xutility": "cpp",
+        "exception": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "utility": "cpp",
+        "xiosbase": "cpp"
     }
 }

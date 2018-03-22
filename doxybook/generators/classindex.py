@@ -1,12 +1,12 @@
 import os
 
-from doxybook.markdown import MdDocument, MdLink, MdHeader, MdList, MdParagraph, MdRenderer, Text
+from doxybook.markdown import MdDocument, MdLink, MdBold, MdHeader, MdList, MdParagraph, MdRenderer, Text, Br
 from doxybook.node import Node
 from doxybook.kind import Kind
 
 def recursiveDictionary(node: Node, dictionary: dict):
     if node.kind == Kind.CLASS or node.kind == Kind.STRUCT:
-        key = node.name[0]
+        key = node.name.upper()[0]
         if key not in dictionary:
             dictionary[key] = []
         dictionary[key].append(node)
@@ -31,18 +31,18 @@ def generateClassIndex(outputDir: str, root: Node):
         mdl = MdList([])
         for member in dictionary[key]:
             p = MdParagraph([])
-            p.append(MdLink([Text(member.getFullName(False))], member.url))
+            p.append(MdLink([MdBold([Text(member.getFullName(False))])], member.url))
 
             namespace = member.getNamespace()
             if namespace is not None:
                 p.append(Text(' ('))
-                p.append(MdLink([Text(namespace.getFullName(False))], namespace.url))
+                p.append(MdLink([MdBold([Text(namespace.getFullName(False))])], namespace.url))
                 p.append(Text(')'))
             mdl.append(p)
 
         document.append(mdl)
+        document.append(Br())
 
     # Save
-    os.makedirs(outputDir, exist_ok=True)
-    with open(outputFile, 'w+') as f:
+    with open(outputFile, 'w') as f:
         document.render(MdRenderer(f))

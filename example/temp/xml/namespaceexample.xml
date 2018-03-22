@@ -4,18 +4,20 @@
     <compoundname>example</compoundname>
     <innerclass refid="classexample_1_1_animal" prot="public">example::Animal</innerclass>
     <innerclass refid="classexample_1_1_bird" prot="public">example::Bird</innerclass>
+    <innerclass refid="classexample_1_1_custom_exception" prot="public">example::CustomException</innerclass>
+    <innerclass refid="classexample_1_1_special_bird" prot="public">example::SpecialBird</innerclass>
       <sectiondef kind="func">
-      <memberdef kind="function" id="animal_8h_1a3f4ef5eb79454b95a62f0a814765786c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="animal_8h_1a766277c52d41af925d49bcd4f9bc7de0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void example::some_global_function</definition>
+        <definition>void example::some_namespace_function</definition>
         <argsstring>(Animal *animal)</argsstring>
-        <name>some_global_function</name>
+        <name>some_namespace_function</name>
         <param>
           <type><ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> *</type>
           <declname>animal</declname>
         </param>
         <briefdescription>
-<para>Some random global function that modifies <ref refid="classexample_1_1_animal" kindref="compound">Animal</ref>. </para>        </briefdescription>
+<para>Some random namespace function that modifies <ref refid="classexample_1_1_animal" kindref="compound">Animal</ref>. </para>        </briefdescription>
         <detaileddescription>
 <para><simplesect kind="see"><para><ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> </para></simplesect>
 <parameterlist kind="param"><parameteritem>
@@ -29,13 +31,13 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="87" column="1"/>
+        <location file="src/animal.h" line="138" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/animal.h" line="6" column="1"/>
+    <location file="src/animal.h" line="12" column="1"/>
   </compounddef>
 </doxygen>

@@ -4,6 +4,9 @@
 #include "animal.h"
 
 namespace example {
+    /*!
+     * @ingroup animals
+     */
     class Bird: public Animal {
     public:
         Bird(const std::string& name, Bird* mother = nullptr, Bird* father = nullptr);

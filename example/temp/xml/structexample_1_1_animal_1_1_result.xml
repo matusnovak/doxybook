@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="28" column="1" bodyfile="src/animal.h" bodystart="28" bodyend="-1"/>
+        <location file="src/animal.h" line="56" column="1" bodyfile="src/animal.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structexample_1_1_animal_1_1_result_1a80422623e590cfc5f601d05aa9e2c1ba" prot="public" static="no" mutable="no">
         <type>const std::string</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="29" column="1" bodyfile="src/animal.h" bodystart="29" bodyend="-1"/>
+        <location file="src/animal.h" line="57" column="1" bodyfile="src/animal.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structexample_1_1_animal_1_1_result_1ae3c7882f7bb42ba88d2af157062b7b86" prot="public" static="no" mutable="no">
         <type>const <ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> *</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="30" column="1" bodyfile="src/animal.h" bodystart="30" bodyend="-1"/>
+        <location file="src/animal.h" line="58" column="1" bodyfile="src/animal.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structexample_1_1_animal_1_1_result_1a4f4c0568ca6fa5a1adec6e6c83a4a5f2" prot="public" static="no" mutable="no">
         <type>const <ref refid="classexample_1_1_animal" kindref="compound">Animal</ref> *</type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/animal.h" line="31" column="1" bodyfile="src/animal.h" bodystart="31" bodyend="-1"/>
+        <location file="src/animal.h" line="59" column="1" bodyfile="src/animal.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -64,24 +64,24 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="9">
+      <node id="15">
         <label>example::Animal</label>
         <link refid="classexample_1_1_animal"/>
-        <childnode refid="9" relation="usage">
+        <childnode refid="15" relation="usage">
           <edgelabel>mother</edgelabel>
           <edgelabel>father</edgelabel>
         </childnode>
       </node>
-      <node id="8">
+      <node id="14">
         <label>example::Animal::Result</label>
         <link refid="structexample_1_1_animal_1_1_result"/>
-        <childnode refid="9" relation="usage">
+        <childnode refid="15" relation="usage">
           <edgelabel>mother</edgelabel>
           <edgelabel>father</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="src/animal.h" line="27" column="1" bodyfile="src/animal.h" bodystart="27" bodyend="32"/>
+    <location file="src/animal.h" line="55" column="1" bodyfile="src/animal.h" bodystart="55" bodyend="60"/>
     <listofallmembers>
       <member refid="structexample_1_1_animal_1_1_result_1a4f4c0568ca6fa5a1adec6e6c83a4a5f2" prot="public" virt="non-virtual"><scope>example::Animal::Result</scope><name>father</name></member>
       <member refid="structexample_1_1_animal_1_1_result_1ae3c7882f7bb42ba88d2af157062b7b86" prot="public" virt="non-virtual"><scope>example::Animal::Result</scope><name>mother</name></member>

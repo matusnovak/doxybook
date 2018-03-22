@@ -1,5 +1,3 @@
-import hashlib
-
 from doxybook.kind import Kind, isKindMember
 from doxybook.utils import mangleName
 
@@ -44,25 +42,16 @@ class Node:
         return None
 
     def getAnchorHash(self):
-        return hashlib.md5(self.refid.encode('utf-8')).hexdigest()[0:8]
+        return self.refid[-34:]
 
     def getKindStr(self):
         return self.kind.value
 
     def generateUrl(self) -> str:
-        url = ''
-        if isKindMember(self.kind):
-            url = '#' + self.getAnchorHash()
+        if self.kind == Kind.CLASS or self.kind == Kind.NAMESPACE or self.kind == Kind.STRUCT:
+            return self.refid + '.md'
         else:
-            url = mangleName(self.name) + '.md'
-        parent = self.parent
-        while parent != None and parent.kind != Kind.ROOT:
-            if url[0] == '#':
-                url = mangleName(parent.name) + '.md' + url
-            else:
-                url = mangleName(parent.name) + '_' + url
-            parent = parent.parent
-        return '' + url
+            return self.refid[:-35] + '.md#' + self.getAnchorHash()
 
     def finalize(self):
         self.url = self.generateUrl()

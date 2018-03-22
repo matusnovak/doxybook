@@ -15,6 +15,9 @@ class Kind(Enum):
     FRIEND = 'friend'
     FILE = 'file'
     DIR = 'dir'
+    PAGE = 'page'
+    EXAMPLE = 'example'
+    GROUP = 'group'
 
 LANGUAGE = [
     Kind.ROOT,
