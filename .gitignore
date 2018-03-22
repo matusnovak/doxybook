@@ -103,3 +103,4 @@ ENV/
 
 node_modules
 _book
+.publish/

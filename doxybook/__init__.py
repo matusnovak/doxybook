@@ -38,7 +38,7 @@ def main():
     )
     parser.add_argument('-s', '--summary', 
         type=str, 
-        help='Path to the summary file which contains a link to generated annotated.md',
+        help='Path to the summary file which contains a link to index.md in the folder pointed by --input',
         required=False
     )
     parser.add_argument('-d', '--debug', 
