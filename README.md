@@ -80,9 +80,7 @@ For example, given this summary file:
 * [Go to my website](http://mywebsite.com/)
 ```
 
-After running doxybook, the summary will become this:
-
-```
+After running doxybook, the summary will become this code below. Notice how `* [This will get deleted](whatever.md)` has vanished. The doxybook will only modify anything that is a child item of `* [Documentation](docs/api/index.md)` regardless of the indentation. Also, you do not need to remove any generated links to `docs/api` (or whatever folder you have used) as it will be sraped in any re-run of the doxybook and generated from scratch.
 
 ```
 # Summary
@@ -120,4 +118,38 @@ After running doxybook, the summary will become this:
         * [exception.h - source](docs/api/exception_8h_source.md)
 * [Something else](something-else.md)
 * [Go to my website](http://mywebsite.com/)
+```
+
+## Found a bug or want to request a feature?
+
+[Feel free to do it on GitHub issues](https://github.com/matusnovak/doxybook/issues)
+
+## Pull requests
+
+[Pull requests are welcome](https://github.com/matusnovak/doxybook/pulls)
+
+## License
+
+```
+MIT License
+
+Copyright (c) 2018 Matus Novak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
