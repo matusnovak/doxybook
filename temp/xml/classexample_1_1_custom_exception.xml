@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classexample_1_1_custom_exception" kind="class" language="C++" prot="public">
+    <compoundname>example::CustomException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">exception</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classexample_1_1_custom_exception_1a030479094f8651d969e8b375eb48d1d7" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string example::CustomException::msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/utils/exception.h" line="19" column="1" bodyfile="src/utils/exception.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classexample_1_1_custom_exception_1a8656f61bb3320c64e612b99b3cfc169c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>example::CustomException::CustomException</definition>
+        <argsstring>(const std::string &amp;msg)</argsstring>
+        <name>CustomException</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/utils/exception.h" line="10" column="1" bodyfile="src/utils/exception.h" bodystart="10" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_custom_exception_1acc02da1303101dd744d62754c977f760" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const char *</type>
+        <definition>virtual const char* example::CustomException::what</definition>
+        <argsstring>() const </argsstring>
+        <name>what</name>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/utils/exception.h" line="14" column="1" bodyfile="src/utils/exception.h" bodystart="14" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="10">
+        <label>std::exception</label>
+      </node>
+      <node id="9">
+        <label>example::CustomException</label>
+        <link refid="classexample_1_1_custom_exception"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="12">
+        <label>std::exception</label>
+      </node>
+      <node id="11">
+        <label>example::CustomException</label>
+        <link refid="classexample_1_1_custom_exception"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/utils/exception.h" line="8" column="1" bodyfile="src/utils/exception.h" bodystart="8" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classexample_1_1_custom_exception_1a8656f61bb3320c64e612b99b3cfc169c" prot="public" virt="non-virtual"><scope>example::CustomException</scope><name>CustomException</name></member>
+      <member refid="classexample_1_1_custom_exception_1a030479094f8651d969e8b375eb48d1d7" prot="private" virt="non-virtual"><scope>example::CustomException</scope><name>msg</name></member>
+      <member refid="classexample_1_1_custom_exception_1acc02da1303101dd744d62754c977f760" prot="public" virt="virtual"><scope>example::CustomException</scope><name>what</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
