@@ -51,6 +51,11 @@ def main():
         help='If set to true, adds section at the top of the file to disable indexing for all generated files',
         required=False
     )
+    parser.add_argument('--limitindex', 
+        type=bool, 
+        help='If set to true, adds section at the top of the file to disable indexing for all generated files, except class and annotated lists',
+        required=False
+    )
 
     args = parser.parse_args()
 
@@ -61,14 +66,24 @@ def main():
     cache = Cache()
     root = loadRoot(cache, args.input, args.debug)
 
+    annotatedIndexing = True
+    memberIndexing = True
+
+    if args.noindex:
+        annotatedIndexing = False
+        memberIndexing = False
+    if args.limitindex:
+        annotatedIndexing = True
+        memberIndexing = False
+
     # Generate Class Index
-    generateClassIndex(args.output, root)
+    generateClassIndex(args.output, root, not annotatedIndexing)
 
     # Generate Class List
-    generateAnnotated(args.output, root)
+    generateAnnotated(args.output, root, not annotatedIndexing)
 
     # Write all members out
-    writeMembers(args.input, args.output, root, cache, args.noindex)
+    writeMembers(args.input, args.output, root, cache, not memberIndexing)
 
     # Generate modules page
     modules = generateModules(args.input, args.output, root, cache)
@@ -76,7 +91,7 @@ def main():
     # Write all grouos out
     for child in root.members:
         if child.kind == Kind.GROUP:
-            generateMember(args.input, args.output, child.refid, cache, args.noindex)
+            generateMember(args.input, args.output, child.refid, cache, not memberIndexing)
 
     # Generate pages page
     pages = generatePages(args.input, args.output, root, cache)
@@ -92,7 +107,7 @@ def main():
     # Write all files out
     for child in root.members:
         if child.kind == Kind.FILE:
-            generateMember(args.input, args.output, child.refid, cache, args.noindex)
+            generateMember(args.input, args.output, child.refid, cache, not memberIndexing)
             generateFile(args.input, args.output, child, cache)
         if child.kind == Kind.DIR:
             generateDir(args.input, args.output, child, cache)

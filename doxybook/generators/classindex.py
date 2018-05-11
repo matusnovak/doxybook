@@ -13,10 +13,11 @@ def recursiveDictionary(node: Node, dictionary: dict):
     for child in node.members:
         recursiveDictionary(child, dictionary)
 
-def generateClassIndex(outputDir: str, root: Node):
+def generateClassIndex(outputDir: str, root: Node, noindex: bool):
     outputFile = os.path.join(outputDir, 'classes.md')
     print('Generating ' + outputFile)
     document = MdDocument()
+    keywords = []
 
     # Add title
     document.append(MdHeader(1, [Text('Class Index')]))
@@ -31,7 +32,9 @@ def generateClassIndex(outputDir: str, root: Node):
         mdl = MdList([])
         for member in dictionary[key]:
             p = MdParagraph([])
-            p.append(MdLink([MdBold([Text(member.getFullName(False))])], member.url))
+            fullName = member.getFullName(False)
+            keywords.append(fullName)
+            p.append(MdLink([MdBold([Text(fullName)])], member.url))
 
             namespace = member.getNamespace()
             if namespace is not None:
@@ -42,6 +45,9 @@ def generateClassIndex(outputDir: str, root: Node):
 
         document.append(mdl)
         document.append(Br())
+
+    if not noindex:
+        document.setKeywords(keywords)
 
     # Save
     with open(outputFile, 'w') as f:

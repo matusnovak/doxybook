@@ -186,6 +186,7 @@ def makeFunctionCode(compoundname: str, memberdef: xml.etree.ElementTree.Element
     else:
         code.append(prefix + typ + namePrefix + memberdef.find('name').text + ' ()' + extra)
 
+    paramIndex = 0
     for param in params:
         declname = param.find('declname')
         if declname is not None:
@@ -197,7 +198,11 @@ def makeFunctionCode(compoundname: str, memberdef: xml.etree.ElementTree.Element
             defval = ' = ' + getTextOnly(defval)
         else:
             defval = ''
-        code.append('    ' + getTextOnly(param.find('type')) + ' ' + declname + defval)
+        paramIndex = paramIndex + 1
+        if paramIndex is not len(params):
+            code.append('    ' + getTextOnly(param.find('type')) + ' ' + declname + defval + ',')
+        else:
+            code.append('    ' + getTextOnly(param.find('type')) + ' ' + declname + defval)
 
     if len(params) > 0:
         code.append(')' + extra)
