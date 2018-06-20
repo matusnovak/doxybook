@@ -14,7 +14,7 @@ The [Live Demo](https://matusnovak.github.io/doxybook/docs/api/classexample_1_1_
 
 ## Requirements
 
-You need to have **python 3.5 or newer**. No additional python packages necessary, only the ones included by default in python itself.
+You need to have **python 3.6 or newer**. No additional python packages necessary, only the ones included by default in python itself.
 
 ## Installation
 
