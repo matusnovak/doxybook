@@ -1,5 +1,6 @@
 ---
-search: false
+search:
+    keywords: ['example', 'Animal', 'Result', 'Bird', 'CustomException', 'SpecialBird']
 ---
 
 # Class List

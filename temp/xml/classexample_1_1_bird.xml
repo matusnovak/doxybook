@@ -164,37 +164,49 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="4">
+      <node id="11">
         <label>example::Bird</label>
         <link refid="classexample_1_1_bird"/>
-        <childnode refid="5" relation="public-inheritance">
+        <childnode refid="12" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="5">
+      <node id="12">
         <label>example::Animal</label>
         <link refid="classexample_1_1_animal"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
       </node>
-      <node id="6">
+      <node id="14">
         <label>example::SpecialBird</label>
         <link refid="classexample_1_1_special_bird"/>
-        <childnode refid="4" relation="public-inheritance">
+        <childnode refid="11" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="13">
+        <label>example::AnimalInterface</label>
+        <link refid="classexample_1_1_animal_interface"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="7">
+      <node id="15">
         <label>example::Bird</label>
         <link refid="classexample_1_1_bird"/>
-        <childnode refid="8" relation="public-inheritance">
+        <childnode refid="16" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="8">
+      <node id="16">
         <label>example::Animal</label>
         <link refid="classexample_1_1_animal"/>
-        <childnode refid="8" relation="usage">
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
           <edgelabel>mother</edgelabel>
           <edgelabel>father</edgelabel>
         </childnode>
+      </node>
+      <node id="17">
+        <label>example::AnimalInterface</label>
+        <link refid="classexample_1_1_animal_interface"/>
       </node>
     </collaborationgraph>
     <location file="src/bird.h" line="10" column="1" bodyfile="src/bird.h" bodystart="10" bodyend="23"/>
@@ -212,10 +224,10 @@
       <member refid="classexample_1_1_animal_1a7ff2cbf990657553d95f6d15fb0f4568" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>find_parent_by_name</name></member>
       <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a0c9b7474bcd06a73ad5c1ae3b0b05bb8" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>FISH</name></member>
       <member refid="classexample_1_1_animal_1ab4e7a34b9637acc89c55eec9405f1f6e" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>get_name</name></member>
-      <member refid="classexample_1_1_animal_1a7558cb43e67bc800961b451dd546db74" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>get_num_of_eyes</name></member>
-      <member refid="classexample_1_1_animal_1ad6aee00ea8d457d2bd7becbe107f2d9a" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>get_num_of_limbs</name></member>
+      <member refid="classexample_1_1_animal_1afc4972484d411d75bdc829be3502bb60" prot="public" virt="virtual"><scope>example::Bird</scope><name>get_num_of_eyes</name></member>
+      <member refid="classexample_1_1_animal_1a77ea3286e2b43830a5443be76eec4c5f" prot="public" virt="virtual"><scope>example::Bird</scope><name>get_num_of_limbs</name></member>
       <member refid="classexample_1_1_animal_1a93c61aed16aeb0b52631961e17251b0f" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>get_parents</name></member>
-      <member refid="classexample_1_1_animal_1a71d036f82dfe3e7dbefb334a92f91275" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>has_tail</name></member>
+      <member refid="classexample_1_1_animal_1a80c789f01a9e211b821cfa57c27792fa" prot="public" virt="virtual"><scope>example::Bird</scope><name>has_tail</name></member>
       <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69a4be27b9504bb7b14709c0315ea0b4ca3" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>INSECT</name></member>
       <member refid="classexample_1_1_bird_1ae61379b32b53508e9a2398305826667a" prot="public" virt="virtual"><scope>example::Bird</scope><name>make_sound</name></member>
       <member refid="classexample_1_1_animal_1adc9e490a8ea5390fbcaf6ffa24c3ec69aa4d73065e1a5df2bd56d98ea430f3e68" prot="public" virt="non-virtual"><scope>example::Bird</scope><name>MAMMAL</name></member>

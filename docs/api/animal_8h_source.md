@@ -24,10 +24,10 @@ Source: `src/animal.h`
 #ifndef EXAMPLE_ANIMAL_H
 #define EXAMPLE_ANIMAL_H
 
-#include <string>
+#include "animal_interface.h"
 
 namespace example {
-    class Animal {
+    class Animal: public AnimalInterface {
     public:
         enum Type {
             NONE = 0,
@@ -58,11 +58,11 @@ namespace example {
 
         void swap(Animal& other) noexcept;
 
-        int get_num_of_limbs() const;
+        int get_num_of_limbs() const override;
 
-        int get_num_of_eyes() const;
+        int get_num_of_eyes() const override;
 
-        bool has_tail() const;
+        bool has_tail() const override;
 
         virtual void move();
         virtual void make_sound() = 0;

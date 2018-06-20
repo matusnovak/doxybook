@@ -112,8 +112,9 @@ Inheritance diagram for example::Animal:</div>
  <div class="center">
   <img src="classexample_1_1_animal.png" usemap="#example::Animal_map" alt=""/>
   <map id="example::Animal_map" name="example::Animal_map">
-<area href="classexample_1_1_bird.html" alt="example::Bird" shape="rect" coords="0,56,129,80"/>
-<area href="classexample_1_1_special_bird.html" alt="example::SpecialBird" shape="rect" coords="0,112,129,136"/>
+<area href="classexample_1_1_animal_interface.html" alt="example::AnimalInterface" shape="rect" coords="0,0,152,24"/>
+<area href="classexample_1_1_bird.html" alt="example::Bird" shape="rect" coords="0,112,152,136"/>
+<area href="classexample_1_1_special_bird.html" alt="example::SpecialBird" shape="rect" coords="0,168,152,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -155,15 +156,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:affec460d5bc2fb8d650fcf5b7b8cf396"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affec460d5bc2fb8d650fcf5b7b8cf396"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="el" href="classexample_1_1_animal.html">Animal</a> &amp;other) noexcept</td></tr>
 <tr class="separator:affec460d5bc2fb8d650fcf5b7b8cf396"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6aee00ea8d457d2bd7becbe107f2d9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classexample_1_1_animal.html#ad6aee00ea8d457d2bd7becbe107f2d9a">get_num_of_limbs</a> () const </td></tr>
-<tr class="memdesc:ad6aee00ea8d457d2bd7becbe107f2d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of limbs.  <a href="#ad6aee00ea8d457d2bd7becbe107f2d9a">More...</a><br /></td></tr>
-<tr class="separator:ad6aee00ea8d457d2bd7becbe107f2d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7558cb43e67bc800961b451dd546db74"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classexample_1_1_animal.html#a7558cb43e67bc800961b451dd546db74">get_num_of_eyes</a> () const </td></tr>
-<tr class="memdesc:a7558cb43e67bc800961b451dd546db74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of eyes.  <a href="#a7558cb43e67bc800961b451dd546db74">More...</a><br /></td></tr>
-<tr class="separator:a7558cb43e67bc800961b451dd546db74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71d036f82dfe3e7dbefb334a92f91275"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classexample_1_1_animal.html#a71d036f82dfe3e7dbefb334a92f91275">has_tail</a> () const </td></tr>
-<tr class="memdesc:a71d036f82dfe3e7dbefb334a92f91275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the animal has a tail.  <a href="#a71d036f82dfe3e7dbefb334a92f91275">More...</a><br /></td></tr>
-<tr class="separator:a71d036f82dfe3e7dbefb334a92f91275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ea3286e2b43830a5443be76eec4c5f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classexample_1_1_animal.html#a77ea3286e2b43830a5443be76eec4c5f">get_num_of_limbs</a> () const  override</td></tr>
+<tr class="memdesc:a77ea3286e2b43830a5443be76eec4c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of limbs.  <a href="#a77ea3286e2b43830a5443be76eec4c5f">More...</a><br /></td></tr>
+<tr class="separator:a77ea3286e2b43830a5443be76eec4c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4972484d411d75bdc829be3502bb60"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classexample_1_1_animal.html#afc4972484d411d75bdc829be3502bb60">get_num_of_eyes</a> () const  override</td></tr>
+<tr class="memdesc:afc4972484d411d75bdc829be3502bb60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of eyes.  <a href="#afc4972484d411d75bdc829be3502bb60">More...</a><br /></td></tr>
+<tr class="separator:afc4972484d411d75bdc829be3502bb60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80c789f01a9e211b821cfa57c27792fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classexample_1_1_animal.html#a80c789f01a9e211b821cfa57c27792fa">has_tail</a> () const  override</td></tr>
+<tr class="memdesc:a80c789f01a9e211b821cfa57c27792fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the animal has a tail.  <a href="#a80c789f01a9e211b821cfa57c27792fa">More...</a><br /></td></tr>
+<tr class="separator:a80c789f01a9e211b821cfa57c27792fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaee0d759d18beaca18670d2a794b1445"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaee0d759d18beaca18670d2a794b1445"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> ()</td></tr>
 <tr class="separator:aaee0d759d18beaca18670d2a794b1445"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -328,9 +329,12 @@ Hello World </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a7558cb43e67bc800961b451dd546db74"></a>
+<a class="anchor" id="afc4972484d411d75bdc829be3502bb60"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int example::Animal::get_num_of_eyes </td>
@@ -339,16 +343,26 @@ Hello World </dd></dl>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the number of eyes. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classexample_1_1_animal.html#ad6aee00ea8d457d2bd7becbe107f2d9a" title="Returns the number of limbs. ">get_num_of_limbs</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classexample_1_1_animal.html#a77ea3286e2b43830a5443be76eec4c5f" title="Returns the number of limbs. ">get_num_of_limbs</a> </dd></dl>
+
+<p>Implements <a class="el" href="classexample_1_1_animal_interface.html#a63c32ae61aa4ee35b3666b08ce3378f9">example::AnimalInterface</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad6aee00ea8d457d2bd7becbe107f2d9a"></a>
+<a class="anchor" id="a77ea3286e2b43830a5443be76eec4c5f"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int example::Animal::get_num_of_limbs </td>
@@ -357,16 +371,26 @@ Hello World </dd></dl>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the number of limbs. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classexample_1_1_animal.html#a7558cb43e67bc800961b451dd546db74" title="Returns the number of eyes. ">get_num_of_eyes</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classexample_1_1_animal.html#afc4972484d411d75bdc829be3502bb60" title="Returns the number of eyes. ">get_num_of_eyes</a> </dd></dl>
+
+<p>Implements <a class="el" href="classexample_1_1_animal_interface.html#a0300198be5798cfa0350fbb2fde4295e">example::AnimalInterface</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a71d036f82dfe3e7dbefb334a92f91275"></a>
+<a class="anchor" id="a80c789f01a9e211b821cfa57c27792fa"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool example::Animal::has_tail </td>
@@ -375,10 +399,15 @@ Hello World </dd></dl>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns true if the animal has a tail. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classexample_1_1_animal.html#ad6aee00ea8d457d2bd7becbe107f2d9a" title="Returns the number of limbs. ">get_num_of_limbs</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classexample_1_1_animal.html#a77ea3286e2b43830a5443be76eec4c5f" title="Returns the number of limbs. ">get_num_of_limbs</a> </dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">true</td><td>Does have a tail </td></tr>
@@ -386,6 +415,8 @@ Hello World </dd></dl>
   </table>
   </dd>
 </dl>
+
+<p>Implements <a class="el" href="classexample_1_1_animal_interface.html#af994135a8e875998808ca7f11f12a6b3">example::AnimalInterface</a>.</p>
 
 </div>
 </div>

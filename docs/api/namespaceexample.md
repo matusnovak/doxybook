@@ -1,6 +1,6 @@
 ---
 search:
-    keywords: ['example', 'Animal', 'Bird', 'CustomException', 'SpecialBird', 'some_namespace_function']
+    keywords: ['example', 'Animal', 'AnimalInterface', 'Bird', 'CustomException', 'SpecialBird', 'some_namespace_function']
 ---
 
 # namespace example
@@ -10,6 +10,7 @@ search:
 |Type|Name|
 |-----|-----|
 |class|[**Animal**](classexample_1_1_animal.md)|
+|class|[**AnimalInterface**](classexample_1_1_animal_interface.md)|
 |class|[**Bird**](classexample_1_1_bird.md)|
 |class|[**CustomException**](classexample_1_1_custom_exception.md)|
 |class|[**SpecialBird**](classexample_1_1_special_bird.md)|

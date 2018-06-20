@@ -64,18 +64,24 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="15">
+      <node id="24">
         <label>example::Animal</label>
         <link refid="classexample_1_1_animal"/>
-        <childnode refid="15" relation="usage">
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+        <childnode refid="24" relation="usage">
           <edgelabel>mother</edgelabel>
           <edgelabel>father</edgelabel>
         </childnode>
       </node>
-      <node id="14">
+      <node id="25">
+        <label>example::AnimalInterface</label>
+        <link refid="classexample_1_1_animal_interface"/>
+      </node>
+      <node id="23">
         <label>example::Animal::Result</label>
         <link refid="structexample_1_1_animal_1_1_result"/>
-        <childnode refid="15" relation="usage">
+        <childnode refid="24" relation="usage">
           <edgelabel>mother</edgelabel>
           <edgelabel>father</edgelabel>
         </childnode>

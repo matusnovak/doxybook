@@ -6,36 +6,42 @@
     <includedby refid="example_8h" local="yes">src/example.h</includedby>
     <includedby refid="special__bird_8h" local="yes">src/special_bird.h</includedby>
     <incdepgraph>
-      <node id="6">
-        <label>src/bird.h</label>
-        <link refid="bird.h"/>
-        <childnode refid="7" relation="include">
+      <node id="16">
+        <label>animal_interface.h</label>
+        <link refid="animal__interface_8h_source"/>
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="14">
+        <label>src/bird.h</label>
+        <link refid="bird.h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
         <label>string</label>
       </node>
-      <node id="7">
+      <node id="15">
         <label>animal.h</label>
         <link refid="animal_8h_source"/>
-        <childnode refid="8" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="11">
+      <node id="20">
         <label>src/special_bird.h</label>
         <link refid="special__bird_8h_source"/>
       </node>
-      <node id="9">
+      <node id="18">
         <label>src/bird.h</label>
         <link refid="bird.h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="19">
         <label>src/example.h</label>
         <link refid="example_8h_source"/>
       </node>

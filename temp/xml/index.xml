@@ -20,9 +20,9 @@
     <member refid="classexample_1_1_animal_1a29db85a24acf4fd5fb353c871eb086ed" kind="function"><name>Animal</name></member>
     <member refid="classexample_1_1_animal_1a7b633f0bc3834108ca024d0c73dc135e" kind="function"><name>~Animal</name></member>
     <member refid="classexample_1_1_animal_1affec460d5bc2fb8d650fcf5b7b8cf396" kind="function"><name>swap</name></member>
-    <member refid="classexample_1_1_animal_1ad6aee00ea8d457d2bd7becbe107f2d9a" kind="function"><name>get_num_of_limbs</name></member>
-    <member refid="classexample_1_1_animal_1a7558cb43e67bc800961b451dd546db74" kind="function"><name>get_num_of_eyes</name></member>
-    <member refid="classexample_1_1_animal_1a71d036f82dfe3e7dbefb334a92f91275" kind="function"><name>has_tail</name></member>
+    <member refid="classexample_1_1_animal_1a77ea3286e2b43830a5443be76eec4c5f" kind="function"><name>get_num_of_limbs</name></member>
+    <member refid="classexample_1_1_animal_1afc4972484d411d75bdc829be3502bb60" kind="function"><name>get_num_of_eyes</name></member>
+    <member refid="classexample_1_1_animal_1a80c789f01a9e211b821cfa57c27792fa" kind="function"><name>has_tail</name></member>
     <member refid="classexample_1_1_animal_1aaee0d759d18beaca18670d2a794b1445" kind="function"><name>move</name></member>
     <member refid="classexample_1_1_animal_1a6939f9fed1a387b128d3947afc239873" kind="function"><name>make_sound</name></member>
     <member refid="classexample_1_1_animal_1a93c61aed16aeb0b52631961e17251b0f" kind="function"><name>get_parents</name></member>
@@ -30,6 +30,11 @@
     <member refid="classexample_1_1_animal_1a021864d5b75ff00550cd4ffe65f4014d" kind="function"><name>operator=</name></member>
     <member refid="classexample_1_1_animal_1a055b1b5d5ffaa302068e7000b1b9f4f7" kind="function"><name>operator=</name></member>
     <member refid="classexample_1_1_animal_1aa7ca55f69abe84eade027036327d6f34" kind="friend"><name>some_global_function</name></member>
+  </compound>
+  <compound refid="classexample_1_1_animal_interface" kind="interface"><name>example::AnimalInterface</name>
+    <member refid="classexample_1_1_animal_interface_1a0300198be5798cfa0350fbb2fde4295e" kind="function"><name>get_num_of_limbs</name></member>
+    <member refid="classexample_1_1_animal_interface_1a63c32ae61aa4ee35b3666b08ce3378f9" kind="function"><name>get_num_of_eyes</name></member>
+    <member refid="classexample_1_1_animal_interface_1af994135a8e875998808ca7f11f12a6b3" kind="function"><name>has_tail</name></member>
   </compound>
   <compound refid="classexample_1_1_bird" kind="class"><name>example::Bird</name>
     <member refid="classexample_1_1_bird_1a3e9a914edb8db0a5ecb68f1a8230a671" kind="function"><name>Bird</name></member>
@@ -68,6 +73,8 @@
   </compound>
   <compound refid="animal_8h" kind="file"><name>animal.h</name>
     <member refid="animal_8h_1ad4969d516ff95884b14e25cce5c8b507" kind="function"><name>some_global_function</name></member>
+  </compound>
+  <compound refid="animal__interface_8h" kind="file"><name>animal_interface.h</name>
   </compound>
   <compound refid="bird_8h" kind="file"><name>bird.h</name>
   </compound>

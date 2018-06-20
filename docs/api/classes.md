@@ -1,5 +1,6 @@
 ---
-search: false
+search:
+    keywords: ['Animal', 'Bird', 'CustomException', 'Animal::Result', 'SpecialBird']
 ---
 
 # Class Index
