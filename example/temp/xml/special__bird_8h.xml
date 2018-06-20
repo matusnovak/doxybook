@@ -4,25 +4,31 @@
     <compoundname>special_bird.h</compoundname>
     <includes refid="bird_8h" local="yes">bird.h</includes>
     <incdepgraph>
-      <node id="21">
+      <node id="34">
+        <label>animal_interface.h</label>
+        <link refid="animal__interface_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
         <label>src/special_bird.h</label>
         <link refid="special_bird.h"/>
-        <childnode refid="22" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="32">
         <label>bird.h</label>
         <link refid="bird_8h_source"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="33" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="35">
         <label>string</label>
       </node>
-      <node id="23">
+      <node id="33">
         <label>animal.h</label>
         <link refid="animal_8h_source"/>
-        <childnode refid="24" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
       </node>
     </incdepgraph>

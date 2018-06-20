@@ -1,6 +1,6 @@
 ---
 search:
-    keywords: ['example::SpecialBird', 'SpecialBird', 'SpecialBird', 'SpecialBird', '~SpecialBird', 'swap', 'do_something_special', 'operator=', 'operator=', 'Bird', 'Bird', 'Bird', '~Bird', 'swap', 'move', 'make_sound', 'operator=', 'operator=', 'Animal', 'Animal', 'Animal', '~Animal', 'swap', 'get_num_of_limbs', 'get_num_of_eyes', 'has_tail', 'move', 'make_sound', 'get_parents', 'get_name', 'operator=', 'operator=']
+    keywords: ['example::SpecialBird', 'SpecialBird', 'SpecialBird', 'SpecialBird', '~SpecialBird', 'swap', 'do_something_special', 'operator=', 'operator=', 'Bird', 'Bird', 'Bird', '~Bird', 'swap', 'move', 'make_sound', 'operator=', 'operator=', 'Animal', 'Animal', 'Animal', '~Animal', 'swap', 'get_num_of_limbs', 'get_num_of_eyes', 'has_tail', 'move', 'make_sound', 'get_parents', 'get_name', 'operator=', 'operator=', 'get_num_of_limbs', 'get_num_of_eyes', 'has_tail']
 ---
 
 # class example::SpecialBird
@@ -47,9 +47,9 @@ Inherits the following classes: **[example::Bird](classexample_1_1_bird.md)**
 ||[**Animal**](classexample_1_1_animal.md#1a29db85a24acf4fd5fb353c871eb086ed) (**[Animal](classexample_1_1_animal.md)** && animal) noexcept |
 |virtual |[**~Animal**](classexample_1_1_animal.md#1a7b633f0bc3834108ca024d0c73dc135e) () = default |
 |void|[**swap**](classexample_1_1_animal.md#1affec460d5bc2fb8d650fcf5b7b8cf396) (**[Animal](classexample_1_1_animal.md)** & other) noexcept |
-|int|[**get\_num\_of\_limbs**](classexample_1_1_animal.md#1ad6aee00ea8d457d2bd7becbe107f2d9a) () const <br>Returns the number of limbs. |
-|int|[**get\_num\_of\_eyes**](classexample_1_1_animal.md#1a7558cb43e67bc800961b451dd546db74) () const <br>Returns the number of eyes. |
-|bool|[**has\_tail**](classexample_1_1_animal.md#1a71d036f82dfe3e7dbefb334a92f91275) () const <br>Returns true if the animal has a tail. |
+|virtual int|[**get\_num\_of\_limbs**](classexample_1_1_animal.md#1a77ea3286e2b43830a5443be76eec4c5f) () override const <br>Returns the number of limbs. |
+|virtual int|[**get\_num\_of\_eyes**](classexample_1_1_animal.md#1afc4972484d411d75bdc829be3502bb60) () override const <br>Returns the number of eyes. |
+|virtual bool|[**has\_tail**](classexample_1_1_animal.md#1a80c789f01a9e211b821cfa57c27792fa) () override const <br>Returns true if the animal has a tail. |
 |Parents|[**get\_parents**](classexample_1_1_animal.md#1a93c61aed16aeb0b52631961e17251b0f) () const |
 |const std::string &|[**get\_name**](classexample_1_1_animal.md#1ab4e7a34b9637acc89c55eec9405f1f6e) () const <br>Get the name of the animal. |
 |**[Animal](classexample_1_1_animal.md)** &|[**operator=**](classexample_1_1_animal.md#1a021864d5b75ff00550cd4ffe65f4014d) (const **[Animal](classexample_1_1_animal.md)** & other) = delete |
@@ -96,8 +96,8 @@ Inherits the following classes: **[example::Bird](classexample_1_1_bird.md)**
 
 ```cpp
 example::SpecialBird::SpecialBird (
-    const std::string & name
-    SpecialBird * mother = nullptr
+    const std::string & name,
+    SpecialBird * mother = nullptr,
     SpecialBird * father = nullptr
 )
 ```

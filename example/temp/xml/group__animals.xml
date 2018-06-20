@@ -6,6 +6,7 @@
     <innerclass refid="classexample_1_1_animal" prot="public">example::Animal</innerclass>
     <innerclass refid="classexample_1_1_bird" prot="public">example::Bird</innerclass>
     <innerclass refid="classexample_1_1_special_bird" prot="public">example::SpecialBird</innerclass>
+    <innerclass refid="classexample_1_1_animal_interface" prot="public">example::AnimalInterface</innerclass>
     <briefdescription>
 <para>This is a brief description to the animals group. </para>    </briefdescription>
     <detaileddescription>

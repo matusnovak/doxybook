@@ -10,7 +10,7 @@ def generateLink(name, url) -> str:
 
 def generateRecursive(f: TextIO, node: Node, level: int, diff: str):
     for child in node.members:
-        if child.kind is Kind.STRUCT or child.kind is Kind.CLASS or child.kind is Kind.NAMESPACE:
+        if child.kind == Kind.STRUCT or child.kind == Kind.CLASS or child.kind == Kind.NAMESPACE or child.kind == Kind.INTERFACE:
             f.write(' ' * level + generateLink(child.kind.value + ' ' + child.name, diff + '/' + child.refid + '.md'))
             generateRecursive(f, child, level + 2, diff)
 

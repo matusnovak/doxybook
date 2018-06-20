@@ -1,7 +1,7 @@
 #ifndef EXAMPLE_ANIMAL_H
 #define EXAMPLE_ANIMAL_H
 
-#include <string>
+#include "animal_interface.h"
 
 /*!
  * @defgroup animals
@@ -34,7 +34,7 @@ namespace example {
      * @author Matus Novak
      * @author Hello World
      */
-    class Animal {
+    class Animal: public AnimalInterface {
     public:
         /*!
          * @brief The 6 classes of animal kingdom
@@ -80,13 +80,13 @@ namespace example {
          * @brief Returns the number of limbs
          * @see get_num_of_eyes
          */
-        int get_num_of_limbs() const;
+        int get_num_of_limbs() const override;
 
         /*!
          * @brief Returns the number of eyes
          * @see get_num_of_limbs
          */
-        int get_num_of_eyes() const;
+        int get_num_of_eyes() const override;
 
         /*!
          * @brief Returns true if the animal has a tail
@@ -94,7 +94,7 @@ namespace example {
          * @retval true Does have a tail
          * @retval false Does not have a tail
          */
-        bool has_tail() const;
+        bool has_tail() const override;
 
         virtual void move();
         virtual void make_sound() = 0;

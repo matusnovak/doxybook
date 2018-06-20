@@ -6,40 +6,46 @@
     <includes refid="bird_8h" local="yes">bird.h</includes>
     <includes refid="exception_8h" local="yes">utils/exception.h</includes>
     <incdepgraph>
-      <node id="15">
+      <node id="23">
+        <label>animal_interface.h</label>
+        <link refid="animal__interface_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
         <label>bird.h</label>
         <link refid="bird_8h_source"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="14">
+      <node id="24">
         <label>string</label>
       </node>
-      <node id="17">
+      <node id="27">
         <label>exception</label>
       </node>
-      <node id="12">
+      <node id="21">
         <label>src/example.h</label>
         <link refid="example.h"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="26">
         <label>utils/exception.h</label>
         <link refid="exception_8h_source"/>
-        <childnode refid="17" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="22">
         <label>animal.h</label>
         <link refid="animal_8h_source"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
     </incdepgraph>

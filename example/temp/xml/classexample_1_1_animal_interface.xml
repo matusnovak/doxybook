@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classexample_1_1_animal_interface" kind="interface" language="C++" prot="public" abstract="yes">
+    <compoundname>example::AnimalInterface</compoundname>
+    <derivedcompoundref refid="classexample_1_1_animal" prot="public" virt="non-virtual">example::Animal</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classexample_1_1_animal_interface_1a0300198be5798cfa0350fbb2fde4295e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int example::AnimalInterface::get_num_of_limbs</definition>
+        <argsstring>() const  =0</argsstring>
+        <name>get_num_of_limbs</name>
+        <reimplementedby refid="classexample_1_1_animal_1a77ea3286e2b43830a5443be76eec4c5f">get_num_of_limbs</reimplementedby>
+        <briefdescription>
+<para>Returns the number of limbs. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classexample_1_1_animal_interface_1a63c32ae61aa4ee35b3666b08ce3378f9" kindref="member">get_num_of_eyes</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/animal_interface.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_animal_interface_1a63c32ae61aa4ee35b3666b08ce3378f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int example::AnimalInterface::get_num_of_eyes</definition>
+        <argsstring>() const  =0</argsstring>
+        <name>get_num_of_eyes</name>
+        <reimplementedby refid="classexample_1_1_animal_1afc4972484d411d75bdc829be3502bb60">get_num_of_eyes</reimplementedby>
+        <briefdescription>
+<para>Returns the number of eyes. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classexample_1_1_animal_interface_1a0300198be5798cfa0350fbb2fde4295e" kindref="member">get_num_of_limbs</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/animal_interface.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classexample_1_1_animal_interface_1af994135a8e875998808ca7f11f12a6b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool example::AnimalInterface::has_tail</definition>
+        <argsstring>() const  =0</argsstring>
+        <name>has_tail</name>
+        <reimplementedby refid="classexample_1_1_animal_1a80c789f01a9e211b821cfa57c27792fa">has_tail</reimplementedby>
+        <briefdescription>
+<para>Returns true if the animal has a tail. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classexample_1_1_animal_interface_1a0300198be5798cfa0350fbb2fde4295e" kindref="member">get_num_of_limbs</ref> </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Does have a tail </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Does not have a tail </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/animal_interface.h" line="31" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="8">
+        <label>example::Bird</label>
+        <link refid="classexample_1_1_bird"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>example::Animal</label>
+        <link refid="classexample_1_1_animal"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>example::SpecialBird</label>
+        <link refid="classexample_1_1_special_bird"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>example::AnimalInterface</label>
+        <link refid="classexample_1_1_animal_interface"/>
+      </node>
+    </inheritancegraph>
+    <location file="src/animal_interface.h" line="11" column="1" bodyfile="src/animal_interface.h" bodystart="11" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classexample_1_1_animal_interface_1a63c32ae61aa4ee35b3666b08ce3378f9" prot="public" virt="pure-virtual"><scope>example::AnimalInterface</scope><name>get_num_of_eyes</name></member>
+      <member refid="classexample_1_1_animal_interface_1a0300198be5798cfa0350fbb2fde4295e" prot="public" virt="pure-virtual"><scope>example::AnimalInterface</scope><name>get_num_of_limbs</name></member>
+      <member refid="classexample_1_1_animal_interface_1af994135a8e875998808ca7f11f12a6b3" prot="public" virt="pure-virtual"><scope>example::AnimalInterface</scope><name>has_tail</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

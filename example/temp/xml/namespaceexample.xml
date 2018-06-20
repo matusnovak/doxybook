@@ -3,6 +3,7 @@
   <compounddef id="namespaceexample" kind="namespace" language="C++">
     <compoundname>example</compoundname>
     <innerclass refid="classexample_1_1_animal" prot="public">example::Animal</innerclass>
+    <innerclass refid="classexample_1_1_animal_interface" prot="public">example::AnimalInterface</innerclass>
     <innerclass refid="classexample_1_1_bird" prot="public">example::Bird</innerclass>
     <innerclass refid="classexample_1_1_custom_exception" prot="public">example::CustomException</innerclass>
     <innerclass refid="classexample_1_1_special_bird" prot="public">example::SpecialBird</innerclass>

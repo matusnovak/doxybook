@@ -29,7 +29,8 @@ SECTION_DEFS = {
     'func': 'Functions',
     'union': 'Unions',
     'related': 'Related',
-    'define': 'Defines'
+    'define': 'Defines',
+    'interface': 'Interfaces'
 }
 
 def generateBriefRow(memberdef: xml.etree.ElementTree.Element, cache: Cache, reimplemented: List[str], ignore: List[str]) -> list:

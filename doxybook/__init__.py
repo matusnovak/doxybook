@@ -20,7 +20,7 @@ from doxybook.cache import Cache
 
 def writeMembers(indexDir: str, outputDir: str, node: Node, cache: Cache, noindex: bool):
     for member in node.members:
-        if member.kind == Kind.STRUCT or member.kind == Kind.NAMESPACE or member.kind == Kind.CLASS:
+        if member.kind == Kind.STRUCT or member.kind == Kind.NAMESPACE or member.kind == Kind.CLASS or member.kind == Kind.INTERFACE:
             generateMember(indexDir, outputDir, member.refid, cache, noindex)
             writeMembers(indexDir, outputDir, member, cache, noindex)
 

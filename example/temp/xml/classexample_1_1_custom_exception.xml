@@ -56,24 +56,24 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="10">
+      <node id="19">
         <label>std::exception</label>
       </node>
-      <node id="9">
+      <node id="18">
         <label>example::CustomException</label>
         <link refid="classexample_1_1_custom_exception"/>
-        <childnode refid="10" relation="public-inheritance">
+        <childnode refid="19" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="12">
+      <node id="21">
         <label>std::exception</label>
       </node>
-      <node id="11">
+      <node id="20">
         <label>example::CustomException</label>
         <link refid="classexample_1_1_custom_exception"/>
-        <childnode refid="12" relation="public-inheritance">
+        <childnode refid="21" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>

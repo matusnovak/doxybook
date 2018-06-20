@@ -18,6 +18,7 @@ class Kind(Enum):
     PAGE = 'page'
     EXAMPLE = 'example'
     GROUP = 'group'
+    INTERFACE = 'interface'
 
 LANGUAGE = [
     Kind.ROOT,
@@ -31,7 +32,8 @@ LANGUAGE = [
     Kind.ENUM,
     Kind.ENUMVALUE,
     Kind.FILE,
-    Kind.UNION
+    Kind.UNION,
+    Kind.INTERFACE
 ]
 
 def isKindLanguage(kind: Kind) -> bool:
@@ -40,7 +42,7 @@ def isKindLanguage(kind: Kind) -> bool:
     return False
 
 def isKindParent(kind: Kind) -> bool:
-    return kind == Kind.NAMESPACE or kind == Kind.CLASS or kind == Kind.STRUCT or kind == Kind.UNION
+    return kind == Kind.NAMESPACE or kind == Kind.CLASS or kind == Kind.STRUCT or kind == Kind.UNION or kind == Kind.INTERFACE
 
 def isKindMember(kind: Kind) -> bool:
     return isKindLanguage(kind) and not isKindParent(kind)
