@@ -7,21 +7,23 @@ from doxybook.markdown import Md, MdDocument, MdCode, MdCodeBlock, MdBold, MdIta
 from doxybook.node import Node
 from doxybook.kind import Kind
 from doxybook.cache import Cache
-from doxybook.generators.paragraph import generateParagraph, convertXmlPara
+from doxybook.config import config
+from doxybook.generators.paragraph import generate_paragraph, convert_xml_para
 
-def generateFile(indexDir: str, outputDir: str, node: Node, cache: Cache) -> dict:
-    outputFile = os.path.join(outputDir, node.refid + '_source.md')
-    print('Generating ' + outputFile)
+def generate_file(index_path: str, output_path: str, node: Node, cache: Cache) -> dict:
+    output_file = os.path.join(output_path, node.refid + '_source.md')
+    print('Generating ' + output_file)
     document = MdDocument()
 
     # Add title
-    document.append(MdHeader(1, [Text(node.name + ' File Reference')]))
+    title = node.name + ' File Reference'
+    document.append(MdHeader(1, [Text(title)]))
 
     # Load XML
-    xmlRoot = xml.etree.ElementTree.parse(os.path.join(indexDir, node.refid + '.xml')).getroot()
-    if xmlRoot is None:
+    xml_root = xml.etree.ElementTree.parse(os.path.join(index_path, node.refid + '.xml')).getroot()
+    if xml_root is None:
         IndexError('Root xml not found!')
-    compounddef = xmlRoot.find('compounddef')
+    compounddef = xml_root.find('compounddef')
     if compounddef is None:
         IndexError('compounddef not found in xml!')  
 
@@ -35,8 +37,12 @@ def generateFile(indexDir: str, outputDir: str, node: Node, cache: Cache) -> dic
     if programlisting is None:
         return
 
-    document.append(MdParagraph(convertXmlPara(compounddef, cache)))
+    document.append(MdParagraph(convert_xml_para(compounddef, cache)))
+
+    if not config.noindex:
+        document.set_keywords([node.name, 'file'])
+    document.set_title(title)
 
     # Save
-    with open(outputFile, 'w') as f:
+    with open(output_file, 'w') as f:
         document.render(MdRenderer(f))

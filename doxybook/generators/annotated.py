@@ -3,22 +3,24 @@ import os
 from doxybook.markdown import MdDocument, MdLink, MdBold, MdHeader, MdList, MdParagraph, MdParagraph, MdRenderer, Text
 from doxybook.node import Node
 from doxybook.kind import Kind
+from doxybook.config import config
 
-def recursiveHierarchy(node: Node, mdl: MdList, keywords: list):
+# Construct a tree of all parents (classes, structs, etc...)
+def recursive_hierarchy(node: Node, mdl: MdList, keywords: list):
     for child in node.members:
-        if child.kind is Kind.NAMESPACE or child.kind is Kind.CLASS or child.kind is Kind.STRUCT:
+        if child.kind.is_parent():
             p = MdParagraph([])
-            p.append(Text(child.getKindStr() + ' '))
+            p.append(Text(child.get_kind_str() + ' '))
             keywords.append(child.name)
             p.append(MdLink([MdBold([Text(child.name)])], child.url))
             sublist = MdList([])
-            recursiveHierarchy(child, sublist, keywords)
+            recursive_hierarchy(child, sublist, keywords)
             p.append(sublist)
             mdl.append(p)
 
-def generateAnnotated(outputDir: str, root: Node, noindex: bool):
-    outputFile = os.path.join(outputDir, 'annotated.md')
-    print('Generating ' + outputFile)
+def generate_annotated(path: str, root: Node):
+    output_file = os.path.join(path, 'annotated.md')
+    print('Generating ' + output_file)
     document = MdDocument()
     keywords = []
 
@@ -30,12 +32,13 @@ def generateAnnotated(outputDir: str, root: Node, noindex: bool):
 
     # Recursively add all members
     mdl = MdList([])
-    recursiveHierarchy(root, mdl, keywords)
+    recursive_hierarchy(root, mdl, keywords)
     document.append(mdl)
 
-    if not noindex:
-        document.setKeywords(keywords)
+    if not config.noindex:
+        document.set_keywords(keywords)
+    document.set_title('Annotated')
 
     # Save
-    with open(outputFile, 'w+') as f:
+    with open(output_file, 'w+') as f:
         document.render(MdRenderer(f))

@@ -1,4 +1,5 @@
 from typing import List, TextIO
+from doxybook.config import config
 
 def escape(s: str):
     ret = s.replace('*', '\\*')
@@ -8,16 +9,16 @@ def escape(s: str):
 class MdRenderer:
     def __init__(self, f: TextIO):
         self.f = f
-        self.eolFlag = True
+        self.eol_flag = True
 
     def write(self, s: str):
         self.f.write(s)
-        self.eolFlag = False
+        self.eol_flag = False
 
     def eol(self):
-        if not self.eolFlag:
+        if not self.eol_flag:
             self.f.write('\n')
-            self.eolFlag = True
+            self.eol_flag = True
 
 class Md:
     def __init__(self, children: List['Md']):
@@ -43,6 +44,18 @@ class Br:
 
     def render(self, f: MdRenderer, indent: str):
         f.write('\n\n')
+
+class MdHint(Md):
+    def __init__(self, children: List[Md], typ: str, title: str):
+        Md.__init__(self, children)
+        self.title = title
+        self.typ = typ
+
+    def render(self, f: MdRenderer, indent: str):
+        f.write('::: ' + self.typ + ' ' + self.title + '\n')
+        for child in self.children:
+            child.render(f, '')
+        f.write(':::')
 
 class MdBold(Md):
     def __init__(self, children: List[Md]):
@@ -76,7 +89,7 @@ class MdCodeBlock:
         self.lines = lines
         self.lang = lang
 
-    def setLang(self, lang:str):
+    def set_lang(self, lang:str):
         self.lang = lang
 
     def append(self, line: str):
@@ -134,20 +147,39 @@ class MdDocument(Md):
     def __init__(self):
         Md.__init__(self, [])
         self.keywords = []
+        self.title = ''
+
+    def set_title(self, title: str):
+        self.title = title
     
-    def setKeywords(self, keywords: List[str]):
+    def set_keywords(self, keywords: List[str]):
         self.keywords = keywords
 
-    def render(self, f: MdRenderer):
+    def header_gitbook(self, f: MdRenderer):
         if len(self.keywords) > 0:
-            f.write('---\n')
             f.write('search:\n')
             f.write('    keywords: ' + str(self.keywords) + '\n')
-            f.write('---\n\n') 
         else:
-            f.write('---\n')
             f.write('search: false\n')
-            f.write('---\n\n') 
+
+    def header_vuepress(self, f: MdRenderer):
+        f.write('title: ' + self.title + '\n')
+        if len(self.keywords) > 0:
+            #f.write('sidebar: auto\n')
+            #f.write('sidebarDepth: 1\n')
+            f.write('meta:\n')
+            f.write('  - name: keywords\n')
+            f.write('    content: ' + ' '.join(self.keywords) + '\n')
+
+    def render(self, f: MdRenderer):
+        f.write('---\n')
+
+        if config.target == 'gitbook':
+            self.header_gitbook(f)
+        elif config.target == 'vuepress':
+            self.header_vuepress(f)
+        f.write('---\n\n') 
+
         for child in self.children:
             child.render(f, '')
 
@@ -207,13 +239,13 @@ class MdTable(Md):
         Md.__init__(self, [])
     
     def render(self, f: MdRenderer, indent: str):
-        isFirst = True
+        is_first = True
         f.eol()
         for child in self.children:
             child.render(f, '')
-            if isFirst:
+            if is_first:
                 for i in range(0, len(child.children)):
                     f.write('|-----')
                 f.write('|')
-            isFirst = False
+            is_first = False
         f.write('\n\n')

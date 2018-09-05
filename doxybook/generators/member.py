@@ -7,7 +7,8 @@ from doxybook.markdown import Md, MdDocument, MdCode, MdCodeBlock, MdBold, MdIta
 from doxybook.node import Node
 from doxybook.kind import Kind
 from doxybook.cache import Cache
-from doxybook.generators.paragraph import generateParagraph, convertXmlPara
+from doxybook.config import config
+from doxybook.generators.paragraph import generate_paragraph, convert_xml_para
 
 SECTION_DEFS = {
     'public-type': 'Public Types',
@@ -33,14 +34,18 @@ SECTION_DEFS = {
     'interface': 'Interfaces'
 }
 
-def generateBriefRow(memberdef: xml.etree.ElementTree.Element, cache: Cache, reimplemented: List[str], ignore: List[str]) -> list:
+def generate_brief_row(memberdef: xml.etree.ElementTree.Element, cache: Cache, reimplemented: List[str], ignore: List[str]) -> list:
     typ = MdTableCell([])
     refid = memberdef.get('id')
 
     if refid in ignore:
         raise Exception('ignored')
 
-    name = MdTableCell([MdLink([MdBold([Text(memberdef.find('name').text)])], refid[:-35] + '.md#' + refid[-34:])])
+    node = cache.get(refid)
+    refid_prefix = refid[:-35]
+    if refid_prefix.startswith('group_'):
+        refid_prefix = refid[:-36]
+    name = MdTableCell([MdLink([MdBold([Text(node.name)])], refid_prefix + '.md#' + node.get_anchor_hash())])
 
     kind = memberdef.get('kind')
 
@@ -48,11 +53,11 @@ def generateBriefRow(memberdef: xml.etree.ElementTree.Element, cache: Cache, rei
         typ.append(Text('enum'))
         name.append(Text(' { '))
 
-        isFirst = True
+        is_first = True
         for enumvalue in memberdef.findall('enumvalue'):
-            if not isFirst:
+            if not is_first:
                 name.append(Text(', '))
-            isFirst = False
+            is_first = False
             name.append(MdBold([Text(enumvalue.find('name').text)]))
             initializer = enumvalue.find('initializer')
             if initializer is not None:
@@ -70,7 +75,7 @@ def generateBriefRow(memberdef: xml.etree.ElementTree.Element, cache: Cache, rei
         if kind == 'typedef':
             typ.append(Text('typedef '))
 
-        typ.extend(convertXmlPara(memberdef.find('type'), cache))
+        typ.extend(convert_xml_para(memberdef.find('type'), cache))
         
         if kind == 'function':
             name.append(Text(' ('))
@@ -80,13 +85,13 @@ def generateBriefRow(memberdef: xml.etree.ElementTree.Element, cache: Cache, rei
             if reimplements is not None:
                 reimplemented.append(reimplements.get('refid'))
 
-            isFirst = True
+            is_first = True
             for param in params:
-                if not isFirst:
+                if not is_first:
                     name.append(Text(', '))
-                isFirst = False
+                is_first = False
 
-                name.extend(convertXmlPara(param.find('type'), cache))
+                name.extend(convert_xml_para(param.find('type'), cache))
                 n = param.find('declname')
                 if n is not None:
                     name.append(Text(' ' + n.text))
@@ -94,7 +99,7 @@ def generateBriefRow(memberdef: xml.etree.ElementTree.Element, cache: Cache, rei
                 d = param.find('defval')
                 if d is not None:
                     name.append(Text(' = '))
-                    name.extend(convertXmlPara(d, cache))
+                    name.extend(convert_xml_para(d, cache))
             name.append(Text(') ')) 
 
             # Is deleted?
@@ -125,27 +130,27 @@ def generateBriefRow(memberdef: xml.etree.ElementTree.Element, cache: Cache, rei
     if len(briefdescription) > 0:
         name.append(Text('<br>'))
         for para in briefdescription:
-            name.extend(convertXmlPara(para, cache))
+            name.extend(convert_xml_para(para, cache))
 
     return [typ, name]
 
-def getTextOnly(p: xml.etree.ElementTree.Element) -> str:
+def get_text_only(p: xml.etree.ElementTree.Element) -> str:
     ret = ''
     if p is None:
         return ret
     if p.text:
         ret = ret + p.text
     for item in p.getchildren():
-        ret = ret + getTextOnly(item)
+        ret = ret + get_text_only(item)
         if item.tail:
             ret = ret + item.tail
     return ret
 
-def makeFunctionCode(compoundname: str, memberdef: xml.etree.ElementTree.Element, isFriend: bool) -> List[str]:
+def make_function_code(compoundname: str, memberdef: xml.etree.ElementTree.Element, is_friend: bool) -> List[str]:
     code = []
     params = memberdef.findall('param')
     argsstring = memberdef.find('argsstring').text
-    typ = getTextOnly(memberdef.find('type'))
+    typ = get_text_only(memberdef.find('type'))
     if len(typ) > 0:
         typ += ' '
 
@@ -179,15 +184,15 @@ def makeFunctionCode(compoundname: str, memberdef: xml.etree.ElementTree.Element
     if memberdef.get('virt') == 'pure-virtual':
         extra += ' = 0'
 
-    namePrefix = ''
-    if not isFriend:
-        namePrefix = compoundname + '::'
+    name_prefix = ''
+    if not name_prefix:
+        name_prefix = compoundname + '::'
     if len(params) > 0:
-        code.append(prefix + typ + namePrefix + memberdef.find('name').text + ' (')
+        code.append(prefix + typ + name_prefix + memberdef.find('name').text + ' (')
     else:
-        code.append(prefix + typ + namePrefix + memberdef.find('name').text + ' ()' + extra)
+        code.append(prefix + typ + name_prefix + memberdef.find('name').text + ' ()' + extra)
 
-    paramIndex = 0
+    param_index = 0
     for param in params:
         declname = param.find('declname')
         if declname is not None:
@@ -196,34 +201,34 @@ def makeFunctionCode(compoundname: str, memberdef: xml.etree.ElementTree.Element
             declname = ''
         defval = param.find('defval')
         if defval is not None:
-            defval = ' = ' + getTextOnly(defval)
+            defval = ' = ' + get_text_only(defval)
         else:
             defval = ''
-        paramIndex = paramIndex + 1
-        if paramIndex is not len(params):
-            code.append('    ' + getTextOnly(param.find('type')) + ' ' + declname + defval + ',')
+        param_index = param_index + 1
+        if param_index is not len(params):
+            code.append('    ' + get_text_only(param.find('type')) + ' ' + declname + defval + ',')
         else:
-            code.append('    ' + getTextOnly(param.find('type')) + ' ' + declname + defval)
+            code.append('    ' + get_text_only(param.find('type')) + ' ' + declname + defval)
 
     if len(params) > 0:
         code.append(')' + extra)
 
     return code
 
-def findInheritedClassesRecursively(inheritanceCompounddefs:List[xml.etree.ElementTree.Element], indexDir: str, inheritanceRefids: List[str]):
-    for refid in inheritanceRefids:
-        compounddef = xml.etree.ElementTree.parse(os.path.join(indexDir, refid + '.xml')).getroot().find('compounddef')
-        inheritanceCompounddefs.append(compounddef)
+def find_inherited_classes_recursively(inheritance_compounddefs:List[xml.etree.ElementTree.Element], index_path: str, inheritance_refids: List[str]):
+    for refid in inheritance_refids:
+        compounddef = xml.etree.ElementTree.parse(os.path.join(index_path, refid + '.xml')).getroot().find('compounddef')
+        inheritance_compounddefs.append(compounddef)
 
-        additionalRefids:List[str] = []
+        additional_refids:List[str] = []
         for basecompoundref in compounddef.findall('basecompoundref'):
             refid = basecompoundref.get('refid')
             if refid is not None:
-                additionalRefids.append(basecompoundref.get('refid'))
+                additional_refids.append(basecompoundref.get('refid'))
 
-        findInheritedClassesRecursively(inheritanceCompounddefs, indexDir, additionalRefids)
+        find_inherited_classes_recursively(inheritance_compounddefs, index_path, additional_refids)
 
-def makeSection(sectiondef: xml.etree.ElementTree.Element, cache: Cache, reimplemented: List[str], ignore: List[str]):
+def make_section(sectiondef: xml.etree.ElementTree.Element, cache: Cache, reimplemented: List[str], ignore: List[str]):
     table = MdTable()
     header = MdTableRow([
         Text('Type'),
@@ -231,31 +236,61 @@ def makeSection(sectiondef: xml.etree.ElementTree.Element, cache: Cache, reimple
     ])
     table.append(header)
 
-    memberAdded = False
+    member_added = False
 
     for memberdef in sectiondef.findall('memberdef'):
         try:
-            row = MdTableRow(generateBriefRow(memberdef, cache, reimplemented, ignore))
+            row = MdTableRow(generate_brief_row(memberdef, cache, reimplemented, ignore))
             table.append(row)
-            memberAdded = True
+            member_added = True
         except:
             pass
 
-    if memberAdded:
+    if member_added:
         return table
     return None
 
-def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noindex: bool):
-    outputFile = os.path.join(outputDir, refid + '.md')
-    print('Generating ' + outputFile)
+def generate_breadcrubs(node: Node):
+    ret = []
+
+    breadcrubs = []
+    parent = node.parent
+    while parent != None:
+        #ret.append(MdLink([Text(parent.name)], parent.generate_url()))
+        #ret.append(Text(' > '))
+        breadcrubs.append(parent)
+        parent = parent.parent
+
+    is_first = True
+    for parent in reversed(breadcrubs):
+        if parent.kind == Kind.ROOT:
+            ret.append(MdLink([MdBold([Text('Class List')])], 'annotated.md'))
+        else:
+            ret.append(MdLink([MdBold([Text(parent.name)])], parent.generate_url()))
+        ret.append(Text(' '))
+        if is_first:
+            is_first = False
+            ret.append(MdBold([Text('>')]))
+        else:
+            ret.append(MdBold([Text('::')]))
+        ret.append(Text(' '))
+
+    ret.append(MdLink([MdBold([Text(node.name)])], node.generate_url()))
+    ret.append(Br())
+    return MdParagraph(ret)
+
+def generate_member(index_path: str, output_path: str, refid: str, cache: Cache):
+    output_file = os.path.join(output_path, refid + '.md')
+    print('Generating ' + output_file)
     document = MdDocument()
     keywords = []
+    node = cache.get(refid)
 
     # Load XML
-    xmlRoot = xml.etree.ElementTree.parse(os.path.join(indexDir, refid + '.xml')).getroot()
-    if xmlRoot is None:
+    xml_root = xml.etree.ElementTree.parse(os.path.join(index_path, refid + '.xml')).getroot()
+    if xml_root is None:
         IndexError('Root xml not found!')
-    compounddef = xmlRoot.find('compounddef')
+    compounddef = xml_root.find('compounddef')
     if compounddef is None:
         IndexError('compounddef not found in xml!')
 
@@ -263,40 +298,44 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
     keywords.append(compoundname)
 
     # Add title
-    document.append(MdHeader(1, [Text(compounddef.get('kind') + ' ' + compoundname)]))
+    title = compounddef.get('kind') + ' ' + compoundname
+    document.append(MdHeader(1, [Text(title)]))
+
+    if node.kind.is_parent():
+        document.append(generate_breadcrubs(node))
 
     if compounddef.get('kind') == 'file':
         document.append(MdParagraph([MdBold([MdLink([Text('Go to the source code of this file.')], refid + '_source.md')])]))  
 
     # Add brief description
-    detaileddescriptionParas = compounddef.find('detaileddescription').findall('para')
-    briefdescriptionParas = compounddef.find('briefdescription').findall('para')
+    detaileddescription_paras = compounddef.find('detaileddescription').findall('para')
+    briefdescription_paras = compounddef.find('briefdescription').findall('para')
 
-    if len(briefdescriptionParas) > 0:
+    if len(briefdescription_paras) > 0:
         p = MdParagraph([])
-        for para in briefdescriptionParas:
-            p.extend(convertXmlPara(para, cache))
-        if len(detaileddescriptionParas) > 0:
+        for para in briefdescription_paras:
+            p.extend(convert_xml_para(para, cache))
+        if len(detaileddescription_paras) > 0:
             p.append(MdLink([Text('More...')], '#detailed-description'))
         document.append(p)
 
     # Add inheriance
-    inheritanceRefids:List[str] = []
+    inheritance_refids:List[str] = []
     basecompoundrefs = compounddef.findall('basecompoundref')
     if len(basecompoundrefs) > 0:
         document.append(Br())
         document.append(Text('Inherits the following classes: '))
-        isFirst = True
+        is_first = True
         for basecompoundref in basecompoundrefs:
             refid = basecompoundref.get('refid')
 
-            if not isFirst:
+            if not is_first:
                 document.append(Text(', '))
-            isFirst = False
+            is_first = False
 
             if refid is not None:
                 document.append(MdBold([MdLink([Text(basecompoundref.text)], basecompoundref.get('refid') + '.md')]))
-                inheritanceRefids.append(basecompoundref.get('refid'))
+                inheritance_refids.append(basecompoundref.get('refid'))
             else:
                 document.append(MdBold([Text(basecompoundref.text)]))
         document.append(Br())
@@ -306,13 +345,13 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
     if len(derivedcompoundrefs) > 0:
         document.append(Br())
         document.append(Text('Inherited by the following classes: '))
-        isFirst = True
+        is_first = True
         for derivedcompoundref in derivedcompoundrefs:
             refid = derivedcompoundref.get('refid')
 
-            if not isFirst:
+            if not is_first:
                 document.append(Text(', '))
-            isFirst = False
+            is_first = False
 
             if refid is not None:
                 document.append(MdBold([MdLink([Text(derivedcompoundref.text)], derivedcompoundref.get('refid') + '.md')]))
@@ -321,11 +360,9 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
         document.append(Br())
 
     # Find all inherited classes
-    inheritanceCompounddefs:List[xml.etree.ElementTree.Element] = []
-    findInheritedClassesRecursively(inheritanceCompounddefs, indexDir, inheritanceRefids)
-    #for refid in inheritanceRefids:
-    #    inheritanceCompounddefs.append(xml.etree.ElementTree.parse(os.path.join(indexDir, refid + '.xml')).getroot().find('compounddef'))
-    
+    inheritance_compounddefs:List[xml.etree.ElementTree.Element] = []
+    find_inherited_classes_recursively(inheritance_compounddefs, index_path, inheritance_refids)
+
     # Add inner classes
     innerclasses = compounddef.findall('innerclass')
     if len(innerclasses) > 0:
@@ -359,7 +396,7 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
         document.append(table)
 
     # We will record which sections to skip
-    skipSections = {}
+    skip_sections = {}
 
     # We will also record which functions have been overwritten
     reimplemented = []
@@ -367,14 +404,14 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
     # Add sections
     sectiondefs = compounddef.findall('sectiondef')
     for sectiondef in sectiondefs:
-        sectionKind = sectiondef.get('kind')
+        section_kind = sectiondef.get('kind')
 
-        if sectionKind.startswith('private'):
+        if section_kind.startswith('private'):
             continue
 
-        document.append(MdHeader(2, [Text(SECTION_DEFS[sectionKind])]))
+        document.append(MdHeader(2, [Text(SECTION_DEFS[section_kind])]))
 
-        table = makeSection(sectiondef, cache, reimplemented, [])
+        table = make_section(sectiondef, cache, reimplemented, [])
         document.append(table)
 
         for memberdef in sectiondef.findall('memberdef'):
@@ -383,17 +420,17 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
                 keywords.append(name.text)
 
         # Find inherited stuff
-        for inheritanceCompounddef in inheritanceCompounddefs:
-            inheritedSectiondefs = inheritanceCompounddef.findall('sectiondef')
-            refid = inheritanceCompounddef.get('id')
-            for sec in inheritedSectiondefs:
-                if sec.get('kind') == sectionKind:
-                    inheritedName = inheritanceCompounddef.find('compoundname').text
+        for inheritance_compounddefs in inheritance_compounddefs:
+            inherited_sectiondefs = inheritance_compounddefs.findall('sectiondef')
+            refid = inheritance_compounddefs.get('id')
+            for sec in inherited_sectiondefs:
+                if sec.get('kind') == skip_sections:
+                    inherited_name = inheritance_compounddefs.find('compoundname').text
 
                     tmp = []
-                    table = makeSection(sec, cache, tmp, reimplemented)
+                    table = make_section(sec, cache, tmp, reimplemented)
                     if table is not None:
-                        document.append(MdHeader(4, [Text(SECTION_DEFS[sectionKind] + ' inherited from '), MdLink([Text(inheritedName)], refid + '.md')]))
+                        document.append(MdHeader(4, [Text(SECTION_DEFS[skip_sections] + ' inherited from '), MdLink([Text(inherited_name)], refid + '.md')]))
                         document.append(table)
                     reimplemented.extend(tmp)
 
@@ -402,83 +439,102 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
                         if name is not None and name.text is not None:
                             keywords.append(name.text)
 
-                    if not refid in skipSections:
-                        skipSections[refid] = [sectionKind]
+                    if not refid in skip_sections:
+                        skip_sections[refid] = [skip_sections]
                     else:
-                        skipSections[refid].append(sectionKind)
+                        skip_sections[refid].append(skip_sections)
 
-    missingSections = {}
+    missing_sections = {}
 
     # Calculate if we need to create "Additional Inherited Members" section
-    for inheritanceCompounddef in inheritanceCompounddefs:
-        refid = inheritanceCompounddef.get('id')
-        inheritedSectiondefs = inheritanceCompounddef.findall('sectiondef')
-        for sec in inheritedSectiondefs:
-            sectionKind = sec.get('kind')
+    for inheritance_compounddef in inheritance_compounddefs:
+        refid = inheritance_compounddef.get('id')
+        inherited_sectiondefs = inheritance_compounddef.findall('sectiondef')
+        for sec in inherited_sectiondefs:
+            section_kind = sec.get('kind')
             
-            if sectionKind.startswith('private'):
+            if section_kind.startswith('private'):
                 continue
 
-            if refid in skipSections:
-                if not sectionKind in skipSections[refid]:
-                    if not refid in missingSections:
-                        missingSections[refid] = [sectionKind]
+            if refid in skip_sections:
+                if not section_kind in skip_sections[refid]:
+                    if not refid in missing_sections:
+                        missing_sections[refid] = [section_kind]
                     else:
-                        missingSections[refid].append(sectionKind)
+                        missing_sections[refid].append(section_kind)
             else:
-                if not refid in missingSections:
-                    missingSections[refid] = [sectionKind]
+                if not refid in missing_sections:
+                    missing_sections[refid] = [section_kind]
                 else:
-                    missingSections[refid].append(sectionKind)
+                    missing_sections[refid].append(section_kind)
 
-    if missingSections:
+    if missing_sections:
         document.append(MdHeader(2, [Text('Additional Inherited Members')]))
-        for inheritanceCompounddef in inheritanceCompounddefs:
-            refid = inheritanceCompounddef.get('id')
-            if refid in missingSections:
-                inheritedSectiondefs = inheritanceCompounddef.findall('sectiondef')
-                for sec in inheritedSectiondefs:
-                    sectionKind = sec.get('kind')
+        for inheritance_compounddef in inheritance_compounddefs:
+            refid = inheritance_compounddef.get('id')
+            if refid in missing_sections:
+                inherited_sectiondefs = inheritance_compounddef.findall('sectiondef')
+                for sec in inherited_sectiondefs:
+                    section_kind = sec.get('kind')
 
-                    if sectionKind.startswith('private'):
+                    if section_kind.startswith('private'):
                         continue
 
-                    if sectionKind in missingSections[refid]:
-                        inheritedName = inheritanceCompounddef.find('compoundname').text
+                    if section_kind in missing_sections[refid]:
+                        inherited_name = inheritance_compounddef.find('compoundname').text
 
                         tmp = []
-                        table = makeSection(sec, cache, tmp, reimplemented)
+                        table = make_section(sec, cache, tmp, reimplemented)
                         if table is not None:
-                            document.append(MdHeader(4, [Text(SECTION_DEFS[sectionKind] + ' inherited from '), MdLink([Text(inheritedName)], refid + '.md')]))
+                            document.append(MdHeader(4, [Text(SECTION_DEFS[section_kind] + ' inherited from '), MdLink([Text(inherited_name)], refid + '.md')]))
                             document.append(table)
                         reimplemented.extend(tmp)
 
     # Add detailed description
-    if len(detaileddescriptionParas) > 0:
+    if len(detaileddescription_paras) > 0:
         document.append(MdHeader(2, [Text('Detailed Description')]))
-        document.extend(generateParagraph(compounddef.find('detaileddescription').findall('para'), cache))
+        document.extend(generate_paragraph(compounddef.find('detaileddescription').findall('para'), cache))
 
     # Add detailed sections
     sectiondefs = compounddef.findall('sectiondef')
     for sectiondef in sectiondefs:
-        sectionKind = sectiondef.get('kind')
-        if sectionKind.startswith('private'):
+        section_kind = sectiondef.get('kind')
+        if section_kind.startswith('private'):
             continue
             
-        document.append(MdHeader(2, [Text(SECTION_DEFS[sectionKind] + ' Documentation')]))
+        document.append(MdHeader(2, [Text(SECTION_DEFS[section_kind] + ' Documentation')]))
 
-        for memberdef in sectiondef.findall('memberdef'):
+        memberdefs = sectiondef.findall('memberdef')
+
+        for memberdef in memberdefs:
             kind = memberdef.get('kind')
-            document.append(MdHeader(3, [Text(kind + ' <a id=\"' + memberdef.get('id')[-34:] + '\" href=\"#' + memberdef.get('id')[-34:] + '\">' + memberdef.find('name').text + '</a>')]))
+            refid = memberdef.get('id')
+            node = None
+            try:
+                node = cache.get(refid)
+            except:
+                pass
+            name = memberdef.find('name').text
+            
+            if config.target == 'gitbook':
+                if node is not None and node.overloaded:
+                    document.append(MdHeader(3, [Text(kind + ' <a id=\"' + refid[-34:] + '\" href=\"#' + refid[-34:] + '\">' + name + ' (' + str(node.overload_num) + '/' + str(node.overload_total) + ')</a>')]))
+                else:
+                    document.append(MdHeader(3, [Text(kind + ' <a id=\"' + refid[-34:] + '\" href=\"#' + refid[-34:] + '\">' + name + '</a>')]))
+            else:
+                if node is not None and node.overloaded:
+                    document.append(MdHeader(3, [Text(kind + ' ' + name + ' (' + str(node.overload_num) + '/' + str(node.overload_total) + ')')]))
+                else:
+                    document.append(MdHeader(3, [Text(kind + ' ' + name)]))
 
             code = []
             if kind == 'function':
-                code.extend(makeFunctionCode(compoundname, memberdef, False))
+                code.extend(make_function_code(compoundname, memberdef, False))
 
             elif kind == 'friend':
                 argsstring = memberdef.find('argsstring')
                 if argsstring is not None and argsstring.text is not None and len(argsstring.text) > 0:
-                    code.extend(makeFunctionCode(compoundname, memberdef, True))
+                    code.extend(make_function_code(compoundname, memberdef, True))
                 else:
                     code.append(memberdef.find('definition').text + ';')
 
@@ -500,25 +556,24 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
                     code.append(definition.text + ';')
 
             document.append(MdCodeBlock(code))
-                
+
+            # Add descriptions
+            detaileddescription_paras = memberdef.find('detaileddescription').findall('para')
+            briefdescription_paras = memberdef.find('briefdescription').findall('para')
+            document.extend(generate_paragraph(briefdescription_paras, cache))
+            document.append(Text('\n'))
+            document.extend(generate_paragraph(detaileddescription_paras, cache))
+            document.append(Text('\n'))
+
             # Add overrides
             reimplements = memberdef.find('reimplements')
             if reimplements is not None:
                 try:
                     found = cache.get(reimplements.get('refid'))
-                    document.append(MdParagraph([Text('Overrides '), MdBold([MdLink([Text(found.getFullName())], found.url)])]))
+                    document.append(MdParagraph([Text('Implements '), MdBold([MdLink([Text(found.get_full_name())], found.url)])]))
+                    document.append(Br())
                 except:
                     pass
-
-            # Add descriptions
-            detaileddescriptionParas = memberdef.find('detaileddescription').findall('para')
-            briefdescriptionParas = memberdef.find('briefdescription').findall('para')
-            document.extend(generateParagraph(briefdescriptionParas, cache))
-            document.append(Text('\n'))
-            document.extend(generateParagraph(detaileddescriptionParas, cache))
-            document.append(Text('\n'))
-
-
     # Add location
     location = compounddef.find('location')
     if location is not None:
@@ -530,8 +585,10 @@ def generateMember(indexDir: str, outputDir: str, refid: str, cache: Cache, noin
         ]))
 
     # Save
-    if not noindex:
-        document.setKeywords(keywords)
-    with open(outputFile, 'w+') as f:
+    if not config.noindex:
+        document.set_keywords(keywords)
+    document.set_title(title)
+
+    with open(output_file, 'w+') as f:
         document.render(MdRenderer(f))
 

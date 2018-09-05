@@ -1,5 +1,6 @@
-from doxybook.kind import Kind, isKindMember
-from doxybook.utils import mangleName
+from doxybook.kind import Kind
+from doxybook.utils import mangle_name
+from doxybook.config import config
 
 class Node:
     def __init__(self, name: str, refid: str, kind: str):
@@ -12,46 +13,57 @@ class Node:
         self.parent = None
         self.members = []
         self.url = None
+        self.overloaded = False
+        self.overload_num = 1
+        self.overload_total = 1
 
-    def getFullName(self, includeNamespace: bool = False) -> str:
+    def get_full_name(self, include_namespace: bool = False) -> str:
         ret = self.name
-        namespaceCheck = True
-        if self.parent is not None and self.parent.kind == Kind.NAMESPACE and includeNamespace == False:
-            namespaceCheck = False
-        if self.parent is not None and self.parent.kind != Kind.ROOT and namespaceCheck:
-            ret = self.parent.getFullName(includeNamespace) + '::' + ret
+        namespace_check = True
+        if self.parent is not None and self.parent.kind == Kind.NAMESPACE and include_namespace == False:
+            namespace_check = False
+        if self.parent is not None and self.parent.kind != Kind.ROOT and namespace_check:
+            ret = self.parent.get_full_name(include_namespace) + '::' + ret
         return ret
 
-    def getNamespace(self) -> 'Node':
+    def get_namespace(self) -> 'Node':
         if self.kind == Kind.ROOT:
             return None
         elif self.kind == Kind.NAMESPACE:
             return self
         else: 
-            return self.parent.getNamespace()
+            return self.parent.get_namespace()
 
-    def addMember(self, member: 'Node'):
+    def add_member(self, member: 'Node'):
         member.parent = self
         self.members.append(member)
 
-    def findMember(self, name: str) -> 'Node':
+    def find_member(self, name: str) -> 'Node':
         for child in self.members:
             if(child.name == name):
                 return child
 
         return None
 
-    def getAnchorHash(self):
-        return self.refid[-34:]
+    def get_anchor_hash(self):
+        if config.target == 'gitbook':
+            return self.refid[-34:]
+        anchor = self.kind.value + '-' + self.name.replace(' ', '-').replace('_', '-').replace('=', '').replace('~', '').lower()
+        if self.overloaded:
+            return anchor + '-' + str(self.overload_num) + '-' + str(self.overload_total)
+        else:
+            return anchor
 
-    def getKindStr(self):
+    def get_kind_str(self):
         return self.kind.value
 
-    def generateUrl(self) -> str:
-        if self.kind == Kind.CLASS or self.kind == Kind.NAMESPACE or self.kind == Kind.STRUCT:
+    def generate_url(self) -> str:
+        if self.kind.is_parent():
             return self.refid + '.md'
         else:
-            return self.refid[:-35] + '.md#' + self.getAnchorHash()
+            if self.refid.startswith('group_'):
+                return self.refid[:-36] + '.md#' + self.get_anchor_hash()
+            return self.refid[:-35] + '.md#' + self.get_anchor_hash()
 
     def finalize(self):
-        self.url = self.generateUrl()
+        self.url = self.generate_url()

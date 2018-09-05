@@ -3,19 +3,21 @@ import os
 from doxybook.markdown import MdDocument, MdLink, MdBold, MdHeader, MdList, MdParagraph, MdRenderer, Text, Br
 from doxybook.node import Node
 from doxybook.kind import Kind
+from doxybook.config import config
 
-def recursiveDictionary(node: Node, dictionary: dict):
+# Generate disctionary based on the first letter of the node
+def recursive_dictionary(node: Node, dictionary: dict):
     if node.kind == Kind.CLASS or node.kind == Kind.STRUCT:
         key = node.name.upper()[0]
         if key not in dictionary:
             dictionary[key] = []
         dictionary[key].append(node)
     for child in node.members:
-        recursiveDictionary(child, dictionary)
+        recursive_dictionary(child, dictionary)
 
-def generateClassIndex(outputDir: str, root: Node, noindex: bool):
-    outputFile = os.path.join(outputDir, 'classes.md')
-    print('Generating ' + outputFile)
+def generate_class_index(path: str, root: Node):
+    output_file = os.path.join(path, 'classes.md')
+    print('Generating ' + output_file)
     document = MdDocument()
     keywords = []
 
@@ -24,7 +26,7 @@ def generateClassIndex(outputDir: str, root: Node, noindex: bool):
 
     # Sort
     dictionary = {}
-    recursiveDictionary(root, dictionary)
+    recursive_dictionary(root, dictionary)
 
     for key in list(sorted(dictionary.keys())):
         document.append(MdHeader(2, [Text(key)]))
@@ -32,23 +34,24 @@ def generateClassIndex(outputDir: str, root: Node, noindex: bool):
         mdl = MdList([])
         for member in dictionary[key]:
             p = MdParagraph([])
-            fullName = member.getFullName(False)
-            keywords.append(fullName)
-            p.append(MdLink([MdBold([Text(fullName)])], member.url))
+            full_name = member.get_full_name(False)
+            keywords.append(full_name)
+            p.append(MdLink([MdBold([Text(full_name)])], member.url))
 
-            namespace = member.getNamespace()
+            namespace = member.get_namespace()
             if namespace is not None:
                 p.append(Text(' ('))
-                p.append(MdLink([MdBold([Text(namespace.getFullName(False))])], namespace.url))
+                p.append(MdLink([MdBold([Text(namespace.get_full_name(False))])], namespace.url))
                 p.append(Text(')'))
             mdl.append(p)
 
         document.append(mdl)
         document.append(Br())
 
-    if not noindex:
-        document.setKeywords(keywords)
+    if not config.noindex:
+        document.set_keywords(keywords)
+    document.set_title('Class Index')
 
     # Save
-    with open(outputFile, 'w') as f:
+    with open(output_file, 'w') as f:
         document.render(MdRenderer(f))

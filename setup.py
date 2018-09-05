@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='doxybook',
-    version='2.0.1',
+    version='2.1.0',
     description='Doxygen XML to GitBook markdown',
     long_description=long_description,
     url='https://github.com/matusnovak/doxybook',

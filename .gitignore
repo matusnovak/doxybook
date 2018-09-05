@@ -104,3 +104,7 @@ ENV/
 node_modules
 _book
 .publish/
+build/
+dist/
+example/temp
+*-old

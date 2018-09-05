@@ -4,36 +4,37 @@ from typing import TextIO
 
 from doxybook.node import Node
 from doxybook.kind import Kind
+from doxybook.config import config
 
-def generateLink(name, url) -> str:
+def generate_link(name, url) -> str:
     return '* [' + name + '](' + url + ')\n'
 
-def generateRecursive(f: TextIO, node: Node, level: int, diff: str):
+def generate_recursive(f: TextIO, node: Node, level: int, diff: str):
     for child in node.members:
-        if child.kind == Kind.STRUCT or child.kind == Kind.CLASS or child.kind == Kind.NAMESPACE or child.kind == Kind.INTERFACE:
-            f.write(' ' * level + generateLink(child.kind.value + ' ' + child.name, diff + '/' + child.refid + '.md'))
-            generateRecursive(f, child, level + 2, diff)
+        if child.kind.is_parent():
+            f.write(' ' * level + generate_link(child.kind.value + ' ' + child.name, diff + '/' + child.refid + '.md'))
+            generate_recursive(f, child, level + 2, diff)
 
-def generateFiles(f: TextIO, files: dict, level: int, diff: str):
+def generate_files(f: TextIO, files: dict, level: int, diff: str):
     for key,value in files.items():
         if key == '#':
             continue
         if isinstance(value, dict):
-            f.write(' ' * level + generateLink(key + '/', diff + '/' + value['#'] + '.md'))
-            generateFiles(f, value, level + 2, diff)
+            f.write(' ' * level + generate_link(key + '/', diff + '/' + value['#'] + '.md'))
+            generate_files(f, value, level + 2, diff)
         else:
-            f.write(' ' * level + generateLink(key, diff + '/' + value + '.md'))
-            f.write(' ' * level + generateLink(key + ' - source', diff + '/' + value + '_source.md'))
+            f.write(' ' * level + generate_link(key, diff + '/' + value + '.md'))
+            f.write(' ' * level + generate_link(key + ' - source', diff + '/' + value + '_source.md'))
 
-def generateSummary(outputDir: str, summaryFile: str, root: Node, modules: list, pages: list, files: dict):
-    print('Modifying', summaryFile)
-    summaryDir = os.path.dirname(os.path.abspath(summaryFile))
-    outputDir = os.path.abspath(outputDir)
-    diff = outputDir[len(summaryDir)+1:].replace('\\', '/')
+def generate_summary(output_path: str, summary_file: str, root: Node, modules: list, pages: list, files: dict):
+    print('Modifying', summary_file)
+    summaryDir = os.path.dirname(os.path.abspath(summary_file))
+    output_path = os.path.abspath(output_path)
+    diff = output_path[len(summaryDir)+1:].replace('\\', '/')
     link = diff + '/index.md'
 
     content = []
-    with open(summaryFile, 'r') as f:
+    with open(summary_file, 'r') as f:
         content = f.readlines()
 
     start = None
@@ -53,25 +54,28 @@ def generateSummary(outputDir: str, summaryFile: str, root: Node, modules: list,
     if end is None:
         end = len(content)
 
-    with open(summaryFile, 'w+') as f:
+    with open(summary_file, 'w+') as f:
         # Write first part of the file
         for i in range(0, start+1):
             f.write(content[i])
 
         if pages:
-            f.write(' ' * (offset+2) + generateLink('Related Pages', diff + '/' + 'pages.md'))
+            f.write(' ' * (offset+2) + generate_link('Related Pages', diff + '/' + 'pages.md'))
             for key,value in pages.items():
-                f.write(' ' * (offset+4) + generateLink(value, diff + '/' + key + '.md'))
+                f.write(' ' * (offset+4) + generate_link(value, diff + '/' + key + '.md'))
         if modules:
-            f.write(' ' * (offset+2) + generateLink('Modules', diff + '/' + 'modules.md'))
+            f.write(' ' * (offset+2) + generate_link('Modules', diff + '/' + 'modules.md'))
             for key,value in modules.items():
-                f.write(' ' * (offset+4) + generateLink(value, diff + '/' + key + '.md'))
-        f.write(' ' * (offset+2) + generateLink('Class Index', diff + '/' + 'classes.md'))
-        f.write(' ' * (offset+2) + generateLink('Class List', diff + '/' + 'annotated.md'))
-        generateRecursive(f, root, offset + 4, diff)
+                f.write(' ' * (offset+4) + generate_link(value, diff + '/' + key + '.md'))
+        f.write(' ' * (offset+2) + generate_link('Class Index', diff + '/' + 'classes.md'))
+        f.write(' ' * (offset+2) + generate_link('Function Index', diff + '/' + 'functions.md'))
+        f.write(' ' * (offset+2) + generate_link('Variable Index', diff + '/' + 'variables.md'))
+        f.write(' ' * (offset+2) + generate_link('Enumeration Index', diff + '/' + 'enumerations.md'))
+        f.write(' ' * (offset+2) + generate_link('Class List', diff + '/' + 'annotated.md'))
+        generate_recursive(f, root, offset + 4, diff)
         if files:
-            f.write(' ' * (offset+2) + generateLink('Files', diff + '/' + 'files.md'))
-            generateFiles(f, files, offset + 4, diff)
+            f.write(' ' * (offset+2) + generate_link('Files', diff + '/' + 'files.md'))
+            generate_files(f, files, offset + 4, diff)
         
         # Write second part of the file
         for i in range(end, len(content)):

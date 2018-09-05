@@ -2,34 +2,35 @@ import os
 import xml.etree.ElementTree
 
 from doxybook.node import Node
-from doxybook.kind import Kind, isKindLanguage
+from doxybook.kind import Kind
 from doxybook.utils import tokenize
 from doxybook.cache import Cache
+from doxybook.config import config
 
-def parseRoot(root: xml.etree.ElementTree):
+def parse_root(root: xml.etree.ElementTree):
     parent = Node('root', 'root', Kind.ROOT)
     for compound in root.iter('compound'):
         child = Node(compound.find('name').text, compound.get('refid'), Kind(compound.get('kind')))
-        parent.addMember(child)
+        parent.add_member(child)
         for member in compound.findall('member'):
             subchild = Node(member.find('name').text, member.get('refid'), Kind(member.get('kind')))
-            child.addMember(subchild)
+            child.add_member(subchild)
     return parent
 
-def reparseChildren(child: Node, root: Node, output: Node):
+def reparse_children(child: Node, root: Node, output: Node):
     tokens = tokenize(child.name, '::')
     if len(tokens) < 1:
         return
     
     i = 0
     while i < len(tokens):
-        outFound = output.findMember(tokens[i])
-        if outFound == None:
-            addedNode = Node(tokens[i], None, Kind('variable'))
-            output.addMember(addedNode)
-            output = addedNode
+        out_found = output.find_member(tokens[i])
+        if out_found == None:
+            added_node = Node(tokens[i], None, Kind('variable'))
+            output.add_member(added_node)
+            output = added_node
         else:
-            output = outFound
+            output = out_found
 
         i += 1
 
@@ -37,24 +38,44 @@ def reparseChildren(child: Node, root: Node, output: Node):
     output.refid = child.refid
     return output
 
-def reparseRoot(rootNode: Node, newRoot: Node):
-    while len(rootNode.members) > 0:
-        child = rootNode.members[0]
-        if isKindLanguage(child.kind):
-            newChild = reparseChildren(child, rootNode, newRoot)
-            lastEnum = None
+def reparse_root(root_node: Node, new_root: Node):
+    while len(root_node.members) > 0:
+        child = root_node.members[0]
+        if child.kind.is_language():
+            new_child = reparse_children(child, root_node, new_root)
+            last_enum = None
             for subchild in child.members:
                 if subchild.kind == Kind.ENUMVALUE:
-                    lastEnum.addMember(subchild)
+                    last_enum.add_member(subchild)
                     continue
                 else:
-                    newChild.addMember(subchild)
+                    new_child.add_member(subchild)
 
                 if subchild.kind == Kind.ENUM:
-                    lastEnum = subchild
+                    last_enum = subchild
         else:
-            newRoot.addMember(child)
-        rootNode.members.pop(0)
+            new_root.add_member(child)
+        root_node.members.pop(0)
+
+def check_for_overloads(child: Node):
+    if child.kind.is_parent() or child.kind == Kind.ROOT:
+        overload_num = {}
+        name_dict = {}
+        for subchild in child.members:
+            if subchild.name not in name_dict:
+                name_dict[subchild.name] = 0
+                overload_num[subchild.name] = 1
+            name_dict[subchild.name] += 1
+        
+        for subchild in child.members:
+            if name_dict[subchild.name] > 1:
+                subchild.overloaded = True
+                subchild.overload_num = overload_num[subchild.name]
+                subchild.overload_total = name_dict[subchild.name]
+                overload_num[subchild.name] += 1
+
+        for subchild in child.members:
+            check_for_overloads(subchild)
 
 def finalize(cache: Cache, node: Node):
     node.finalize()
@@ -63,22 +84,26 @@ def finalize(cache: Cache, node: Node):
     for child in node.members:
         finalize(cache, child)
 
-def debugNode(node: Node, indent: str = ''):
-    print(indent, 'Node name:', node.name, 'refid:', node.refid)
+def debug_node(node: Node, indent: str = ''):
+    if node.overloaded:
+        print(indent, 'Node name:', node.name, '(' + str(node.overload_num) + '/' + str(node.overload_total) + ')', 'refid:', node.refid)
+    else:
+        print(indent, 'Node name:', node.name, 'refid:', node.refid)
     for member in node.members:
-        debugNode(member, indent + '  |-')
+        debug_node(member, indent + '  |-')
 
-def loadRoot(cache: Cache, dirPath: str, debug: bool) -> Node:
-    print("XML index from: " + dirPath)
-    e = xml.etree.ElementTree.parse(os.path.join(dirPath, 'index.xml')).getroot()
+def load_root(cache: Cache, path: str) -> Node:
+    print("XML index from: " + path)
+    e = xml.etree.ElementTree.parse(os.path.join(path, 'index.xml')).getroot()
     
-    outNode = Node('root', 'root', Kind.ROOT)
+    out_node = Node('Global', 'root', Kind.ROOT)
     
-    rootNode = parseRoot(e)
-    reparseRoot(rootNode, outNode)
-    finalize(cache, outNode)
+    root_node = parse_root(e)
+    reparse_root(root_node, out_node)
+    check_for_overloads(out_node)
+    finalize(cache, out_node)
     
-    if debug:
-        debugNode(outNode)
-    return outNode
+    if config.debug:
+        debug_node(out_node)
+    return out_node
     

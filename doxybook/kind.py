@@ -20,29 +20,29 @@ class Kind(Enum):
     GROUP = 'group'
     INTERFACE = 'interface'
 
-LANGUAGE = [
-    Kind.ROOT,
-    Kind.FUNCTION,
-    Kind.VARIABLE,
-    Kind.NAMESPACE,
-    Kind.DEFINE,
-    Kind.CLASS,
-    Kind.STRUCT,
-    Kind.TYPEDEF,
-    Kind.ENUM,
-    Kind.ENUMVALUE,
-    Kind.FILE,
-    Kind.UNION,
-    Kind.INTERFACE
-]
+    def is_language(self) -> bool:
+        LANGUAGE = [
+            Kind.ROOT,
+            Kind.FUNCTION,
+            Kind.VARIABLE,
+            Kind.NAMESPACE,
+            Kind.DEFINE,
+            Kind.CLASS,
+            Kind.STRUCT,
+            Kind.TYPEDEF,
+            Kind.ENUM,
+            Kind.ENUMVALUE,
+            Kind.FILE,
+            Kind.UNION,
+            Kind.INTERFACE
+        ]
 
-def isKindLanguage(kind: Kind) -> bool:
-    if kind in LANGUAGE:
-        return True
-    return False
+        if self in LANGUAGE:
+            return True
+        return False
 
-def isKindParent(kind: Kind) -> bool:
-    return kind == Kind.NAMESPACE or kind == Kind.CLASS or kind == Kind.STRUCT or kind == Kind.UNION or kind == Kind.INTERFACE
+    def is_parent(self) -> bool:
+        return self == Kind.NAMESPACE or self == Kind.CLASS or self == Kind.STRUCT or self == Kind.UNION or self == Kind.INTERFACE
 
-def isKindMember(kind: Kind) -> bool:
-    return isKindLanguage(kind) and not isKindParent(kind)
+    def is_member(self) -> bool:
+        return self.is_language() and not self.is_parent()

@@ -1,8 +1,10 @@
 from typing import List
 import xml.etree.ElementTree
 
-from doxybook.markdown import MdParagraph, MdTable, MdCode, MdTableRow, MdCodeBlock, MdTableCell, MdHeader, MdImage, MdList, MdBlockQuote, MdLink, MdBold, MdItalic, Text, Br
+from doxybook.markdown import MdParagraph, MdTable, MdCode, MdTableRow, MdCodeBlock, MdTableCell, MdHeader, MdImage, MdList, MdBlockQuote, MdLink, MdBold, MdItalic, MdHint, Text, Br
 from doxybook.cache import Cache
+from doxybook.config import config
+from doxybook.utils import lookahead
 
 SIMPLE_SECTIONS = {
     'see': 'See also:',
@@ -28,7 +30,13 @@ SIMPLE_SECTIONS = {
     'date': 'Date:'
 }
 
-def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
+SIMPLE_SECTIONS_HINTS_VUEPRESS = {
+    'note': 'tip',
+    'bug': 'danger',
+    'warning': 'warning'
+}
+
+def convert_xml_para(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
     ret = []
     if p is None:
         return ret
@@ -37,7 +45,7 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
     for item in p.getchildren():
         # para
         if item.tag == 'para':
-            ret.append(MdParagraph(convertXmlPara(item, cache)))
+            ret.append(MdParagraph(convert_xml_para(item, cache)))
             ret.append(Text('\n'))
 
         # image
@@ -51,15 +59,15 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
 
         # programlisting
         elif item.tag == 'programlisting':
-            gotLang = False
+            got_lang = False
             code = MdCodeBlock([])
             for codeline in item.findall('codeline'):
                 line = ''
                 for highlight in codeline.findall('highlight'):
-                    if not gotLang and len(highlight.getchildren()) == 0 and highlight.text is not None and highlight.text.startswith('{') and highlight.text.endswith('}'):
+                    if not got_lang and len(highlight.getchildren()) == 0 and highlight.text is not None and highlight.text.startswith('{') and highlight.text.endswith('}'):
                         lang = highlight.text[1:-1]
-                        code.setLang(lang)
-                        gotLang = True
+                        code.set_lang(lang)
+                        got_lang = True
                         continue
                     else:
                         if highlight.text is not None:
@@ -82,7 +90,7 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
                 r = MdTableRow([])
                 for cell in row.findall('entry'):
                     for para in cell.findall('para'):
-                        r.append(MdTableCell(convertXmlPara(para, cache)))
+                        r.append(MdTableCell(convert_xml_para(para, cache)))
                 t.append(r)
             ret.append(t)
 
@@ -90,12 +98,12 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
         elif item.tag == 'blockquote':
             b = MdBlockQuote([])
             for para in item.findall('para'):
-                b.extend(convertXmlPara(para, cache))
+                b.extend(convert_xml_para(para, cache))
             ret.append(b)
 
         # heading
         elif item.tag == 'heading':
-            ret.append(MdHeader(int(item.get('level')), convertXmlPara(item, cache)))
+            ret.append(MdHeader(int(item.get('level')), convert_xml_para(item, cache)))
 
         # orderedlist
         elif item.tag == 'orderedlist' or item.tag == 'itemizedlist':
@@ -103,7 +111,7 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
             for listitem in item.findall('listitem'):
                 i = MdParagraph([])
                 for para in listitem.findall('para'):
-                    i.extend(convertXmlPara(para, cache))
+                    i.extend(convert_xml_para(para, cache))
                 lst.append(i)
             ret.append(lst)
 
@@ -115,7 +123,7 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
                 if item.text:
                     ret.append(MdBold([MdLink([Text(item.text)], ref.url)]))
                 else:
-                    ret.append(MdBold([MdLink([Text(ref.getFullName())], ref.url)]))
+                    ret.append(MdBold([MdLink([Text(ref.get_full_name())], ref.url)]))
             except:
                 pass
 
@@ -123,24 +131,24 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
         elif item.tag == 'sect1':
             title = item.find('title').text
             ret.append(MdHeader(2, [Text(title)]))
-            ret.extend(convertXmlPara(item, cache))
+            ret.extend(convert_xml_para(item, cache))
 
         # sect2:
         elif item.tag == 'sect2':
             title = item.find('title').text
             ret.append(MdHeader(3, [Text(title)]))
-            ret.extend(convertXmlPara(item, cache))
+            ret.extend(convert_xml_para(item, cache))
 
         # variablelist
         elif item.tag == 'variablelist':
             varlistentry = item.find('varlistentry')
             
-            ret.append(MdHeader(4, convertXmlPara(varlistentry.find('term'), cache)))
+            ret.append(MdHeader(4, convert_xml_para(varlistentry.find('term'), cache)))
 
             term = varlistentry.find('term')
             for listitem in item.findall('listitem'):
                 for para in listitem.findall('para'):
-                    ret.append(MdParagraph(convertXmlPara(para, cache)))
+                    ret.append(MdParagraph(convert_xml_para(para, cache)))
 
         # parameterlist
         elif item.tag == 'parameterlist':
@@ -150,10 +158,10 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
                 name = parameteritem.find('parameternamelist').find('parametername')
                 description = parameteritem.find('parameterdescription').findall('para')
                 par = MdParagraph([])
-                par.append(MdItalic(convertXmlPara(name, cache)))
+                par.append(MdBold(convert_xml_para(name, cache)))
                 par.append(Text(' '))
                 for ip in description:
-                    par.extend(convertXmlPara(ip, cache))
+                    par.extend(convert_xml_para(ip, cache))
                 lst.append(par)
             ret.append(Br())
             ret.append(MdBold([Text(SIMPLE_SECTIONS[item.get('kind')])]))
@@ -162,43 +170,69 @@ def convertXmlPara(p: xml.etree.ElementTree.Element, cache: Cache) -> list:
 
         # simplesect
         elif item.tag == 'simplesect':
-            ret.append(Br())
-            ret.append(MdBold([Text(SIMPLE_SECTIONS[item.get('kind')])]))
-            ret.append(Br())
-            for sp in item.findall('para'):
-                ret.extend(convertXmlPara(sp, cache))
+            kind = item.get('kind')
+            if config.target == 'vuepress' and kind in SIMPLE_SECTIONS_HINTS_VUEPRESS:
                 ret.append(Br())
+                children = []
+                for sp in item.findall('para'):
+                    children.extend(convert_xml_para(sp, cache))
+                    children.append(Br())
+                ret.append(MdHint(children, SIMPLE_SECTIONS_HINTS_VUEPRESS[kind], SIMPLE_SECTIONS[kind]))
+
+            else:
+                ret.append(Br())
+                ret.append(MdBold([Text(SIMPLE_SECTIONS[kind])]))
+                if kind != 'see':
+                    ret.append(Br())
+                else:
+                    ret.append(Text(' '))
+
+                for sp, has_more in lookahead(item.findall('para')):
+                    ret.extend(convert_xml_para(sp, cache))
+                    if kind == 'see':
+                        if has_more:
+                            ret.append(Text(', '))
+                    else:
+                        ret.append(Br())
 
         # xrefsect
         elif item.tag == 'xrefsect':
             xreftitle = item.find('xreftitle')
             xrefdescription = item.find('xrefdescription')
-            ret.append(Br())
-            ret.append(MdBold(convertXmlPara(xreftitle, cache)))
-            ret.append(Br())
-            for sp in xrefdescription.findall('para'):
-                ret.extend(convertXmlPara(sp, cache))
+            kind = xreftitle.text.lower()
+            if config.target == 'vuepress' and kind in SIMPLE_SECTIONS_HINTS_VUEPRESS:
+                children = []
+                for sp in xrefdescription.findall('para'):
+                    children.extend(convert_xml_para(sp, cache))
+                    children.append(Br())
+                ret.append(MdHint(children, SIMPLE_SECTIONS_HINTS_VUEPRESS[kind], SIMPLE_SECTIONS[kind]))
+            else:
                 ret.append(Br())
+                ret.append(MdBold(convert_xml_para(xreftitle, cache)))
+                ret.append(Br())
+                for sp in xrefdescription.findall('para'):
+                    ret.extend(convert_xml_para(sp, cache))
+                    ret.append(Br())
 
         # Hard link
         elif item.tag == 'ulink':
-            ret.append(MdLink(convertXmlPara(item, cache), item.get('url')))
+            ret.append(MdLink(convert_xml_para(item, cache), item.get('url')))
 
         # Bold
         elif item.tag == 'bold':
-            ret.append(MdBold(convertXmlPara(item, cache)))
+            ret.append(MdBold(convert_xml_para(item, cache)))
 
         # Emphasis
         elif item.tag == 'emphasis':
-            ret.append(MdItalic(convertXmlPara(item, cache)))
+            ret.append(MdItalic(convert_xml_para(item, cache)))
 
         # End of the item text
         if item.tail:
             ret.append(Text(item.tail))
     return ret
 
-def generateParagraph(paras: List[xml.etree.ElementTree.Element], cache: Cache) -> List[MdParagraph]:
+def generate_paragraph(paras: List[xml.etree.ElementTree.Element], cache: Cache) -> List[MdParagraph]:
     ret = []
     for para in paras:
-        ret.append(MdParagraph(convertXmlPara(para, cache)))
+        ret.append(MdParagraph(convert_xml_para(para, cache)))
     return ret

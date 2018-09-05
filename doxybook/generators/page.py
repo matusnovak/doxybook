@@ -7,18 +7,19 @@ from doxybook.markdown import Md, MdDocument, MdCode, MdCodeBlock, MdBold, MdIta
 from doxybook.node import Node
 from doxybook.kind import Kind
 from doxybook.cache import Cache
-from doxybook.generators.paragraph import generateParagraph, convertXmlPara
+from doxybook.config import config
+from doxybook.generators.paragraph import generate_paragraph, convert_xml_para
 
-def generatePage(indexDir: str, outputDir: str, refid: str, cache: Cache):
-    outputFile = os.path.join(outputDir, refid + '.md')
-    print('Generating ' + outputFile)
+def generate_page(index_path: str, output_path: str, refid: str, cache: Cache):
+    output_file = os.path.join(output_path, refid + '.md')
+    print('Generating ' + output_file)
     document = MdDocument()
 
     # Load XML
-    xmlRoot = xml.etree.ElementTree.parse(os.path.join(indexDir, refid + '.xml')).getroot()
-    if xmlRoot is None:
+    xml_root = xml.etree.ElementTree.parse(os.path.join(index_path, refid + '.xml')).getroot()
+    if xml_root is None:
         IndexError('Root xml not found!')
-    compounddef = xmlRoot.find('compounddef')
+    compounddef = xml_root.find('compounddef')
     if compounddef is None:
         IndexError('compounddef not found in xml!')
 
@@ -27,10 +28,12 @@ def generatePage(indexDir: str, outputDir: str, refid: str, cache: Cache):
     # Add title
     document.append(MdHeader(1, [Text(title)]))
 
-    document.append(MdParagraph(convertXmlPara(compounddef.find('detaileddescription'), cache)))
+    document.append(MdParagraph(convert_xml_para(compounddef.find('detaileddescription'), cache)))
+
+    document.set_title(title)
     
     # Save
-    with open(outputFile, 'w+') as f:
+    with open(output_file, 'w+') as f:
         document.render(MdRenderer(f))
 
     return title

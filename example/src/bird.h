@@ -18,7 +18,13 @@ namespace example {
 
         void move() override;
         void make_sound() override;
+        /*!
+         * @brief Deleted copy operator
+         */
         Bird& operator = (const Bird& other) = delete;
+        /*!
+         * @brief Move operator
+         */
         Bird& operator = (Bird&& other) noexcept;
     };
 }

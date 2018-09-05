@@ -51,7 +51,9 @@ namespace example {
         };
 
         typedef std::pair<Animal*, Animal*> Parents;
-
+        /*!
+         * @brief Some random inner class of Animal
+         */
         struct Result {
             const Type type = Type::NONE;
             const std::string name;
@@ -74,23 +76,29 @@ namespace example {
         Animal(Animal&& animal) noexcept;
         virtual ~Animal() = default;
 
+        /*!
+         * @brief Returns true if this is an valid animal
+         * @details Lorem Ipsum returns true
+         */
+        operator bool() const;
+
         void swap(Animal& other) noexcept;
 
         /*!
          * @brief Returns the number of limbs
-         * @see get_num_of_eyes
+         * @see get_num_of_eyes, get_num_of_limbs
          */
         int get_num_of_limbs() const override;
 
         /*!
          * @brief Returns the number of eyes
-         * @see get_num_of_limbs
+         * @see get_num_of_limbs, get_num_of_eyes
          */
         int get_num_of_eyes() const override;
 
         /*!
          * @brief Returns true if the animal has a tail
-         * @see get_num_of_limbs
+         * @see get_num_of_limbs, get_num_of_eyes
          * @retval true Does have a tail
          * @retval false Does not have a tail
          */
@@ -110,8 +118,13 @@ namespace example {
         inline const std::string& get_name() const {
             return name;
         }
-
+        /*!
+         * @brief Deleted copy operator
+         */
         Animal& operator = (const Animal& other) = delete;
+        /*!
+         * @brief Move operator
+         */
         Animal& operator = (Animal&& other) noexcept;
 
         friend void some_global_function(Animal* animal);

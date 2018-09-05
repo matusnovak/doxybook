@@ -7,11 +7,12 @@ from doxybook.markdown import Md, MdDocument, MdCode, MdCodeBlock, MdBold, MdIta
 from doxybook.node import Node
 from doxybook.kind import Kind
 from doxybook.cache import Cache
-from doxybook.generators.paragraph import generateParagraph, convertXmlPara
+from doxybook.config import config
+from doxybook.generators.paragraph import generate_paragraph, convert_xml_para
 
-def generatePages(indexDir: str, outputDir: str, node: Node, cache: Cache) -> dict:
-    outputFile = os.path.join(outputDir, 'pages.md')
-    print('Generating ' + outputFile)
+def generate_pages(index_path: str, output_path: str, node: Node, cache: Cache) -> dict:
+    output_file = os.path.join(output_path, 'pages.md')
+    print('Generating ' + output_file)
     document = MdDocument()
 
     # Add title
@@ -26,14 +27,14 @@ def generatePages(indexDir: str, outputDir: str, node: Node, cache: Cache) -> di
     # List through all groups
     for child in node.members:
         if child.kind == Kind.PAGE:
-            path = os.path.join(indexDir, child.refid + '.xml')
-            xmlRoot = xml.etree.ElementTree.parse(path).getroot()
-            compounddef = xmlRoot.find('compounddef')
+            path = os.path.join(index_path, child.refid + '.xml')
+            xml_root = xml.etree.ElementTree.parse(path).getroot()
+            compounddef = xml_root.find('compounddef')
             if compounddef is not None:
                 briefdescription = compounddef.find('briefdescription')
-                briefdescriptionParas = []
+                briefdescription_paras = []
                 if briefdescription is not None:
-                    briefdescriptionParas = compounddef.find('briefdescription').findall('para')
+                    briefdescription_paras = compounddef.find('briefdescription').findall('para')
                 p = MdParagraph([])
 
                 name = compounddef.find('title').text
@@ -43,14 +44,16 @@ def generatePages(indexDir: str, outputDir: str, node: Node, cache: Cache) -> di
                 modules[refid] = name
 
                 p.append(Text(' '))
-                for para in briefdescriptionParas:
-                    p.extend(convertXmlPara(para, cache))
+                for para in briefdescription_paras:
+                    p.extend(convert_xml_para(para, cache))
                 lst.append(p)
 
     document.append(lst)
 
+    document.set_title('Related Pages')
+
     # Save
-    with open(outputFile, 'w') as f:
+    with open(output_file, 'w') as f:
         document.render(MdRenderer(f))
 
     return modules
