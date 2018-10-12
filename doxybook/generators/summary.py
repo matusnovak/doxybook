@@ -43,13 +43,19 @@ def generate_summary(output_path: str, summary_file: str, root: Node, modules: l
     for i in range(0, len(content)):
         line = content[i]
         if start is None and re.search(re.escape(link), line):
-            offset = re.search('\\* \\[', line).start()
-            start = i
+            m = re.search('\\* \\[', line)
+            if m is not None:
+                start = m.start()
+                start = i
             continue
         
         if start is not None and end is None:
             if not line.startswith(' ' * (offset + 2)):
                 end = i
+
+    if start is None:
+        print('WARNING: Could not generate summary! Unable to find \"* [...](' + link + ')\" in SUMMARY.md')
+        return
 
     if end is None:
         end = len(content)
