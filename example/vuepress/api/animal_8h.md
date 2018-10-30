@@ -20,7 +20,7 @@ meta:
 
 |Type|Name|
 |-----|-----|
-|void|[**some\_global\_function**](animal_8h.md#function-some-global-function) (**[example::Animal](classexample_1_1_animal.md)** \* animal) <br>Some random global function that modifies Animal. |
+|void|[**some\_global\_function**](group__animals.md#function-some-global-function) (**[example::Animal](classexample_1_1_animal.md)** \* animal) <br>Some random global function that modifies Animal. |
 
 
 ## Functions Documentation

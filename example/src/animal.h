@@ -4,7 +4,7 @@
 #include "animal_interface.h"
 
 /*!
- * @defgroup animals
+ * @defgroup animals An animal group example
  * @brief This is a brief description to the animals group
  * @details Some detailed description here
  */
@@ -152,6 +152,7 @@ namespace example {
 }
 
 /*!
+ * @ingroup animals
  * @brief Some random global function that modifies Animal
  * @see Animal
  * @param animal The pointer to the animal instance

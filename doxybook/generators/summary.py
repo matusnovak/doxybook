@@ -38,7 +38,7 @@ def generate_summary(output_path: str, summary_file: str, root: Node, modules: l
         content = f.readlines()
 
     start = None
-    offset = None
+    offset = 0
     end = None
     for i in range(0, len(content)):
         line = content[i]
