@@ -190,7 +190,8 @@ class MdList(Md):
     def render(self, f: MdRenderer, indent: str):
         f.eol()
         for child in self.children:
-            f.write(indent + '* ')
+            if not isinstance(child, MdList):
+                f.write(indent + '* ')
             child.render(f, indent + '  ')
 
 class MdLine:

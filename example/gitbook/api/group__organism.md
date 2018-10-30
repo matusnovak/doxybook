@@ -1,11 +1,16 @@
 ---
 search:
-    keywords: ['animals', 'example::Animal', 'example::Bird', 'example::SpecialBird', 'example::AnimalInterface', 'some_global_function']
+    keywords: ['organism', 'example::Animal', 'example::Bird', 'example::SpecialBird', 'example::AnimalInterface', 'some_global_function']
 ---
 
-# group animals
+# group organism
 
-This is a brief description to the animals group. [More...](#detailed-description)
+This is a brief description to the organism group. [More...](#detailed-description)
+## Modules
+
+* [**An animal group example**](group__animals.md) This is a brief description to the animals group. 
+
+
 ## Classes
 
 |Type|Name|
@@ -32,7 +37,7 @@ Some detailed description here
 ### function <a id="gad4969d516ff95884b14e25cce5c8b507" href="#gad4969d516ff95884b14e25cce5c8b507">some\_global\_function</a>
 
 ```cpp
-void animals::some_global_function (
+void organism::some_global_function (
     example::Animal * animal
 )
 ```

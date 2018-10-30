@@ -9,6 +9,18 @@
  * @details Some detailed description here
  */
 
+/*!
+ * @defgroup organism Some organism example
+ * @brief This is a brief description to the organism group
+ * @details Some detailed description here
+ */
+
+/*!
+ * @brief Some random brief description
+ * @addtogroup animals
+ * @ingroup organism
+ */
+
 namespace example {
     /*!
      * @ingroup animals

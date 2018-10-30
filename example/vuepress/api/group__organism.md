@@ -1,13 +1,18 @@
 ---
-title: group animals
+title: group organism
 meta:
   - name: keywords
-    content: animals example::Animal example::Bird example::SpecialBird example::AnimalInterface some_global_function
+    content: organism example::Animal example::Bird example::SpecialBird example::AnimalInterface some_global_function
 ---
 
-# group animals
+# group organism
 
-This is a brief description to the animals group. [More...](#detailed-description)
+This is a brief description to the organism group. [More...](#detailed-description)
+## Modules
+
+* [**An animal group example**](group__animals.md) This is a brief description to the animals group. 
+
+
 ## Classes
 
 |Type|Name|
@@ -34,7 +39,7 @@ Some detailed description here
 ### function some\_global\_function
 
 ```cpp
-void animals::some_global_function (
+void organism::some_global_function (
     example::Animal * animal
 )
 ```

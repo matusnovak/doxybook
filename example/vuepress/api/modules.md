@@ -2,10 +2,11 @@
 title: Modules
 meta:
   - name: keywords
-    content: animals
+    content: organism animals
 ---
 
 # Modules
 
 Here is a list of all modules:
-* **[animals](group__animals.md)** This is a brief description to the animals group. 
+* **[organism](group__organism.md)** This is a brief description to the organism group. 
+  * **[animals](group__animals.md)** This is a brief description to the animals group. 

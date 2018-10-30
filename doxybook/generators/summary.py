@@ -15,6 +15,12 @@ def generate_recursive(f: TextIO, node: Node, level: int, diff: str):
             f.write(' ' * level + generate_link(child.kind.value + ' ' + child.name, diff + '/' + child.refid + '.md'))
             generate_recursive(f, child, level + 2, diff)
 
+def generate_recursive_modules(f: TextIO, modules: dict, level: int, diff: str):
+    for key,value in modules.items():
+        f.write(' ' * level + generate_link(value['name'], diff + '/' + key + '.md'))
+        if 'innergroups' in value:
+            generate_recursive_modules(f, value['innergroups'], level + 2, diff)
+
 def generate_files(f: TextIO, files: dict, level: int, diff: str):
     for key,value in files.items():
         if key == '#':
@@ -71,8 +77,9 @@ def generate_summary(output_path: str, summary_file: str, root: Node, modules: l
                 f.write(' ' * (offset+4) + generate_link(value, diff + '/' + key + '.md'))
         if modules:
             f.write(' ' * (offset+2) + generate_link('Modules', diff + '/' + 'modules.md'))
-            for key,value in modules.items():
-                f.write(' ' * (offset+4) + generate_link(value, diff + '/' + key + '.md'))
+            generate_recursive_modules(f, modules, offset + 4, diff)
+            #for key,value in modules.items():
+            #    f.write(' ' * (offset+4) + generate_link(value, diff + '/' + key + '.md'))
         f.write(' ' * (offset+2) + generate_link('Class Index', diff + '/' + 'classes.md'))
         f.write(' ' * (offset+2) + generate_link('Function Index', diff + '/' + 'functions.md'))
         f.write(' ' * (offset+2) + generate_link('Variable Index', diff + '/' + 'variables.md'))

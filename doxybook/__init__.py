@@ -24,6 +24,12 @@ from doxybook.generators import (
 )
 from doxybook.config import config
 
+def write_groups(index_path: str, output_path: str, node: Node, cache: Cache):
+    for member in node.members:
+        if member.kind == Kind.GROUP:
+            generate_member(index_path, output_path, member.refid, cache)
+            write_groups(index_path, output_path, member, cache)
+
 def write_members(index_path: str, output_path: str, node: Node, cache: Cache):
     for member in node.members:
         if member.kind == Kind.STRUCT or member.kind == Kind.NAMESPACE or member.kind == Kind.CLASS or member.kind == Kind.INTERFACE:
@@ -108,9 +114,7 @@ def main():
     modules = generate_modules(args.input, args.output, root, cache)
 
     # Write all grouos out
-    for child in root.members:
-        if child.kind == Kind.GROUP:
-            generate_member(args.input, args.output, child.refid, cache)
+    write_groups(args.input, args.output, root, cache)
 
     # Generate pages page
     pages = generate_pages(args.input, args.output, root, cache)

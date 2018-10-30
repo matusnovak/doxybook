@@ -363,6 +363,30 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
     inheritance_compounddefs:List[xml.etree.ElementTree.Element] = []
     find_inherited_classes_recursively(inheritance_compounddefs, index_path, inheritance_refids)
 
+    # Add inner groups
+    innergroups = compounddef.findall('innergroup')
+    if len(innergroups) > 0:
+        document.append(MdHeader(2, [Text('Modules')]))
+
+        lst = MdList([])
+
+        for innergroup in innergroups:
+            refid = innergroup.get('refid')
+            innergroup_root = xml.etree.ElementTree.parse(os.path.join(index_path, refid + '.xml')).getroot()
+            compounddef = innergroup_root.find('compounddef')
+            name = compounddef.find('title').text
+
+            briefdescription_paras = compounddef.find('briefdescription').findall('para')
+
+            link = MdLink([MdBold([Text(name)])], refid + '.md')
+            link_with_brief = MdParagraph([link, Text(' ')])
+            link_with_brief.extend(generate_paragraph(briefdescription_paras, cache))
+            
+            lst.append(link_with_brief)
+
+        document.append(lst)
+        document.append(Br())
+
     # Add inner classes
     innerclasses = compounddef.findall('innerclass')
     if len(innerclasses) > 0:

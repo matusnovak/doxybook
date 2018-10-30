@@ -1,5 +1,6 @@
 import os
 import xml.etree.ElementTree
+from itertools import filterfalse
 
 from doxybook.node import Node
 from doxybook.kind import Kind
@@ -77,6 +78,29 @@ def check_for_overloads(child: Node):
         for subchild in child.members:
             check_for_overloads(subchild)
 
+def check_innergroups(path: str, root: Node, group: Node):
+    remov_from_root = []
+    e = xml.etree.ElementTree.parse(os.path.join(path, group.refid + '.xml')).getroot()
+    compounddef = e.find('compounddef')
+    for innergroup in compounddef.findall('innergroup'):
+        innergroup_refid = innergroup.get('refid')
+        found: Node = None
+        for mem in root.members:
+            if mem.kind == Kind.GROUP and mem.refid == innergroup_refid:
+                found = mem
+                break
+        group.add_member(found)
+        remov_from_root.append(found)
+    return remov_from_root
+
+def parse_groups(path: str, root: Node):
+    remov_from_root = []
+    for child in root.members:
+        if child.kind == Kind.GROUP:
+            remov_from_root.extend(check_innergroups(path, root, child))
+    
+    root.members[:] = filterfalse(lambda x: x in remov_from_root, root.members)
+
 def finalize(cache: Cache, node: Node):
     node.finalize()
     cache.add(node.refid, node)
@@ -88,7 +112,7 @@ def debug_node(node: Node, indent: str = ''):
     if node.overloaded:
         print(indent, 'Node name:', node.name, '(' + str(node.overload_num) + '/' + str(node.overload_total) + ')', 'refid:', node.refid)
     else:
-        print(indent, 'Node name:', node.name, 'refid:', node.refid)
+        print(indent, 'Node name:', node.name, 'refid:', node.refid, 'kind:', node.kind.value)
     for member in node.members:
         debug_node(member, indent + '  |-')
 
@@ -100,6 +124,7 @@ def load_root(cache: Cache, path: str) -> Node:
     
     root_node = parse_root(e)
     reparse_root(root_node, out_node)
+    parse_groups(path, out_node)
     check_for_overloads(out_node)
     finalize(cache, out_node)
     
