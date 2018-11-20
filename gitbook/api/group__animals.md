@@ -25,6 +25,7 @@ This is a brief description to the animals group. [More...](#detailed-descriptio
 
 ## Detailed Description
 
+Some random brief description.
 Some detailed description here 
 ## Functions Documentation
 
