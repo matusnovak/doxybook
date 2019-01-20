@@ -10,9 +10,10 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='doxybook',
-    version='2.1.3',
+    version='2.1.4',
     description='Convert Doxygen XML to GitBook or Vuepress markdown files',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/matusnovak/doxybook',
     author='Matus Novak',
     author_email='matusnov@gmail.com',

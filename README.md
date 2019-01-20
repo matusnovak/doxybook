@@ -14,6 +14,10 @@ You need to have **python 3.6 or newer**. No additional python packages necessar
 
 ## Installation
 
+**Install using Python Pip: <https://pypi.org/project/doxybook/>**
+
+**Or Install manually:**
+
 ```
 git clone https://github.com/matusnovak/doxybook.git
 cd doxybook
