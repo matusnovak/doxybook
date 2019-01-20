@@ -108,3 +108,4 @@ build/
 dist/
 example/temp
 *-old
+.vscode

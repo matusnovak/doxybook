@@ -150,7 +150,7 @@ def make_function_code(compoundname: str, memberdef: xml.etree.ElementTree.Eleme
     code = []
     params = memberdef.findall('param')
     argsstring = memberdef.find('argsstring').text
-    typ = get_text_only(memberdef.find('type'))
+    typ = ''.join(memberdef.find('type').itertext())
     if len(typ) > 0:
         typ += ' '
 
@@ -477,7 +477,7 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
         for sec in inherited_sectiondefs:
             section_kind = sec.get('kind')
             
-            if section_kind.startswith('private'):
+            if not section_kind or section_kind.startswith('private') or section_kind not in SECTION_DEFS:
                 continue
 
             if refid in skip_sections:
@@ -501,7 +501,7 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
                 for sec in inherited_sectiondefs:
                     section_kind = sec.get('kind')
 
-                    if section_kind.startswith('private'):
+                    if not section_kind or section_kind.startswith('private') or section_kind not in SECTION_DEFS:
                         continue
 
                     if section_kind in missing_sections[refid]:
