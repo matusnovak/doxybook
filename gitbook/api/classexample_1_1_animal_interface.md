@@ -16,14 +16,14 @@ Inherited by the following classes: **[example::Animal](classexample_1_1_animal.
 
 |Type|Name|
 |-----|-----|
-|virtual int|[**get\_num\_of\_limbs**](classexample_1_1_animal_interface.md#1a0300198be5798cfa0350fbb2fde4295e) () const = 0<br>Returns the number of limbs. |
-|virtual int|[**get\_num\_of\_eyes**](classexample_1_1_animal_interface.md#1a63c32ae61aa4ee35b3666b08ce3378f9) () const = 0<br>Returns the number of eyes. |
-|virtual bool|[**has\_tail**](classexample_1_1_animal_interface.md#1af994135a8e875998808ca7f11f12a6b3) () const = 0<br>Returns true if the animal has a tail. |
+|virtual int|[**get\_num\_of\_limbs**](classexample_1_1_animal_interface.md#1adf3678fbed03da52a7bcbd3cd6a41d57) () const = 0<br>Returns the number of limbs. |
+|virtual int|[**get\_num\_of\_eyes**](classexample_1_1_animal_interface.md#1a6111e1b914564c809ce7ef69fa8268a8) () const = 0<br>Returns the number of eyes. |
+|virtual bool|[**has\_tail**](classexample_1_1_animal_interface.md#1a738f590b295f1ffb58054f609b931524) () const = 0<br>Returns true if the animal has a tail. |
 
 
 ## Public Functions Documentation
 
-### function <a id="1a0300198be5798cfa0350fbb2fde4295e" href="#1a0300198be5798cfa0350fbb2fde4295e">get\_num\_of\_limbs</a>
+### function <a id="1adf3678fbed03da52a7bcbd3cd6a41d57" href="#1adf3678fbed03da52a7bcbd3cd6a41d57">get\_num\_of\_limbs</a>
 
 ```cpp
 virtual int example::AnimalInterface::get_num_of_limbs () const = 0
@@ -33,10 +33,10 @@ Returns the number of limbs.
 
 
 
-**See also:** **[get\_num\_of\_eyes](classexample_1_1_animal_interface.md#1a63c32ae61aa4ee35b3666b08ce3378f9)** 
+**See also:** **[get\_num\_of\_eyes](classexample_1_1_animal_interface.md#1a6111e1b914564c809ce7ef69fa8268a8)** 
 
 
-### function <a id="1a63c32ae61aa4ee35b3666b08ce3378f9" href="#1a63c32ae61aa4ee35b3666b08ce3378f9">get\_num\_of\_eyes</a>
+### function <a id="1a6111e1b914564c809ce7ef69fa8268a8" href="#1a6111e1b914564c809ce7ef69fa8268a8">get\_num\_of\_eyes</a>
 
 ```cpp
 virtual int example::AnimalInterface::get_num_of_eyes () const = 0
@@ -46,10 +46,10 @@ Returns the number of eyes.
 
 
 
-**See also:** **[get\_num\_of\_limbs](classexample_1_1_animal_interface.md#1a0300198be5798cfa0350fbb2fde4295e)** 
+**See also:** **[get\_num\_of\_limbs](classexample_1_1_animal_interface.md#1adf3678fbed03da52a7bcbd3cd6a41d57)** 
 
 
-### function <a id="1af994135a8e875998808ca7f11f12a6b3" href="#1af994135a8e875998808ca7f11f12a6b3">has\_tail</a>
+### function <a id="1a738f590b295f1ffb58054f609b931524" href="#1a738f590b295f1ffb58054f609b931524">has\_tail</a>
 
 ```cpp
 virtual bool example::AnimalInterface::has_tail () const = 0
@@ -59,7 +59,7 @@ Returns true if the animal has a tail.
 
 
 
-**See also:** **[get\_num\_of\_limbs](classexample_1_1_animal_interface.md#1a0300198be5798cfa0350fbb2fde4295e)** 
+**See also:** **[get\_num\_of\_limbs](classexample_1_1_animal_interface.md#1adf3678fbed03da52a7bcbd3cd6a41d57)** 
 
 
 **Return value:**

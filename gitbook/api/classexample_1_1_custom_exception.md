@@ -17,7 +17,7 @@ Inherits the following classes: **exception**
 |Type|Name|
 |-----|-----|
 ||[**CustomException**](classexample_1_1_custom_exception.md#1a8656f61bb3320c64e612b99b3cfc169c) (const std::string & msg) |
-|virtual const char \*|[**what**](classexample_1_1_custom_exception.md#1acc02da1303101dd744d62754c977f760) () const |
+|virtual const char \*|[**what**](classexample_1_1_custom_exception.md#1aec75a02d7cde1a7cbf7fbd5c8bb3d1d6) () const |
 
 
 ## Public Functions Documentation
@@ -32,7 +32,7 @@ example::CustomException::CustomException (
 
 
 
-### function <a id="1acc02da1303101dd744d62754c977f760" href="#1acc02da1303101dd744d62754c977f760">what</a>
+### function <a id="1aec75a02d7cde1a7cbf7fbd5c8bb3d1d6" href="#1aec75a02d7cde1a7cbf7fbd5c8bb3d1d6">what</a>
 
 ```cpp
 virtual const char * example::CustomException::what () const
