@@ -1,6 +1,7 @@
 #ifndef EXAMPLE_ANIMAL_H
 #define EXAMPLE_ANIMAL_H
 
+#include <functional>
 #include "animal_interface.h"
 
 /*!
@@ -161,6 +162,19 @@ namespace example {
      * @param animal The pointer to the animal instance
      */
     void some_namespace_function(Animal* animal);
+    /*!
+     * @brief Animal callback function definition
+     */
+    typedef std::function<void*(Animal*)> Callback;
+    /*!
+     * @brief Different types of an Animal callback events
+     */
+    enum class CallbackType {
+        NONE = 0,
+        EAT,
+        SLEEP,
+        ATTACK
+    };
 }
 
 /*!

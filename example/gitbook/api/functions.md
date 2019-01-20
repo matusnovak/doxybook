@@ -1,6 +1,6 @@
 ---
 search:
-    keywords: ['Animal::Animal', 'Bird::Bird', 'CustomException::CustomException', 'SpecialBird::do_something_special', 'Animal::find_child_by_name', 'Animal::find_parent_by_name', 'Animal::get_name', 'AnimalInterface::get_num_of_eyes', 'AnimalInterface::get_num_of_limbs', 'Animal::get_parents', 'AnimalInterface::has_tail', 'Bird::make_sound', 'Bird::move', 'Animal::operator bool', 'SpecialBird::operator=', 'SpecialBird::SpecialBird', 'SpecialBird::swap', 'CustomException::what', 'Animal::~Animal', 'Bird::~Bird', 'SpecialBird::~SpecialBird']
+    keywords: ['Animal::Animal', 'Bird::Bird', 'CustomException::CustomException', 'SpecialBird::do_something_special', 'Animal::find_child_by_name', 'Animal::find_parent_by_name', 'Animal::get_name', 'AnimalInterface::get_num_of_eyes', 'AnimalInterface::get_num_of_limbs', 'Animal::get_parents', 'AnimalInterface::has_tail', 'Bird::make_sound', 'Bird::move', 'Animal::operator bool', 'SpecialBird::operator=', 'SpecialBird::SpecialBird', 'some_namespace_function', 'SpecialBird::swap', 'CustomException::what', 'Animal::~Animal', 'Bird::~Bird', 'SpecialBird::~SpecialBird']
 ---
 
 # Function Index
@@ -34,15 +34,15 @@ Here is a list of all functions with links to the class documentation for each m
 
 ## G
 
-* **get\_name** ([**example::Animal**](classexample_1_1_animal.md#1ab4e7a34b9637acc89c55eec9405f1f6e))
-* **get\_num\_of\_eyes** ([**example::Animal**](classexample_1_1_animal.md#1afc4972484d411d75bdc829be3502bb60), [**example::AnimalInterface**](classexample_1_1_animal_interface.md#1a63c32ae61aa4ee35b3666b08ce3378f9))
-* **get\_num\_of\_limbs** ([**example::Animal**](classexample_1_1_animal.md#1a77ea3286e2b43830a5443be76eec4c5f), [**example::AnimalInterface**](classexample_1_1_animal_interface.md#1a0300198be5798cfa0350fbb2fde4295e))
-* **get\_parents** ([**example::Animal**](classexample_1_1_animal.md#1a93c61aed16aeb0b52631961e17251b0f))
+* **get\_name** ([**example::Animal**](classexample_1_1_animal.md#1a79a761dd24ba89637654f8d8c0ab3903))
+* **get\_num\_of\_eyes** ([**example::Animal**](classexample_1_1_animal.md#1a309513fb30fb4f10427052fda8bc27e0), [**example::AnimalInterface**](classexample_1_1_animal_interface.md#1a6111e1b914564c809ce7ef69fa8268a8))
+* **get\_num\_of\_limbs** ([**example::Animal**](classexample_1_1_animal.md#1ad5e3a94f9dd45899a3fd6420120bfeef), [**example::AnimalInterface**](classexample_1_1_animal_interface.md#1adf3678fbed03da52a7bcbd3cd6a41d57))
+* **get\_parents** ([**example::Animal**](classexample_1_1_animal.md#1a7b1ee3dfe962d2b5ecab0cf20d185a50))
 
 
 ## H
 
-* **has\_tail** ([**example::Animal**](classexample_1_1_animal.md#1a80c789f01a9e211b821cfa57c27792fa), [**example::AnimalInterface**](classexample_1_1_animal_interface.md#1af994135a8e875998808ca7f11f12a6b3))
+* **has\_tail** ([**example::Animal**](classexample_1_1_animal.md#1a1ff9083f37b80ee29edd7c3e53f97cc7), [**example::AnimalInterface**](classexample_1_1_animal_interface.md#1a738f590b295f1ffb58054f609b931524))
 
 
 ## M
@@ -53,19 +53,20 @@ Here is a list of all functions with links to the class documentation for each m
 
 ## O
 
-* **operator bool** ([**example::Animal**](classexample_1_1_animal.md#1aba77090c59b9c50d026032ed998c862d))
+* **operator bool** ([**example::Animal**](classexample_1_1_animal.md#1a0fa384c12622b3226236c588cc8db01d))
 * **operator=** ([**example::Animal**](classexample_1_1_animal.md#1a021864d5b75ff00550cd4ffe65f4014d), [**example::Bird**](classexample_1_1_bird.md#1a14c736790bab9fdcad79095ec7e43e83), [**example::SpecialBird**](classexample_1_1_special_bird.md#1a842108e610d4378d96d82d5d1d3b2328))
 
 
 ## S
 
 * **SpecialBird** ([**example::SpecialBird**](classexample_1_1_special_bird.md#1a3ac69244c03c5f9d84e86ffccd6e61c7))
+* **some\_namespace\_function** ([**example**](namespaceexample.md#1a766277c52d41af925d49bcd4f9bc7de0))
 * **swap** ([**example::Animal**](classexample_1_1_animal.md#1affec460d5bc2fb8d650fcf5b7b8cf396), [**example::Bird**](classexample_1_1_bird.md#1ae9c126dd4739755af505cd5a43c9f1de), [**example::SpecialBird**](classexample_1_1_special_bird.md#1a6a33c839c2c4afb1cc6ac95923828f8f))
 
 
 ## W
 
-* **what** ([**example::CustomException**](classexample_1_1_custom_exception.md#1acc02da1303101dd744d62754c977f760))
+* **what** ([**example::CustomException**](classexample_1_1_custom_exception.md#1aec75a02d7cde1a7cbf7fbd5c8bb3d1d6))
 
 
 ## ~

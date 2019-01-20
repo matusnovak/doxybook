@@ -57,15 +57,15 @@ Inherited by the following classes: **[example::Bird](classexample_1_1_bird.md)*
 ||[**Animal**](classexample_1_1_animal.md#1a612d7d2e9631e6f241e871b3785f4cdf) (const **[Animal](classexample_1_1_animal.md)** & other) = delete |
 ||[**Animal**](classexample_1_1_animal.md#1a29db85a24acf4fd5fb353c871eb086ed) (**[Animal](classexample_1_1_animal.md)** && animal) noexcept |
 |virtual |[**~Animal**](classexample_1_1_animal.md#1a7b633f0bc3834108ca024d0c73dc135e) () = default |
-||[**operator bool**](classexample_1_1_animal.md#1aba77090c59b9c50d026032ed998c862d) () const <br>Returns true if this is an valid animal. |
+||[**operator bool**](classexample_1_1_animal.md#1a0fa384c12622b3226236c588cc8db01d) () const <br>Returns true if this is an valid animal. |
 |void|[**swap**](classexample_1_1_animal.md#1affec460d5bc2fb8d650fcf5b7b8cf396) (**[Animal](classexample_1_1_animal.md)** & other) noexcept |
-|virtual int|[**get\_num\_of\_limbs**](classexample_1_1_animal.md#1a77ea3286e2b43830a5443be76eec4c5f) () override const <br>Returns the number of limbs. |
-|virtual int|[**get\_num\_of\_eyes**](classexample_1_1_animal.md#1afc4972484d411d75bdc829be3502bb60) () override const <br>Returns the number of eyes. |
-|virtual bool|[**has\_tail**](classexample_1_1_animal.md#1a80c789f01a9e211b821cfa57c27792fa) () override const <br>Returns true if the animal has a tail. |
+|virtual int|[**get\_num\_of\_limbs**](classexample_1_1_animal.md#1ad5e3a94f9dd45899a3fd6420120bfeef) () override const <br>Returns the number of limbs. |
+|virtual int|[**get\_num\_of\_eyes**](classexample_1_1_animal.md#1a309513fb30fb4f10427052fda8bc27e0) () override const <br>Returns the number of eyes. |
+|virtual bool|[**has\_tail**](classexample_1_1_animal.md#1a1ff9083f37b80ee29edd7c3e53f97cc7) () override const <br>Returns true if the animal has a tail. |
 |virtual void|[**move**](classexample_1_1_animal.md#1aaee0d759d18beaca18670d2a794b1445) () |
 |virtual void|[**make\_sound**](classexample_1_1_animal.md#1a6939f9fed1a387b128d3947afc239873) () = 0|
-|Parents|[**get\_parents**](classexample_1_1_animal.md#1a93c61aed16aeb0b52631961e17251b0f) () const |
-|const std::string &|[**get\_name**](classexample_1_1_animal.md#1ab4e7a34b9637acc89c55eec9405f1f6e) () const <br>Get the name of the animal. |
+|Parents|[**get\_parents**](classexample_1_1_animal.md#1a7b1ee3dfe962d2b5ecab0cf20d185a50) () const |
+|const std::string &|[**get\_name**](classexample_1_1_animal.md#1a79a761dd24ba89637654f8d8c0ab3903) () const <br>Get the name of the animal. |
 |**[Animal](classexample_1_1_animal.md)** &|[**operator=**](classexample_1_1_animal.md#1a021864d5b75ff00550cd4ffe65f4014d) (const **[Animal](classexample_1_1_animal.md)** & other) = delete <br>Deleted copy operator. |
 |**[Animal](classexample_1_1_animal.md)** &|[**operator=**](classexample_1_1_animal.md#1a055b1b5d5ffaa302068e7000b1b9f4f7) (**[Animal](classexample_1_1_animal.md)** && other) noexcept <br>Move operator. |
 
@@ -298,7 +298,7 @@ virtual example::Animal::~Animal () = default
 
 
 
-### function <a id="1aba77090c59b9c50d026032ed998c862d" href="#1aba77090c59b9c50d026032ed998c862d">operator bool</a>
+### function <a id="1a0fa384c12622b3226236c588cc8db01d" href="#1a0fa384c12622b3226236c588cc8db01d">operator bool</a>
 
 ```cpp
 example::Animal::operator bool () const
@@ -318,7 +318,7 @@ void example::Animal::swap (
 
 
 
-### function <a id="1a77ea3286e2b43830a5443be76eec4c5f" href="#1a77ea3286e2b43830a5443be76eec4c5f">get\_num\_of\_limbs</a>
+### function <a id="1ad5e3a94f9dd45899a3fd6420120bfeef" href="#1ad5e3a94f9dd45899a3fd6420120bfeef">get\_num\_of\_limbs</a>
 
 ```cpp
 virtual int example::Animal::get_num_of_limbs () const
@@ -328,13 +328,13 @@ Returns the number of limbs.
 
 
 
-**See also:** **[get\_num\_of\_eyes](classexample_1_1_animal.md#1afc4972484d411d75bdc829be3502bb60)**, **[get\_num\_of\_limbs](classexample_1_1_animal.md#1a77ea3286e2b43830a5443be76eec4c5f)** 
+**See also:** **[get\_num\_of\_eyes](classexample_1_1_animal.md#1a309513fb30fb4f10427052fda8bc27e0)**, **[get\_num\_of\_limbs](classexample_1_1_animal.md#1ad5e3a94f9dd45899a3fd6420120bfeef)** 
 
 
-Implements **[AnimalInterface::get\_num\_of\_limbs](classexample_1_1_animal_interface.md#1a0300198be5798cfa0350fbb2fde4295e)**
+Implements **[AnimalInterface::get\_num\_of\_limbs](classexample_1_1_animal_interface.md#1adf3678fbed03da52a7bcbd3cd6a41d57)**
 
 
-### function <a id="1afc4972484d411d75bdc829be3502bb60" href="#1afc4972484d411d75bdc829be3502bb60">get\_num\_of\_eyes</a>
+### function <a id="1a309513fb30fb4f10427052fda8bc27e0" href="#1a309513fb30fb4f10427052fda8bc27e0">get\_num\_of\_eyes</a>
 
 ```cpp
 virtual int example::Animal::get_num_of_eyes () const
@@ -344,13 +344,13 @@ Returns the number of eyes.
 
 
 
-**See also:** **[get\_num\_of\_limbs](classexample_1_1_animal.md#1a77ea3286e2b43830a5443be76eec4c5f)**, **[get\_num\_of\_eyes](classexample_1_1_animal.md#1afc4972484d411d75bdc829be3502bb60)** 
+**See also:** **[get\_num\_of\_limbs](classexample_1_1_animal.md#1ad5e3a94f9dd45899a3fd6420120bfeef)**, **[get\_num\_of\_eyes](classexample_1_1_animal.md#1a309513fb30fb4f10427052fda8bc27e0)** 
 
 
-Implements **[AnimalInterface::get\_num\_of\_eyes](classexample_1_1_animal_interface.md#1a63c32ae61aa4ee35b3666b08ce3378f9)**
+Implements **[AnimalInterface::get\_num\_of\_eyes](classexample_1_1_animal_interface.md#1a6111e1b914564c809ce7ef69fa8268a8)**
 
 
-### function <a id="1a80c789f01a9e211b821cfa57c27792fa" href="#1a80c789f01a9e211b821cfa57c27792fa">has\_tail</a>
+### function <a id="1a1ff9083f37b80ee29edd7c3e53f97cc7" href="#1a1ff9083f37b80ee29edd7c3e53f97cc7">has\_tail</a>
 
 ```cpp
 virtual bool example::Animal::has_tail () const
@@ -360,7 +360,7 @@ Returns true if the animal has a tail.
 
 
 
-**See also:** **[get\_num\_of\_limbs](classexample_1_1_animal.md#1a77ea3286e2b43830a5443be76eec4c5f)**, **[get\_num\_of\_eyes](classexample_1_1_animal.md#1afc4972484d411d75bdc829be3502bb60)** 
+**See also:** **[get\_num\_of\_limbs](classexample_1_1_animal.md#1ad5e3a94f9dd45899a3fd6420120bfeef)**, **[get\_num\_of\_eyes](classexample_1_1_animal.md#1a309513fb30fb4f10427052fda8bc27e0)** 
 
 
 **Return value:**
@@ -371,7 +371,7 @@ Returns true if the animal has a tail.
 
 
 
-Implements **[AnimalInterface::has\_tail](classexample_1_1_animal_interface.md#1af994135a8e875998808ca7f11f12a6b3)**
+Implements **[AnimalInterface::has\_tail](classexample_1_1_animal_interface.md#1a738f590b295f1ffb58054f609b931524)**
 
 
 ### function <a id="1aaee0d759d18beaca18670d2a794b1445" href="#1aaee0d759d18beaca18670d2a794b1445">move</a>
@@ -390,7 +390,7 @@ virtual void example::Animal::make_sound () = 0
 
 
 
-### function <a id="1a93c61aed16aeb0b52631961e17251b0f" href="#1a93c61aed16aeb0b52631961e17251b0f">get\_parents</a>
+### function <a id="1a7b1ee3dfe962d2b5ecab0cf20d185a50" href="#1a7b1ee3dfe962d2b5ecab0cf20d185a50">get\_parents</a>
 
 ```cpp
 Parents example::Animal::get_parents () const
@@ -398,7 +398,7 @@ Parents example::Animal::get_parents () const
 
 
 
-### function <a id="1ab4e7a34b9637acc89c55eec9405f1f6e" href="#1ab4e7a34b9637acc89c55eec9405f1f6e">get\_name</a>
+### function <a id="1a79a761dd24ba89637654f8d8c0ab3903" href="#1a79a761dd24ba89637654f8d8c0ab3903">get\_name</a>
 
 ```cpp
 const std::string & example::Animal::get_name () const

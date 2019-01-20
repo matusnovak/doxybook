@@ -2,7 +2,7 @@
 title: namespace example
 meta:
   - name: keywords
-    content: example Animal AnimalInterface Bird CustomException SpecialBird some_namespace_function
+    content: example Animal AnimalInterface Bird CustomException SpecialBird CallbackType Callback some_namespace_function
 ---
 
 # namespace example
@@ -21,11 +21,52 @@ meta:
 |class|[**SpecialBird**](classexample_1_1_special_bird.md)|
 
 
+## Enums
+
+|Type|Name|
+|-----|-----|
+|enum|[**CallbackType**](animal_8h.md#enum-callbacktype) { **NONE** = 0, **EAT**, **SLEEP**, **ATTACK** } <br>Different types of an **[Animal](classexample_1_1_animal.md)** callback events. |
+
+
+## Typedefs
+
+|Type|Name|
+|-----|-----|
+|typedef std::function< void \*(**[Animal](classexample_1_1_animal.md)** \*)>|[**Callback**](animal_8h.md#typedef-callback)<br>**[Animal](classexample_1_1_animal.md)** callback function definition. |
+
+
 ## Functions
 
 |Type|Name|
 |-----|-----|
 |void|[**some\_namespace\_function**](animal_8h.md#function-some-namespace-function) (**[Animal](classexample_1_1_animal.md)** \* animal) <br>Some random namespace function that modifies **[Animal](classexample_1_1_animal.md)**. |
+
+
+## Enums Documentation
+
+### enum CallbackType
+
+```cpp
+enum example::CallbackType {
+    NONE = 0,
+    EAT,
+    SLEEP,
+    ATTACK,
+};
+```
+
+Different types of an **[Animal](classexample_1_1_animal.md)** callback events. 
+
+
+## Typedefs Documentation
+
+### typedef Callback
+
+```cpp
+typedef std::function<void*(Animal*)> example::Callback;
+```
+
+**[Animal](classexample_1_1_animal.md)** callback function definition. 
 
 
 ## Functions Documentation

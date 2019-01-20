@@ -12,7 +12,7 @@ def recursive_dictionary(kind: Kind, node: Node, dictionary: dict):
         key = node.name.upper()[0]
         if key not in dictionary:
             dictionary[key] = []
-        if node.parent is not None and node.parent.kind.is_parent() and not node.parent.kind == Kind.NAMESPACE:
+        if node.parent is not None and node.parent.kind.is_parent():
             dictionary[key].append(node)
     for child in node.members:
         recursive_dictionary(kind, child, dictionary)

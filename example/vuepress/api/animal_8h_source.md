@@ -19,6 +19,7 @@ Source: `src/animal.h`
     
     
     
+    
       
     
     
@@ -27,6 +28,7 @@ Source: `src/animal.h`
 #ifndef EXAMPLE_ANIMAL_H
 #define EXAMPLE_ANIMAL_H
 
+#include <functional>
 #include "animal_interface.h"
 
 namespace example {
@@ -90,6 +92,13 @@ namespace example {
     };
 
     void some_namespace_function(Animal* animal);
+    typedef std::function<void*(Animal*)> Callback;
+    enum class CallbackType {
+        NONE = 0,
+        EAT,
+        SLEEP,
+        ATTACK
+    };
 }
 
 extern void some_global_function(example::Animal* animal);
