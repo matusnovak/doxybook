@@ -132,6 +132,29 @@ namespace example {
             return name;
         }
         /*!
+         * @brief Lorem Ipsum
+         * @see Animal
+         * @param animal The pointer to the animal instance
+         * @details Lorem ipsum dolor sit amet, consectetur 
+         * adipiscing elit, sed do eiusmod tempor incididunt 
+         * ut labore et dolore magna aliqua.
+         * 
+         * ### Implementation:
+         */
+        inline void some_inline_member_function(Animal* animal) {
+            /*!
+             * Does some more things
+             */
+            do_more_things();
+
+            /*!
+             * Checks that the things it 
+             * does are the best
+             */
+            check_best();
+        }
+        
+        /*!
          * @brief Deleted copy operator
          */
         Animal& operator = (const Animal& other) = delete;

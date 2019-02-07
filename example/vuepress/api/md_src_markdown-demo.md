@@ -7,7 +7,9 @@ title: Markdown test
 
 **I highly do not recommend to use markdown through Doxygen! The source markdown file will go through Doxygen to xml and then from xml through doxybook back into markdown. If you REALLY need to use markdown through Doxygen, it is here, but limited. IMHO, just write a simple shell script to copy the necessary markdown files into GitBook directly. Anyway, the markdown below is copied from here: [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and most of it works through doxybook.**
 
+
 ## Headers
+
 
 
 
@@ -32,7 +34,9 @@ Alt-H2
 
 
 
+
 # H1
+
 
 
 
@@ -42,7 +46,9 @@ Alt-H2
 
 
 
+
 ### H3
+
 
 
 
@@ -52,7 +58,9 @@ Alt-H2
 
 
 
+
 ##### H5
+
 
 
 
@@ -62,9 +70,12 @@ Alt-H2
 
 
 
+
 Alternatively, for H1 and H2, an underline-ish style:
 
+
 # Alt-H1 
+
 
 
 
@@ -74,7 +85,9 @@ Alternatively, for H1 and H2, an underline-ish style:
 
 
 
+
 ## Emphasis
+
 
 
 
@@ -92,15 +105,21 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 
 
+
 Emphasis, aka italics, with _asterisks_ or _underscores_.
+
 
 Strong emphasis, aka bold, with **asterisks** or **underscores**.
 
+
 Combined emphasis with **asterisks and _underscores_**.
 
-Strikethrough uses two tildes. ~~Scratch this.~~
+
+Strikethrough uses two tildes. 
+
 
 ## Lists
+
 
 
 
@@ -128,6 +147,7 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 
 
+
 * First ordered list item
 * Another item
   * Unordered sub-list.
@@ -148,7 +168,9 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 
 
+
 ## Links
+
 
 
 
@@ -180,23 +202,33 @@ Some text to show that the reference links can follow later.
 
 
 
+
 [I'm an inline-style link](https://www.google.com)
+
 
 [I'm an inline-style link with title](https://www.google.com)
 
+
 [I'm a reference-style link](https://www.mozilla.org)
+
 
 [I'm a relative reference to a repository file](../blob/master/LICENSE)
 
+
 [You can use numbers for reference-style link definitions](http://slashdot.org)
+
 
 Or leave it empty and use the [link text itself](http://www.reddit.com).
 
+
 URLs and URLs in angle brackets will automatically get turned into links. [http://www.example.com](http://www.example.com) or [http://www.example.com](http://www.example.com) and sometimes example.com (but not on Github, for example).
+
 
 Some text to show that the reference links can follow later.
 
+
 ## Images
+
 
 
 
@@ -216,15 +248,20 @@ Reference-style:
 
 
 
+
 Here's our logo (hover to see the title text):
 
+
 Inline-style: ![Image](icon48.png)
+
 
 
 Reference-style: ![Image](icon48.png)
 
 
+
 ## Tables
+
 
 
 
@@ -251,7 +288,9 @@ Markdown | Less | Pretty
 
 
 
+
 Colons can be used to align columns.
+
 
 
 |Tables  |Are  |Cool   |
@@ -264,11 +303,13 @@ Colons can be used to align columns.
 
 
 
+
 There must be at least 3 dashes separating each header cell. The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
 
 
-|Markdown  |Less   |
-|-----|-----|
+
+|Markdown  |Less  |Pretty   |
+|-----|-----|-----|
 |_Still_  |`renders`  |**nicely**   |
 |1  |2  |3   |
 
@@ -276,7 +317,9 @@ There must be at least 3 dashes separating each header cell. The outer pipes (|)
 
 
 
+
 ## Blockquotes
+
 
 
 
@@ -294,10 +337,13 @@ Quote break.
 
 
 
+
 > Blockquotes are very handy in email to emulate reply text. This line is part of the same quote. 
 
 
+
 Quote break.
+
 
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can 
@@ -307,7 +353,9 @@ Quote break.
 >  into a blockquote. 
 
 
+
 ## Inline HTML
+
 
 
 
@@ -325,10 +373,12 @@ Quote break.
 
 
 
+
 #### Definition list 
 
 Is something people use sometimes.
 Does _not_ work **very** well. Use HTML _tags_. 
+
 
 
 

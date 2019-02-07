@@ -1,6 +1,6 @@
 ---
 search:
-    keywords: ['Animal::Animal', 'Bird::Bird', 'CustomException::CustomException', 'SpecialBird::do_something_special', 'Animal::find_child_by_name', 'Animal::find_parent_by_name', 'Animal::get_name', 'AnimalInterface::get_num_of_eyes', 'AnimalInterface::get_num_of_limbs', 'Animal::get_parents', 'AnimalInterface::has_tail', 'Bird::make_sound', 'Bird::move', 'Animal::operator bool', 'SpecialBird::operator=', 'SpecialBird::SpecialBird', 'some_namespace_function', 'SpecialBird::swap', 'CustomException::what', 'Animal::~Animal', 'Bird::~Bird', 'SpecialBird::~SpecialBird']
+    keywords: ['Animal::Animal', 'Bird::Bird', 'CustomException::CustomException', 'SpecialBird::do_something_special', 'Animal::find_child_by_name', 'Animal::find_parent_by_name', 'Animal::get_name', 'AnimalInterface::get_num_of_eyes', 'AnimalInterface::get_num_of_limbs', 'Animal::get_parents', 'AnimalInterface::has_tail', 'Bird::make_sound', 'Bird::move', 'Animal::operator bool', 'SpecialBird::operator=', 'SpecialBird::SpecialBird', 'Animal::some_inline_member_function', 'some_namespace_function', 'SpecialBird::swap', 'CustomException::what', 'Animal::~Animal', 'Bird::~Bird', 'SpecialBird::~SpecialBird']
 ---
 
 # Function Index
@@ -60,6 +60,7 @@ Here is a list of all functions with links to the class documentation for each m
 ## S
 
 * **SpecialBird** ([**example::SpecialBird**](classexample_1_1_special_bird.md#1a3ac69244c03c5f9d84e86ffccd6e61c7))
+* **some\_inline\_member\_function** ([**example::Animal**](classexample_1_1_animal.md#1a6394d7fca31729753ed96bbad13d305a))
 * **some\_namespace\_function** ([**example**](namespaceexample.md#1a766277c52d41af925d49bcd4f9bc7de0))
 * **swap** ([**example::Animal**](classexample_1_1_animal.md#1affec460d5bc2fb8d650fcf5b7b8cf396), [**example::Bird**](classexample_1_1_bird.md#1ae9c126dd4739755af505cd5a43c9f1de), [**example::SpecialBird**](classexample_1_1_special_bird.md#1a6a33c839c2c4afb1cc6ac95923828f8f))
 

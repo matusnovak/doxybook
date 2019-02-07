@@ -2,7 +2,7 @@
 title: class example::Animal
 meta:
   - name: keywords
-    content: example::Animal Result Type Parents mother father name find_parent_by_name find_child_by_name Animal Animal Animal ~Animal operator bool swap get_num_of_limbs get_num_of_eyes has_tail move make_sound get_parents get_name operator= operator= some_global_function
+    content: example::Animal Result Type Parents mother father name find_parent_by_name find_child_by_name Animal Animal Animal ~Animal operator bool swap get_num_of_limbs get_num_of_eyes has_tail move make_sound get_parents get_name some_inline_member_function operator= operator= some_global_function
 ---
 
 # class example::Animal
@@ -68,6 +68,7 @@ Inherited by the following classes: **[example::Bird](classexample_1_1_bird.md)*
 |virtual void|[**make\_sound**](classexample_1_1_animal.md#function-make-sound) () = 0|
 |Parents|[**get\_parents**](classexample_1_1_animal.md#function-get-parents) () const |
 |const std::string &|[**get\_name**](classexample_1_1_animal.md#function-get-name) () const <br>Get the name of the animal. |
+|void|[**some\_inline\_member\_function**](classexample_1_1_animal.md#function-some-inline-member-function) (**[Animal](classexample_1_1_animal.md)** \* animal) <br>Lorem Ipsum. |
 |**[Animal](classexample_1_1_animal.md)** &|[**operator=**](classexample_1_1_animal.md#function-operator-1-2) (const **[Animal](classexample_1_1_animal.md)** & other) = delete <br>Deleted copy operator. |
 |**[Animal](classexample_1_1_animal.md)** &|[**operator=**](classexample_1_1_animal.md#function-operator-2-2) (**[Animal](classexample_1_1_animal.md)** && other) noexcept <br>Move operator. |
 
@@ -411,6 +412,36 @@ A constant reference to the name
 
 
 
+
+### function some\_inline\_member\_function
+
+```cpp
+void example::Animal::some_inline_member_function (
+    Animal * animal
+)
+```
+
+Lorem Ipsum. 
+
+
+
+**See also:** **[Animal](classexample_1_1_animal.md)** 
+
+
+**Parameters:**
+
+
+* **animal** The pointer to the animal instance
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+### Implementation:
+
+
+
+
+Does some more things
+
+Checks that the things it does are the best
 
 ### function operator= (1/2)
 

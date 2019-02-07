@@ -2,7 +2,7 @@
 title: Function Index
 meta:
   - name: keywords
-    content: Animal::Animal Bird::Bird CustomException::CustomException SpecialBird::do_something_special Animal::find_child_by_name Animal::find_parent_by_name Animal::get_name AnimalInterface::get_num_of_eyes AnimalInterface::get_num_of_limbs Animal::get_parents AnimalInterface::has_tail Bird::make_sound Bird::move Animal::operator bool SpecialBird::operator= SpecialBird::SpecialBird some_namespace_function SpecialBird::swap CustomException::what Animal::~Animal Bird::~Bird SpecialBird::~SpecialBird
+    content: Animal::Animal Bird::Bird CustomException::CustomException SpecialBird::do_something_special Animal::find_child_by_name Animal::find_parent_by_name Animal::get_name AnimalInterface::get_num_of_eyes AnimalInterface::get_num_of_limbs Animal::get_parents AnimalInterface::has_tail Bird::make_sound Bird::move Animal::operator bool SpecialBird::operator= SpecialBird::SpecialBird Animal::some_inline_member_function some_namespace_function SpecialBird::swap CustomException::what Animal::~Animal Bird::~Bird SpecialBird::~SpecialBird
 ---
 
 # Function Index
@@ -62,6 +62,7 @@ Here is a list of all functions with links to the class documentation for each m
 ## S
 
 * **SpecialBird** ([**example::SpecialBird**](classexample_1_1_special_bird.md#function-specialbird-1-3))
+* **some\_inline\_member\_function** ([**example::Animal**](classexample_1_1_animal.md#function-some-inline-member-function))
 * **some\_namespace\_function** ([**example**](namespaceexample.md#function-some-namespace-function))
 * **swap** ([**example::Animal**](classexample_1_1_animal.md#function-swap), [**example::Bird**](classexample_1_1_bird.md#function-swap), [**example::SpecialBird**](classexample_1_1_special_bird.md#function-swap))
 

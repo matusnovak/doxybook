@@ -80,6 +80,12 @@ namespace example {
         inline const std::string& get_name() const {
             return name;
         }
+        inline void some_inline_member_function(Animal* animal) {
+            do_more_things();
+
+            check_best();
+        }
+        
         Animal& operator = (const Animal& other) = delete;
         Animal& operator = (Animal&& other) noexcept;
 

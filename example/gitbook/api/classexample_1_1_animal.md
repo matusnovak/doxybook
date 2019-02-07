@@ -1,6 +1,6 @@
 ---
 search:
-    keywords: ['example::Animal', 'Result', 'Type', 'Parents', 'mother', 'father', 'name', 'find_parent_by_name', 'find_child_by_name', 'Animal', 'Animal', 'Animal', '~Animal', 'operator bool', 'swap', 'get_num_of_limbs', 'get_num_of_eyes', 'has_tail', 'move', 'make_sound', 'get_parents', 'get_name', 'operator=', 'operator=', 'some_global_function']
+    keywords: ['example::Animal', 'Result', 'Type', 'Parents', 'mother', 'father', 'name', 'find_parent_by_name', 'find_child_by_name', 'Animal', 'Animal', 'Animal', '~Animal', 'operator bool', 'swap', 'get_num_of_limbs', 'get_num_of_eyes', 'has_tail', 'move', 'make_sound', 'get_parents', 'get_name', 'some_inline_member_function', 'operator=', 'operator=', 'some_global_function']
 ---
 
 # class example::Animal
@@ -66,6 +66,7 @@ Inherited by the following classes: **[example::Bird](classexample_1_1_bird.md)*
 |virtual void|[**make\_sound**](classexample_1_1_animal.md#1a6939f9fed1a387b128d3947afc239873) () = 0|
 |Parents|[**get\_parents**](classexample_1_1_animal.md#1a7b1ee3dfe962d2b5ecab0cf20d185a50) () const |
 |const std::string &|[**get\_name**](classexample_1_1_animal.md#1a79a761dd24ba89637654f8d8c0ab3903) () const <br>Get the name of the animal. |
+|void|[**some\_inline\_member\_function**](classexample_1_1_animal.md#1a6394d7fca31729753ed96bbad13d305a) (**[Animal](classexample_1_1_animal.md)** \* animal) <br>Lorem Ipsum. |
 |**[Animal](classexample_1_1_animal.md)** &|[**operator=**](classexample_1_1_animal.md#1a021864d5b75ff00550cd4ffe65f4014d) (const **[Animal](classexample_1_1_animal.md)** & other) = delete <br>Deleted copy operator. |
 |**[Animal](classexample_1_1_animal.md)** &|[**operator=**](classexample_1_1_animal.md#1a055b1b5d5ffaa302068e7000b1b9f4f7) (**[Animal](classexample_1_1_animal.md)** && other) noexcept <br>Move operator. |
 
@@ -414,6 +415,36 @@ A constant reference to the name
 
 
 
+
+### function <a id="1a6394d7fca31729753ed96bbad13d305a" href="#1a6394d7fca31729753ed96bbad13d305a">some\_inline\_member\_function</a>
+
+```cpp
+void example::Animal::some_inline_member_function (
+    Animal * animal
+)
+```
+
+Lorem Ipsum. 
+
+
+
+**See also:** **[Animal](classexample_1_1_animal.md)** 
+
+
+**Parameters:**
+
+
+* **animal** The pointer to the animal instance
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+### Implementation:
+
+
+
+
+Does some more things
+
+Checks that the things it does are the best
 
 ### function <a id="1a021864d5b75ff00550cd4ffe65f4014d" href="#1a021864d5b75ff00550cd4ffe65f4014d">operator= (1/2)</a>
 

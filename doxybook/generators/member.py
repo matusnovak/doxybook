@@ -582,12 +582,16 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
             document.append(MdCodeBlock(code))
 
             # Add descriptions
+            inbodydescription_paras = memberdef.find('inbodydescription').findall('para')
             detaileddescription_paras = memberdef.find('detaileddescription').findall('para')
             briefdescription_paras = memberdef.find('briefdescription').findall('para')
             document.extend(generate_paragraph(briefdescription_paras, cache))
             document.append(Text('\n'))
             document.extend(generate_paragraph(detaileddescription_paras, cache))
             document.append(Text('\n'))
+            for para in inbodydescription_paras:
+                document.extend(generate_paragraph([para], cache))
+                document.append(Text('\n'))
 
             # Add overrides
             reimplements = memberdef.find('reimplements')
