@@ -31,6 +31,8 @@
       * [animal_interface.h - source](api/animal__interface_8h_source.md)
       * [bird.h](api/bird_8h.md)
       * [bird.h - source](api/bird_8h_source.md)
+      * [config.h](api/config_8h.md)
+      * [config.h - source](api/config_8h_source.md)
       * [example.h](api/example_8h.md)
       * [example.h - source](api/example_8h_source.md)
       * [special_bird.h](api/special__bird_8h.md)

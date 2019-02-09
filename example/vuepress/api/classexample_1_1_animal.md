@@ -13,6 +13,7 @@ meta:
 Base class for all animals from which **[Bird](classexample_1_1_bird.md)** derives. [More...](#detailed-description)
 
 
+
 Inherits the following classes: **[example::AnimalInterface](classexample_1_1_animal_interface.md)**
 
 
@@ -23,7 +24,7 @@ Inherited by the following classes: **[example::Bird](classexample_1_1_bird.md)*
 
 |Type|Name|
 |-----|-----|
-|struct|[**Result**](structexample_1_1_animal_1_1_result.md)|
+|struct|[**Result**](structexample_1_1_animal_1_1_result.md)<br>Some random inner class of **[Animal](classexample_1_1_animal.md)**. |
 
 
 ## Public Types

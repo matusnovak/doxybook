@@ -318,6 +318,7 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
         if len(detaileddescription_paras) > 0:
             p.append(MdLink([Text('More...')], '#detailed-description'))
         document.append(p)
+        document.append(Text('\n'))
 
     # Add inheriance
     inheritance_refids:List[str] = []
@@ -373,10 +374,10 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
         for innergroup in innergroups:
             refid = innergroup.get('refid')
             innergroup_root = xml.etree.ElementTree.parse(os.path.join(index_path, refid + '.xml')).getroot()
-            compounddef = innergroup_root.find('compounddef')
-            name = compounddef.find('title').text
+            compound = innergroup_root.find('compounddef')
+            name = compound.find('title').text
 
-            briefdescription_paras = compounddef.find('briefdescription').findall('para')
+            briefdescription_paras = compound.find('briefdescription').findall('para')
 
             link = MdLink([MdBold([Text(name)])], refid + '.md')
             link_with_brief = MdParagraph([link, Text(' ')])
@@ -386,6 +387,43 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
 
         document.append(lst)
         document.append(Br())
+
+    # Add inner files
+    innerfiles = compounddef.findall('innerfile')
+    if len(innerfiles) > 0:
+        document.append(MdHeader(2, [Text('Files')]))
+
+        table = MdTable()
+        header = MdTableRow([
+            Text('Type'),
+            Text('Name')
+        ])
+        table.append(header)
+
+        for innerfile in innerfiles:
+            refid = innerfile.get('refid')
+            name = innerfile.text
+
+            name_cell = MdTableCell([MdLink([MdBold([Text(name)])], refid + '.md')])
+            
+            try:
+                innerfile_root = xml.etree.ElementTree.parse(os.path.join(index_path, refid + '.xml')).getroot()
+                compound = innerfile_root.find('compounddef')                
+                briefdescription = compound.find('briefdescription').findall('para')
+                if len(briefdescription) > 0:
+                    name_cell.append(Text('<br>'))
+                    for para in briefdescription:
+                        name_cell.extend(convert_xml_para(para, cache))
+            except Exception as e:
+                pass
+
+            row = MdTableRow([
+                Text('file'),
+                name_cell
+            ])
+            table.append(row)
+
+        document.append(table)
 
     # Add inner classes
     innerclasses = compounddef.findall('innerclass')
@@ -411,9 +449,22 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
                 name = innerclass.text
             keywords.append(name)
 
+            name_cell = MdTableCell([MdLink([MdBold([Text(name)])], refid + '.md')])
+            
+            try:
+                innerfile_root = xml.etree.ElementTree.parse(os.path.join(index_path, refid + '.xml')).getroot()
+                compound = innerfile_root.find('compounddef')                
+                briefdescription = compound.find('briefdescription').findall('para')
+                if len(briefdescription) > 0:
+                    name_cell.append(Text('<br>'))
+                    for para in briefdescription:
+                        name_cell.extend(convert_xml_para(para, cache))
+            except Exception as e:
+                pass
+
             row = MdTableRow([
                 Text(typ),
-                MdLink([MdBold([Text(name)])], refid + '.md')
+                name_cell
             ])
             table.append(row)
 

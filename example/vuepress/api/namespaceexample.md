@@ -14,7 +14,7 @@ meta:
 
 |Type|Name|
 |-----|-----|
-|class|[**Animal**](classexample_1_1_animal.md)|
+|class|[**Animal**](classexample_1_1_animal.md)<br>Base class for all animals from which **[Bird](classexample_1_1_bird.md)** derives. |
 |class|[**AnimalInterface**](classexample_1_1_animal_interface.md)|
 |class|[**Bird**](classexample_1_1_bird.md)|
 |class|[**CustomException**](classexample_1_1_custom_exception.md)|

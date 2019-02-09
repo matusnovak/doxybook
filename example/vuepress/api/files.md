@@ -2,7 +2,7 @@
 title: Files
 meta:
   - name: keywords
-    content: animal.h animal_interface.h bird.h example.h special_bird.h exception.h utils src
+    content: animal.h animal_interface.h bird.h config.h example.h special_bird.h exception.h utils src
 ---
 
 # File List
@@ -12,6 +12,7 @@ Here is a list of all documented files with brief descriptions:
   * **[animal.h](animal_8h.md)**
   * **[animal\_interface.h](animal__interface_8h.md)**
   * **[bird.h](bird_8h.md)**
+  * **[config.h](config_8h.md)**
   * **[example.h](example_8h.md)**
   * **[special\_bird.h](special__bird_8h.md)**
   * **[utils/](dir_313caf1132e152dd9b58bea13a4052ca.md)**
