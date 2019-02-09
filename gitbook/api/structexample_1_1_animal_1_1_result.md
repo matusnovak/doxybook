@@ -9,6 +9,7 @@ search:
 
 
 Some random inner class of **[Animal](classexample_1_1_animal.md)**. 
+
 ## Public Attributes
 
 |Type|Name|

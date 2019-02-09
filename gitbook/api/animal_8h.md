@@ -6,12 +6,14 @@ search:
 # file animal.h
 
 **[Go to the source code of this file.](animal_8h_source.md)**
+
+
 ## Classes
 
 |Type|Name|
 |-----|-----|
-|class|[**example::Animal**](classexample_1_1_animal.md)|
-|struct|[**example::Animal::Result**](structexample_1_1_animal_1_1_result.md)|
+|class|[**example::Animal**](classexample_1_1_animal.md)<br>Base class for all animals from which **[Bird](classexample_1_1_bird.md)** derives. |
+|struct|[**example::Animal::Result**](structexample_1_1_animal_1_1_result.md)<br>Some random inner class of **[Animal](classexample_1_1_animal.md)**. |
 
 
 ## Functions
