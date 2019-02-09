@@ -75,6 +75,9 @@ def generate_brief_row(memberdef: xml.etree.ElementTree.Element, cache: Cache, r
         if kind == 'typedef':
             typ.append(Text('typedef '))
 
+        if kind == 'define':
+            typ.append(Text('define '))
+
         typ.extend(convert_xml_para(memberdef.find('type'), cache))
         
         if kind == 'function':
@@ -306,6 +309,7 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
 
     if compounddef.get('kind') == 'file':
         document.append(MdParagraph([MdBold([MdLink([Text('Go to the source code of this file.')], refid + '_source.md')])]))  
+        document.append(MdParagraph([Text('\n')]))
 
     # Add brief description
     detaileddescription_paras = compounddef.find('detaileddescription').findall('para')
@@ -411,7 +415,7 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
                 compound = innerfile_root.find('compounddef')                
                 briefdescription = compound.find('briefdescription').findall('para')
                 if len(briefdescription) > 0:
-                    name_cell.append(Text('<br>'))
+                    name_cell.append(Text(' '))
                     for para in briefdescription:
                         name_cell.extend(convert_xml_para(para, cache))
             except Exception as e:
@@ -622,6 +626,13 @@ def generate_member(index_path: str, output_path: str, refid: str, cache: Cache)
                         value += ' ' + initializer.text
                     code.append('    ' + value + ',')
                 code.append('};')
+
+            elif kind == 'define':
+                initializer = memberdef.find('initializer')
+                if initializer is not None:
+                    code.append(memberdef.get('kind') + ' ' + memberdef.find('name').text + ' ' + initializer.text + ';')
+                else:
+                    code.append(memberdef.get('kind') + ' ' + memberdef.find('name').text + ';')
 
             else:
                 definition = memberdef.find('definition')

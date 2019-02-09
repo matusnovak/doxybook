@@ -8,6 +8,8 @@ meta:
 # file exception.h
 
 **[Go to the source code of this file.](exception_8h_source.md)**
+
+
 ## Classes
 
 |Type|Name|

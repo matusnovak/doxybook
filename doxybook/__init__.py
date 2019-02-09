@@ -105,7 +105,7 @@ def main():
     generate_enum_index(args.output, root)
 
     # Generate Class List
-    generate_annotated(args.output, root)
+    generate_annotated(args.input, args.output, root, cache)
 
     # Write all members out
     write_members(args.input, args.output, root, cache)

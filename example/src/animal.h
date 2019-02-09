@@ -17,11 +17,17 @@
  */
 
 /*!
+ * @dir src
+ * @brief This is a directory
+ * @brief This is a detailed description
+ * @ingroup animals
+ */
+
+/*!
  * @brief Some random brief description
  * @addtogroup animals
  * @ingroup organism
  */
-
 namespace example {
     /*!
      * @ingroup animals

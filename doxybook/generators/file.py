@@ -27,6 +27,19 @@ def generate_file(index_path: str, output_path: str, node: Node, cache: Cache) -
     if compounddef is None:
         IndexError('compounddef not found in xml!')  
 
+    # Add brief description
+    detaileddescription_paras = compounddef.find('detaileddescription').findall('para')
+    briefdescription_paras = compounddef.find('briefdescription').findall('para')
+
+    if len(briefdescription_paras) > 0:
+        p = MdParagraph([])
+        for para in briefdescription_paras:
+            p.extend(convert_xml_para(para, cache))
+        if len(detaileddescription_paras) > 0:
+            p.append(MdLink([Text('More...')], '#detailed-description'))
+        document.append(p)
+        document.append(Text('\n'))
+
     document.append(MdParagraph([MdBold([MdLink([Text('Go to the documentation of this file.')], node.refid + '.md')])]))  
 
     location = compounddef.find('location')
@@ -38,6 +51,11 @@ def generate_file(index_path: str, output_path: str, node: Node, cache: Cache) -
         return
 
     document.append(MdParagraph(convert_xml_para(compounddef, cache)))
+
+    # Add detailed description
+    if len(detaileddescription_paras) > 0:
+        document.append(MdHeader(2, [Text('Detailed Description')]))
+        document.extend(generate_paragraph(compounddef.find('detaileddescription').findall('para'), cache))
 
     if not config.noindex:
         document.set_keywords([node.name, 'file'])

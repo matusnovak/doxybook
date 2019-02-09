@@ -8,6 +8,8 @@ meta:
 # file animal.h
 
 **[Go to the source code of this file.](animal_8h_source.md)**
+
+
 ## Classes
 
 |Type|Name|
