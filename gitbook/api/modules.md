@@ -1,10 +1,8 @@
----
-search:
-    keywords: ['organism', 'animals']
----
 
 # Modules
 
 Here is a list of all modules:
-* **[**organism**](group__organism.md)** This is a brief description to the organism group. 
-  * **[**animals**](group__animals.md)** This is a brief description to the animals group. 
+
+
+* [**Some organism example**](group__organism.md) _This is a brief description to the organism group._   
+  * [**An animal group example**](group__animals.md) _This is a brief description to the animals group._   

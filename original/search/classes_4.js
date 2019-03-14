@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['specialbird',['SpecialBird',['../classexample_1_1_special_bird.html',1,'example']]]
+  ['result',['Result',['../structexample_1_1_animal_1_1_result.html',1,'example::Animal']]]
 ];

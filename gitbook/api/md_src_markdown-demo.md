@@ -1,6 +1,3 @@
----
-search: false
----
 
 # Markdown test
 
@@ -15,7 +12,7 @@ search: false
 
 
 
-```cpp
+````cpp
 # H1
 ## H2
 ### H3
@@ -30,7 +27,7 @@ Alt-H1
 
 Alt-H2
 ------
-```
+````
 
 
 
@@ -93,7 +90,7 @@ Alternatively, for H1 and H2, an underline-ish style:
 
 
 
-```cpp
+````cpp
 Emphasis, aka italics, with *asterisks* or _underscores_.
 
 Strong emphasis, aka bold, with **asterisks** or __underscores__.
@@ -101,7 +98,7 @@ Strong emphasis, aka bold, with **asterisks** or __underscores__.
 Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
-```
+````
 
 
 
@@ -125,7 +122,7 @@ Strikethrough uses two tildes.
 
 
 
-```cpp
+````cpp
 1. First ordered list item
 2. Another item
   * Unordered sub-list. 
@@ -142,7 +139,7 @@ Strikethrough uses two tildes.
 * Unordered list can use asterisks
 - Or minuses
 + Or pluses
-```
+````
 
 
 
@@ -176,7 +173,7 @@ Strikethrough uses two tildes.
 
 
 
-```cpp
+````cpp
 [I'm an inline-style link](https://www.google.com)
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
@@ -198,7 +195,7 @@ Some text to show that the reference links can follow later.
 [arbitrary case-insensitive reference text]: https://www.mozilla.org
 [1]: http://slashdot.org
 [link text itself]: http://www.reddit.com
-```
+````
 
 
 
@@ -234,7 +231,7 @@ Some text to show that the reference links can follow later.
 
 
 
-```cpp
+````cpp
 Here's our logo (hover to see the title text):
 
 Inline-style: 
@@ -244,7 +241,7 @@ Reference-style:
 ![alt text][logo]
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-```
+````
 
 
 
@@ -267,7 +264,7 @@ Reference-style: ![Image](icon48.png)
 
 
 
-```cpp
+````cpp
 Colons can be used to align columns.
 
 | Tables        | Are           | Cool  |
@@ -284,7 +281,7 @@ Markdown | Less | Pretty
 --- | --- | ---
 *Still* | `renders` | **nicely**
 1 | 2 | 3
-```
+````
 
 
 
@@ -325,14 +322,14 @@ There must be at least 3 dashes separating each header cell. The outer pipes (|)
 
 
 
-```cpp
+````cpp
 > Blockquotes are very handy in email to emulate reply text.
 > This line is part of the same quote.
 
 Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
-```
+````
 
 
 
@@ -361,7 +358,7 @@ Quote break.
 
 
 
-```cpp
+````cpp
 <dl>
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
@@ -369,7 +366,7 @@ Quote break.
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
-```
+````
 
 
 

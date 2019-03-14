@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['some_5fglobal_5ffunction',['some_global_function',['../group__animals.html#gad4969d516ff95884b14e25cce5c8b507',1,'animal.h']]],
-  ['some_5finline_5fmember_5ffunction',['some_inline_member_function',['../classexample_1_1_animal.html#a6394d7fca31729753ed96bbad13d305a',1,'example::Animal']]]
+  ['find_5fchild_5fby_5fname',['find_child_by_name',['../classexample_1_1_animal.html#a1d509e63586d5fe3edc86d393f88910b',1,'example::Animal']]],
+  ['find_5fparent_5fby_5fname',['find_parent_by_name',['../classexample_1_1_animal.html#a7ff2cbf990657553d95f6d15fb0f4568',1,'example::Animal']]]
 ];

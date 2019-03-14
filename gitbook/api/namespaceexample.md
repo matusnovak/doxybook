@@ -1,87 +1,103 @@
----
-search:
-    keywords: ['example', 'Animal', 'AnimalInterface', 'Bird', 'CustomException', 'SpecialBird', 'CallbackType', 'Callback', 'some_namespace_function']
----
 
-# namespace example
+# Namespace example
+
 
 [**Class List**](annotated.md) **>** [**example**](namespaceexample.md)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+## Namespaces
+
+| Type | Name |
+| ---: | :--- |
+| namespace | [**inner\_namespace**](namespaceexample_1_1inner__namespace.md) <br> |
+
 ## Classes
 
-|Type|Name|
-|-----|-----|
-|class|[**Animal**](classexample_1_1_animal.md)<br>Base class for all animals from which **[Bird](classexample_1_1_bird.md)** derives. |
-|class|[**AnimalInterface**](classexample_1_1_animal_interface.md)|
-|class|[**Bird**](classexample_1_1_bird.md)|
-|class|[**CustomException**](classexample_1_1_custom_exception.md)|
-|class|[**SpecialBird**](classexample_1_1_special_bird.md)|
+| Type | Name |
+| ---: | :--- |
+| class | [**Animal**](classexample_1_1_animal.md) <br>_Base class for all animals from which_ [_**Bird**_](classexample_1_1_bird.md) _derives._ |
+| interface | [**AnimalInterface**](classexample_1_1_animal_interface.md) <br> |
+| class | [**Bird**](classexample_1_1_bird.md) <br> |
+| class | [**CustomException**](classexample_1_1_custom_exception.md) <br> |
+| class | [**NumericException**](classexample_1_1_numeric_exception.md) <br> |
+| class | [**SpecialBird**](classexample_1_1_special_bird.md) <br> |
+
+## Public Types
+
+| Type | Name |
+| ---: | :--- |
+| typedef std::function&lt; void \*([**Animal**](classexample_1_1_animal.md) \*)&gt; | [**Callback**](namespaceexample.md#typedef-callback)  <br>[_**Animal**_](classexample_1_1_animal.md) _callback function definition._ |
+| enum  | [**CallbackType**](namespaceexample.md#enum-callbacktype)  <br>_Different types of an_ [_**Animal**_](classexample_1_1_animal.md) _callback events._ |
 
 
-## Enums
-
-|Type|Name|
-|-----|-----|
-|enum|[**CallbackType**](animal_8h.md#1a002d84037f2ef097ebb0504482fa893d) { **NONE** = 0, **EAT**, **SLEEP**, **ATTACK** } <br>Different types of an **[Animal](classexample_1_1_animal.md)** callback events. |
 
 
-## Typedefs
+## Public Functions
 
-|Type|Name|
-|-----|-----|
-|typedef std::function< void \*(**[Animal](classexample_1_1_animal.md)** \*)>|[**Callback**](animal_8h.md#1a02deaa75527d48da18f0959c46901bb7)<br>**[Animal](classexample_1_1_animal.md)** callback function definition. |
-
-
-## Functions
-
-|Type|Name|
-|-----|-----|
-|void|[**some\_namespace\_function**](animal_8h.md#1a766277c52d41af925d49bcd4f9bc7de0) (**[Animal](classexample_1_1_animal.md)** \* animal) <br>Some random namespace function that modifies **[Animal](classexample_1_1_animal.md)**. |
+| Type | Name |
+| ---: | :--- |
+|  void | [**some\_namespace\_function**](namespaceexample.md#function-some-namespace-function) ([**Animal**](classexample_1_1_animal.md) \* animal) <br>_Some random namespace function that modifies_ [_**Animal**_](classexample_1_1_animal.md) _._ |
 
 
-## Enums Documentation
-
-### enum <a id="1a002d84037f2ef097ebb0504482fa893d" href="#1a002d84037f2ef097ebb0504482fa893d">CallbackType</a>
-
-```cpp
-enum example::CallbackType {
-    NONE = 0,
-    EAT,
-    SLEEP,
-    ATTACK,
-};
-```
-
-Different types of an **[Animal](classexample_1_1_animal.md)** callback events. 
 
 
-## Typedefs Documentation
 
-### typedef <a id="1a02deaa75527d48da18f0959c46901bb7" href="#1a02deaa75527d48da18f0959c46901bb7">Callback</a>
+
+
+
+## Public Types Documentation
+
+
+### <a href="#typedef-callback" id="typedef-callback">typedef Callback </a>
+
 
 ```cpp
 typedef std::function<void*(Animal*)> example::Callback;
 ```
 
-**[Animal](classexample_1_1_animal.md)** callback function definition. 
 
 
-## Functions Documentation
+### <a href="#enum-callbacktype" id="enum-callbacktype">enum CallbackType </a>
 
-### function <a id="1a766277c52d41af925d49bcd4f9bc7de0" href="#1a766277c52d41af925d49bcd4f9bc7de0">some\_namespace\_function</a>
+
+```cpp
+enum example::CallbackType {
+    **NONE** = 0,
+    **EAT**,
+    **SLEEP**,
+    **ATTACK**
+};
+```
+
+
+## Public Functions Documentation
+
+
+### <a href="#function-some-namespace-function" id="function-some-namespace-function">function some\_namespace\_function </a>
+
 
 ```cpp
 void example::some_namespace_function (
     Animal * animal
-)
+) 
 ```
 
-Some random namespace function that modifies **[Animal](classexample_1_1_animal.md)**. 
 
 
 
-**See also:** **[Animal](classexample_1_1_animal.md)** 
+**See also:** [**Animal**](classexample_1_1_animal.md) 
 
 
 **Parameters:**
@@ -92,6 +108,7 @@ Some random namespace function that modifies **[Animal](classexample_1_1_animal.
 
 
 
+        
 
-----------------------------------------
-The documentation for this class was generated from the following file: `src/animal.h`
+------------------------------
+The documentation for this class was generated from the following file `src/animal.h`

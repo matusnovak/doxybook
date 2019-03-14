@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['has_5ftail',['has_tail',['../classexample_1_1_animal.html#a1ff9083f37b80ee29edd7c3e53f97cc7',1,'example::Animal::has_tail()'],['../classexample_1_1_animal_interface.html#a738f590b295f1ffb58054f609b931524',1,'example::AnimalInterface::has_tail()']]]
+  ['customexception',['CustomException',['../classexample_1_1_custom_exception.html#a8656f61bb3320c64e612b99b3cfc169c',1,'example::CustomException']]]
 ];
