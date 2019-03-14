@@ -1,23 +1,47 @@
----
-title: file animal_interface.h
-meta:
-  - name: keywords
-    content: animal_interface.h example::AnimalInterface
----
 
-# file animal\_interface.h
+# File animal\_interface.h
 
-**[Go to the source code of this file.](animal__interface_8h_source.md)**
 
+[**File List**](files.md) **>** [**src**](dir_68267d1309a1af8e8297ef4c3efbcdba.md) **>** [**animal\_interface.h**](animal__interface_8h.md)
+
+[Go to the source code of this file.](animal__interface_8h_source.md)
+
+
+
+* `#include <string>`
+
+
+
+
+
+
+
+
+
+## Namespaces
+
+| Type | Name |
+| ---: | :--- |
+| namespace | [**example**](namespaceexample.md) <br> |
 
 ## Classes
 
-|Type|Name|
-|-----|-----|
-|class|[**example::AnimalInterface**](classexample_1_1_animal_interface.md)|
+| Type | Name |
+| ---: | :--- |
+| interface | [**AnimalInterface**](classexample_1_1_animal_interface.md) <br> |
 
 
 
 
-----------------------------------------
-The documentation for this class was generated from the following file: `src/animal\_interface.h`
+
+
+
+
+
+
+
+
+
+
+------------------------------
+The documentation for this class was generated from the following file `src/animal_interface.h`

@@ -1,20 +1,12 @@
----
-title: markdown-demo.md File Reference
-meta:
-  - name: keywords
-    content: markdown-demo.md file
----
 
-# markdown-demo.md File Reference
+# File markdown-demo.md
 
-**[Go to the documentation of this file.](markdown-demo_8md.md)**
-Source: `src/markdown-demo.md`
+[**File List**](files.md) **>** [**markdown-demo.md**](markdown-demo_8md.md)
 
-    
-    
-    
-    
-```cpp
+[Go to the documentation of this file.](markdown-demo_8md.md) 
+
+
+````cpp
 # Markdown test
 
 **I highly do not recommend to use markdown through Doxygen! The source markdown file will go through Doxygen to xml and then from xml through doxybook back into markdown. If you REALLY need to use markdown through Doxygen, it is here, but limited. IMHO, just write a simple shell script to copy the necessary markdown files into GitBook directly. Anyway, the markdown below is copied from here: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet and most of it works through doxybook.**
@@ -258,8 +250,5 @@ Quote break.
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
-```
+````
 
-
-    
-  

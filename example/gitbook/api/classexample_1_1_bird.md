@@ -1,51 +1,140 @@
----
-search:
-    keywords: ['example::Bird', 'Bird', 'Bird', 'Bird', '~Bird', 'swap', 'move', 'make_sound', 'operator=', 'operator=']
----
 
-# class example::Bird
+# Class example::Bird
 
-[**Class List**](annotated.md) **>** [**example**](namespaceexample.md) **::** [**Bird**](classexample_1_1_bird.md)
+
+[**Class List**](annotated.md) **>** [**example**](namespaceexample.md) **>** [**Bird**](classexample_1_1_bird.md)
 
 
 
 
-Inherits the following classes: **[example::Animal](classexample_1_1_animal.md)**
+
+* `#include <bird.h>`
 
 
 
-Inherited by the following classes: **[example::SpecialBird](classexample_1_1_special_bird.md)**
+Inherits the following classes: [example::Animal](classexample_1_1_animal.md)
+
+
+Inherited by the following classes: [example::SpecialBird](classexample_1_1_special_bird.md)
+
+
+
+
+
+
+
+## Public Types inherited from [example::Animal](classexample_1_1_animal.md)
+
+| Type | Name |
+| ---: | :--- |
+| typedef std::pair&lt; [**Animal**](classexample_1_1_animal.md) \*, [**Animal**](classexample_1_1_animal.md) \* &gt; | [**Parents**](classexample_1_1_animal.md#typedef-parents)  <br> |
+| enum  | [**Type**](classexample_1_1_animal.md#enum-type)  <br>_The 6 classes of animal kingdom._  |
+
+
+
+
+
+
+
+
+
+
 
 ## Public Functions
 
-|Type|Name|
-|-----|-----|
-||[**Bird**](classexample_1_1_bird.md#1a3e9a914edb8db0a5ecb68f1a8230a671) (const std::string & name, **[Bird](classexample_1_1_bird.md)** \* mother = nullptr, **[Bird](classexample_1_1_bird.md)** \* father = nullptr) |
-||[**Bird**](classexample_1_1_bird.md#1a0cca7cb1f27a09fc21f763eb6a5be07f) (const **[Bird](classexample_1_1_bird.md)** & other) = delete |
-||[**Bird**](classexample_1_1_bird.md#1a183101969ac7abd593f41a0197bd9c68) (**[Bird](classexample_1_1_bird.md)** && Bird) noexcept |
-||[**~Bird**](classexample_1_1_bird.md#1a3209f795942057f0da73316dda7b4c39) () = default |
-|void|[**swap**](classexample_1_1_bird.md#1ae9c126dd4739755af505cd5a43c9f1de) (**[Bird](classexample_1_1_bird.md)** & other) noexcept |
-|virtual void|[**move**](classexample_1_1_bird.md#1aa3877f1e70aba0d25ef757c248f69d13) () override |
-|virtual void|[**make\_sound**](classexample_1_1_bird.md#1ae61379b32b53508e9a2398305826667a) () override |
-|**[Bird](classexample_1_1_bird.md)** &|[**operator=**](classexample_1_1_bird.md#1a14c736790bab9fdcad79095ec7e43e83) (const **[Bird](classexample_1_1_bird.md)** & other) = delete <br>Deleted copy operator. |
-|**[Bird](classexample_1_1_bird.md)** &|[**operator=**](classexample_1_1_bird.md#1a5f431ca5c2a97f9c62ae688078a5a8a0) (**[Bird](classexample_1_1_bird.md)** && other) noexcept <br>Move operator. |
+| Type | Name |
+| ---: | :--- |
+|   | [**Bird**](classexample_1_1_bird.md#function-bird-1-3) (const std::string & name, [**Bird**](classexample_1_1_bird.md) \* mother=nullptr, [**Bird**](classexample_1_1_bird.md) \* father=nullptr) <br> |
+|   | [**Bird**](classexample_1_1_bird.md#function-bird-2-3) (const [**Bird**](classexample_1_1_bird.md) & other) = delete<br> |
+|   | [**Bird**](classexample_1_1_bird.md#function-bird-3-3) ([**Bird**](classexample_1_1_bird.md) && Bird) noexcept<br> |
+| virtual void | [**make\_sound**](classexample_1_1_bird.md#function-make-sound) () override<br> |
+| virtual void | [**move**](classexample_1_1_bird.md#function-move) () override<br> |
+|  [**Bird**](classexample_1_1_bird.md) & | [**operator=**](classexample_1_1_bird.md#function-operator) (const [**Bird**](classexample_1_1_bird.md) & other) = delete<br>_Deleted copy operator._  |
+|  [**Bird**](classexample_1_1_bird.md) & | [**operator=**](classexample_1_1_bird.md#function-operator-2) ([**Bird**](classexample_1_1_bird.md) && other) noexcept<br>_Move operator._  |
+|  void | [**swap**](classexample_1_1_bird.md#function-swap) ([**Bird**](classexample_1_1_bird.md) & other) noexcept<br> |
+|   | [**~Bird**](classexample_1_1_bird.md#function-bird) () = default<br> |
+
+## Public Functions inherited from [example::Animal](classexample_1_1_animal.md)
+
+| Type | Name |
+| ---: | :--- |
+|   | [**Animal**](classexample_1_1_animal.md#function-animal-1-3) ([**Type**](classexample_1_1_animal.md#enum-type) type, const std::string & name, [**Animal**](classexample_1_1_animal.md) \* mother=nullptr, [**Animal**](classexample_1_1_animal.md) \* father=nullptr) <br>_The main constructor._  |
+|   | [**Animal**](classexample_1_1_animal.md#function-animal-2-3) (const [**Animal**](classexample_1_1_animal.md) & other) = delete<br> |
+|   | [**Animal**](classexample_1_1_animal.md#function-animal-3-3) ([**Animal**](classexample_1_1_animal.md) && animal) noexcept<br> |
+|  const std::string & | [**get\_name**](classexample_1_1_animal.md#function-get-name) () const<br>_Get the name of the animal._  |
+| virtual int | [**get\_num\_of\_eyes**](classexample_1_1_animal.md#function-get-num-of-eyes) () override const<br>_Returns the number of eyes._  |
+| virtual int | [**get\_num\_of\_limbs**](classexample_1_1_animal.md#function-get-num-of-limbs) () override const<br>_Returns the number of limbs._  |
+|  [**Parents**](classexample_1_1_animal.md#typedef-parents) | [**get\_parents**](classexample_1_1_animal.md#function-get-parents) () const<br> |
+| virtual bool | [**has\_tail**](classexample_1_1_animal.md#function-has-tail) () override const<br>_Returns true if the animal has a tail._  |
+| virtual void | [**make\_sound**](classexample_1_1_animal.md#function-make-sound) () = 0<br> |
+| virtual void | [**move**](classexample_1_1_animal.md#function-move) () <br> |
+|   | [**operator bool**](classexample_1_1_animal.md#function-operator-bool) () const<br>_Returns true if this is an valid animal._  |
+|  [**Animal**](classexample_1_1_animal.md) & | [**operator=**](classexample_1_1_animal.md#function-operator) (const [**Animal**](classexample_1_1_animal.md) & other) = delete<br>_Deleted copy operator._  |
+|  [**Animal**](classexample_1_1_animal.md) & | [**operator=**](classexample_1_1_animal.md#function-operator-2) ([**Animal**](classexample_1_1_animal.md) && other) noexcept<br>_Move operator._  |
+|  void | [**some\_inline\_member\_function**](classexample_1_1_animal.md#function-some-inline-member-function) ([**Animal**](classexample_1_1_animal.md) \* animal) <br>_Lorem Ipsum._  |
+|  void | [**swap**](classexample_1_1_animal.md#function-swap) ([**Animal**](classexample_1_1_animal.md) & other) noexcept<br> |
+| virtual  | [**~Animal**](classexample_1_1_animal.md#function-animal) () = default<br> |
+
+## Public Functions inherited from [example::AnimalInterface](classexample_1_1_animal_interface.md)
+
+| Type | Name |
+| ---: | :--- |
+| virtual int | [**get\_num\_of\_eyes**](classexample_1_1_animal_interface.md#function-get-num-of-eyes) () const = 0<br>_Returns the number of eyes._  |
+| virtual int | [**get\_num\_of\_limbs**](classexample_1_1_animal_interface.md#function-get-num-of-limbs) () const = 0<br>_Returns the number of limbs._  |
+| virtual bool | [**has\_tail**](classexample_1_1_animal_interface.md#function-has-tail) () const = 0<br>_Returns true if the animal has a tail._  |
+
+
+## Public Static Functions inherited from [example::Animal](classexample_1_1_animal.md)
+
+| Type | Name |
+| ---: | :--- |
+|  [**Animal**](classexample_1_1_animal.md) \* | [**find\_child\_by\_name**](classexample_1_1_animal.md#function-find-child-by-name) ([**Animal**](classexample_1_1_animal.md) \* parent) <br> |
+|  [**Animal**](classexample_1_1_animal.md) \* | [**find\_parent\_by\_name**](classexample_1_1_animal.md#function-find-parent-by-name) ([**Animal**](classexample_1_1_animal.md) \* child) <br> |
+
+
+
+
+
+
+
+
+
+## Protected Attributes inherited from [example::Animal](classexample_1_1_animal.md)
+
+| Type | Name |
+| ---: | :--- |
+|  [**Animal**](classexample_1_1_animal.md) \* | [**father**](classexample_1_1_animal.md#variable-father)  <br>_The pointer to the father._  |
+|  [**Animal**](classexample_1_1_animal.md) \* | [**mother**](classexample_1_1_animal.md#variable-mother)  <br>_The pointer to the mother._  |
+|  std::string | [**name**](classexample_1_1_animal.md#variable-name)  <br> |
+
+
+
+
+
+
+
+
+
 
 
 ## Public Functions Documentation
 
-### function <a id="1a3e9a914edb8db0a5ecb68f1a8230a671" href="#1a3e9a914edb8db0a5ecb68f1a8230a671">Bird (1/3)</a>
+
+### <a href="#function-bird-1-3" id="function-bird-1-3">function Bird [1/3]</a>
+
 
 ```cpp
 example::Bird::Bird (
     const std::string & name,
-    Bird * mother = nullptr,
-    Bird * father = nullptr
-)
+    Bird * mother=nullptr,
+    Bird * father=nullptr
+) 
 ```
 
 
 
-### function <a id="1a0cca7cb1f27a09fc21f763eb6a5be07f" href="#1a0cca7cb1f27a09fc21f763eb6a5be07f">Bird (2/3)</a>
+### <a href="#function-bird-2-3" id="function-bird-2-3">function Bird [2/3]</a>
+
 
 ```cpp
 example::Bird::Bird (
@@ -55,7 +144,8 @@ example::Bird::Bird (
 
 
 
-### function <a id="1a183101969ac7abd593f41a0197bd9c68" href="#1a183101969ac7abd593f41a0197bd9c68">Bird (3/3)</a>
+### <a href="#function-bird-3-3" id="function-bird-3-3">function Bird [3/3]</a>
+
 
 ```cpp
 example::Bird::Bird (
@@ -65,15 +155,52 @@ example::Bird::Bird (
 
 
 
-### function <a id="1a3209f795942057f0da73316dda7b4c39" href="#1a3209f795942057f0da73316dda7b4c39">~Bird</a>
+### <a href="#function-make-sound" id="function-make-sound">function make\_sound </a>
+
 
 ```cpp
-example::Bird::~Bird () = default
+virtual void example::Bird::make_sound () override
+```
+
+
+Implements [*example::Animal::make\_sound*](classexample_1_1_animal.md#function-make-sound)
+
+
+### <a href="#function-move" id="function-move">function move </a>
+
+
+```cpp
+virtual void example::Bird::move () override
+```
+
+
+Implements [*example::Animal::move*](classexample_1_1_animal.md#function-move)
+
+
+### <a href="#function-operator" id="function-operator">function operator= </a>
+
+
+```cpp
+Bird & example::Bird::operator= (
+    const Bird & other
+) = delete
 ```
 
 
 
-### function <a id="1ae9c126dd4739755af505cd5a43c9f1de" href="#1ae9c126dd4739755af505cd5a43c9f1de">swap</a>
+### <a href="#function-operator-2" id="function-operator-2">function operator= </a>
+
+
+```cpp
+Bird & example::Bird::operator= (
+    Bird && other
+) noexcept
+```
+
+
+
+### <a href="#function-swap" id="function-swap">function swap </a>
+
 
 ```cpp
 void example::Bird::swap (
@@ -83,51 +210,14 @@ void example::Bird::swap (
 
 
 
-### function <a id="1aa3877f1e70aba0d25ef757c248f69d13" href="#1aa3877f1e70aba0d25ef757c248f69d13">move</a>
+### <a href="#function-bird" id="function-bird">function ~Bird </a>
+
 
 ```cpp
-virtual void example::Bird::move ()
+example::Bird::~Bird () = default
 ```
 
 
 
-Implements **[Animal::move](classexample_1_1_animal.md#1aaee0d759d18beaca18670d2a794b1445)**
-
-
-### function <a id="1ae61379b32b53508e9a2398305826667a" href="#1ae61379b32b53508e9a2398305826667a">make\_sound</a>
-
-```cpp
-virtual void example::Bird::make_sound ()
-```
-
-
-
-Implements **[Animal::make\_sound](classexample_1_1_animal.md#1a6939f9fed1a387b128d3947afc239873)**
-
-
-### function <a id="1a14c736790bab9fdcad79095ec7e43e83" href="#1a14c736790bab9fdcad79095ec7e43e83">operator= (1/2)</a>
-
-```cpp
-Bird & example::Bird::operator= (
-    const Bird & other
-) = delete
-```
-
-Deleted copy operator. 
-
-
-### function <a id="1a5f431ca5c2a97f9c62ae688078a5a8a0" href="#1a5f431ca5c2a97f9c62ae688078a5a8a0">operator= (2/2)</a>
-
-```cpp
-Bird & example::Bird::operator= (
-    Bird && other
-) noexcept
-```
-
-Move operator. 
-
-
-
-
-----------------------------------------
-The documentation for this class was generated from the following file: `src/bird.h`
+------------------------------
+The documentation for this class was generated from the following file `src/bird.h`

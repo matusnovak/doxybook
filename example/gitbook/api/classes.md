@@ -1,32 +1,39 @@
----
-search:
-    keywords: ['Animal', 'Bird', 'CustomException', 'Animal::Result', 'SpecialBird']
----
 
 # Class Index
 
-## A
 
-* [**Animal**](classexample_1_1_animal.md) ([**example**](namespaceexample.md))
+## a
 
+* [**Animal**](classexample_1_1_animal.md)
+ ([**example**](namespaceexample.md))* [**AnimalInterface**](classexample_1_1_animal_interface.md)
+ ([**example**](namespaceexample.md))
 
-## B
+## b
 
-* [**Bird**](classexample_1_1_bird.md) ([**example**](namespaceexample.md))
+* [**Bird**](classexample_1_1_bird.md)
+ ([**example**](namespaceexample.md))
 
+## c
 
-## C
+* [**CustomException**](classexample_1_1_custom_exception.md)
+ ([**example**](namespaceexample.md))
 
-* [**CustomException**](classexample_1_1_custom_exception.md) ([**example**](namespaceexample.md))
+## n
 
+* [**NumericException**](classexample_1_1_numeric_exception.md)
+ ([**example**](namespaceexample.md))
 
-## R
+## r
 
-* [**Animal::Result**](structexample_1_1_animal_1_1_result.md) ([**example**](namespaceexample.md))
+* [**Result**](structexample_1_1_animal_1_1_result.md)
+ ([**example::Animal**](classexample_1_1_animal.md))
 
+## s
 
-## S
+* [**SpecialBird**](classexample_1_1_special_bird.md)
+ ([**example**](namespaceexample.md))
 
-* [**SpecialBird**](classexample_1_1_special_bird.md) ([**example**](namespaceexample.md))
+## v
 
-
+* [**Vector**](classexample_1_1inner__namespace_1_1_vector.md)
+ ([**example::inner\_namespace**](namespaceexample_1_1inner__namespace.md))

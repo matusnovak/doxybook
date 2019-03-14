@@ -1,54 +1,72 @@
----
-search:
-    keywords: ['config.h', 'CONFIG_HELLO', 'CONFIG_WORLD', 'PI']
----
 
-# file config.h
-
-**[Go to the source code of this file.](config_8h_source.md)**
+# File config.h
 
 
-This is a config file. [More...](#detailed-description)
+[**File List**](files.md) **>** [**src**](dir_68267d1309a1af8e8297ef4c3efbcdba.md) **>** [**config.h**](config_8h.md)
 
-## Defines
+[Go to the source code of this file.](config_8h_source.md)
 
-|Type|Name|
-|-----|-----|
-|define |[**CONFIG\_HELLO**](group__animals.md#gaca5c9bba70e4fd0509afbf0d0b0deaa8)|
-|define |[**CONFIG\_WORLD**](group__animals.md#ga6e0362a8d59c25d8acd60d0ccf2f17b3)|
-|define |[**PI**](group__animals.md#ga598a3330b3c21701223ee0ca14316eca)|
+_This is a config file._ [More...](#detailed-description)
 
 
-## Detailed Description
 
-This is a detailed description 
-## Defines Documentation
 
-### define <a id="gaca5c9bba70e4fd0509afbf0d0b0deaa8" href="#gaca5c9bba70e4fd0509afbf0d0b0deaa8">CONFIG\_HELLO</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Macros
+
+| Type | Name |
+| ---: | :--- |
+| define  | [**CONFIG\_HELLO**](config_8h.md#define-config-hello)  () (123)<br> |
+| define  | [**CONFIG\_WORLD**](config_8h.md#define-config-world)  () ("abx")<br> |
+| define  | [**PI**](config_8h.md#define-pi)  () (3.14159265358979323846)<br> |
+## Macro Definition Documentation
+
+
+
+### <a href="#define-config-hello" id="define-config-hello">define CONFIG\_HELLO </a>
+
 
 ```cpp
-define CONFIG_HELLO (123);
+#define CONFIG_HELLO () 
 ```
 
 
 
-### define <a id="ga6e0362a8d59c25d8acd60d0ccf2f17b3" href="#ga6e0362a8d59c25d8acd60d0ccf2f17b3">CONFIG\_WORLD</a>
+### <a href="#define-config-world" id="define-config-world">define CONFIG\_WORLD </a>
+
 
 ```cpp
-define CONFIG_WORLD ("abx");
+#define CONFIG_WORLD () 
 ```
 
 
 
-### define <a id="ga598a3330b3c21701223ee0ca14316eca" href="#ga598a3330b3c21701223ee0ca14316eca">PI</a>
+### <a href="#define-pi" id="define-pi">define PI </a>
+
 
 ```cpp
-define PI (3.14159265358979323846);
+#define PI () 
 ```
 
 
 
-
-
-----------------------------------------
-The documentation for this class was generated from the following file: `src/config.h`
+------------------------------
+The documentation for this class was generated from the following file `src/config.h`

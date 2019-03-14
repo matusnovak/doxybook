@@ -1,61 +1,105 @@
----
-search:
-    keywords: ['animals', 'example::Animal', 'example::Bird', 'example::SpecialBird', 'example::CustomException', 'example::AnimalInterface', 'some_global_function', 'CONFIG_HELLO', 'CONFIG_WORLD', 'PI']
----
 
-# group animals
+# Group animals
 
-This is a brief description to the animals group. [More...](#detailed-description)
+
+[**Modules**](modules.md)
+ **>** [**animals**](group__animals.md)
+
+
+
+_This is a brief description to the animals group._ [More...](#detailed-description)
+
+
+
+
+
+
 
 ## Files
 
-|Type|Name|
-|-----|-----|
-|file|[**config.h**](config_8h.md) This is a config file. |
+| Type | Name |
+| ---: | :--- |
+| file | [**config.h**](config_8h.md) <br>_This is a config file._  |
+
+
 
 
 ## Classes
 
-|Type|Name|
-|-----|-----|
-|class|[**example::Animal**](classexample_1_1_animal.md)<br>Base class for all animals from which **[Bird](classexample_1_1_bird.md)** derives. |
-|class|[**example::Bird**](classexample_1_1_bird.md)|
-|class|[**example::SpecialBird**](classexample_1_1_special_bird.md)|
-|class|[**example::CustomException**](classexample_1_1_custom_exception.md)|
-|class|[**example::AnimalInterface**](classexample_1_1_animal_interface.md)|
+| Type | Name |
+| ---: | :--- |
+| class | [**example::Animal**](classexample_1_1_animal.md) <br>_Base class for all animals from which_ [_**Bird**_](classexample_1_1_bird.md) _derives._ |
+| interface | [**example::AnimalInterface**](classexample_1_1_animal_interface.md) <br> |
+| class | [**example::Bird**](classexample_1_1_bird.md) <br> |
+| class | [**example::CustomException**](classexample_1_1_custom_exception.md) <br> |
+| class | [**example::NumericException**](classexample_1_1_numeric_exception.md) <br> |
+| class | [**example::SpecialBird**](classexample_1_1_special_bird.md) <br> |
+
+## Public Types
+
+| Type | Name |
+| ---: | :--- |
+| enum  | [**example::Animal::Type**](classexample_1_1_animal.md#enum-type)  <br>_The 6 classes of animal kingdom._  |
 
 
-## Functions
-
-|Type|Name|
-|-----|-----|
-|void|[**some\_global\_function**](group__animals.md#gad4969d516ff95884b14e25cce5c8b507) (**[example::Animal](classexample_1_1_animal.md)** \* animal) <br>Some random global function that modifies Animal. |
 
 
-## Defines
+## Public Functions
 
-|Type|Name|
-|-----|-----|
-|define |[**CONFIG\_HELLO**](group__animals.md#gaca5c9bba70e4fd0509afbf0d0b0deaa8)|
-|define |[**CONFIG\_WORLD**](group__animals.md#ga6e0362a8d59c25d8acd60d0ccf2f17b3)|
-|define |[**PI**](group__animals.md#ga598a3330b3c21701223ee0ca14316eca)|
+| Type | Name |
+| ---: | :--- |
+|  void | [**some\_global\_function**](animal_8h.md#function-some-global-function) ([**example::Animal**](classexample_1_1_animal.md) \* animal) <br>_Some random global function that modifies Animal._  |
+|  void | [**example::some\_namespace\_function**](namespaceexample.md#function-some-namespace-function) ([**Animal**](classexample_1_1_animal.md) \* animal) <br>_Some random namespace function that modifies_ [_**Animal**_](classexample_1_1_animal.md) _._ |
 
 
-## Detailed Description
 
-Some random brief description.
-Some detailed description here 
-## Functions Documentation
 
-### function <a id="gad4969d516ff95884b14e25cce5c8b507" href="#gad4969d516ff95884b14e25cce5c8b507">some\_global\_function</a>
+
+
+
+## Macros
+
+| Type | Name |
+| ---: | :--- |
+| define  | [**CONFIG\_HELLO**](config_8h.md#define-config-hello)  () (123)<br> |
+| define  | [**CONFIG\_WORLD**](config_8h.md#define-config-world)  () ("abx")<br> |
+| define  | [**PI**](config_8h.md#define-pi)  () (3.14159265358979323846)<br> |
+
+## Public Types Documentation
+
+
+### <a href="#enum-type" id="enum-type">enum Type </a>
+
 
 ```cpp
-void animals::some_global_function (
-    example::Animal * animal
-)
+enum example::Animal::Type {
+    **NONE** = 0,
+    **INSECT** = 1,
+    **AMPHIBIAN** = 2,
+    **BIRD** = 3,
+    **FISH** = 4,
+    **REPTILE** = 5,
+    **MAMMAL** = 6
+};
 ```
 
-Some random global function that modifies Animal. 
+
+Lorem Ipsum Donor. 
+
+
+        
+## Public Functions Documentation
+
+
+### <a href="#function-some-global-function" id="function-some-global-function">function some\_global\_function </a>
+
+
+```cpp
+void some_global_function (
+    example::Animal * animal
+) 
+```
+
 
 
 
@@ -69,29 +113,61 @@ Some random global function that modifies Animal.
 
 
 
-## Defines Documentation
 
-### define <a id="gaca5c9bba70e4fd0509afbf0d0b0deaa8" href="#gaca5c9bba70e4fd0509afbf0d0b0deaa8">CONFIG\_HELLO</a>
+        
+
+### <a href="#function-some-namespace-function" id="function-some-namespace-function">function some\_namespace\_function </a>
+
 
 ```cpp
-define CONFIG_HELLO (123);
+void example::some_namespace_function (
+    Animal * animal
+) 
 ```
 
 
 
-### define <a id="ga6e0362a8d59c25d8acd60d0ccf2f17b3" href="#ga6e0362a8d59c25d8acd60d0ccf2f17b3">CONFIG\_WORLD</a>
+
+**See also:** [**Animal**](classexample_1_1_animal.md) 
+
+
+**Parameters:**
+
+
+* **animal** The pointer to the animal instance 
+
+
+
+
+        ## Macro Definition Documentation
+
+
+
+### <a href="#define-config-hello" id="define-config-hello">define CONFIG\_HELLO </a>
+
 
 ```cpp
-define CONFIG_WORLD ("abx");
+#define CONFIG_HELLO () 
 ```
 
 
 
-### define <a id="ga598a3330b3c21701223ee0ca14316eca" href="#ga598a3330b3c21701223ee0ca14316eca">PI</a>
+### <a href="#define-config-world" id="define-config-world">define CONFIG\_WORLD </a>
+
 
 ```cpp
-define PI (3.14159265358979323846);
+#define CONFIG_WORLD () 
 ```
 
 
 
+### <a href="#define-pi" id="define-pi">define PI </a>
+
+
+```cpp
+#define PI () 
+```
+
+
+
+------------------------------

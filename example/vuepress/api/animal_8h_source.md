@@ -1,30 +1,12 @@
----
-title: animal.h File Reference
-meta:
-  - name: keywords
-    content: animal.h file
----
 
-# animal.h File Reference
+# File animal.h
 
-**[Go to the documentation of this file.](animal_8h.md)**
-Source: `src/animal.h`
+[**File List**](files.md) **>** [**src**](dir_68267d1309a1af8e8297ef4c3efbcdba.md) **>** [**animal.h**](animal_8h.md)
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-```cpp
+[Go to the documentation of this file.](animal_8h.md) 
+
+
+````cpp
 #ifndef EXAMPLE_ANIMAL_H
 #define EXAMPLE_ANIMAL_H
 
@@ -32,6 +14,11 @@ Source: `src/animal.h`
 #include "animal_interface.h"
 
 namespace example {
+    namespace inner_namespace {
+        class Vector {
+            int x, y, z;
+        };
+    }
     class Animal: public AnimalInterface {
     public:
         enum Type {
@@ -110,8 +97,5 @@ namespace example {
 extern void some_global_function(example::Animal* animal);
 
 #endif
-```
+````
 
-
-    
-  

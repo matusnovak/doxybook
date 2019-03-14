@@ -1,11 +1,8 @@
----
-title: Bug List
----
 
 # Bug List
 
 
-#### Class **[example::Animal](classexample_1_1_animal.md)**  
+#### Class [**example::Animal**](classexample_1_1_animal.md)  
 
 Some random bug 
 

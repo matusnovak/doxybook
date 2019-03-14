@@ -1,27 +1,12 @@
----
-title: bird.h File Reference
-meta:
-  - name: keywords
-    content: bird.h file
----
 
-# bird.h File Reference
+# File bird.h
 
-**[Go to the documentation of this file.](bird_8h.md)**
-Source: `src/bird.h`
+[**File List**](files.md) **>** [**src**](dir_68267d1309a1af8e8297ef4c3efbcdba.md) **>** [**bird.h**](bird_8h.md)
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-```cpp
+[Go to the documentation of this file.](bird_8h.md) 
+
+
+````cpp
 #ifndef EXAMPLE_BIRD_H
 #define EXAMPLE_BIRD_H
 
@@ -45,8 +30,5 @@ namespace example {
 }
 
 #endif
-```
+````
 
-
-    
-  

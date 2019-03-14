@@ -29,6 +29,23 @@ namespace example {
     private:
         std::string msg;
     };
+
+    /*!
+     * @ingroup animals
+     */
+    class NumericException : public std::exception {
+    public:
+        NumericException(const std::string& msg):std::exception(),msg(msg){
+
+        }
+
+        virtual const char* what() const throw() {
+            return msg.c_str();
+        }
+
+    private:
+        std::string msg;
+    };
 }
 
 #endif

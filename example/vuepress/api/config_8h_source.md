@@ -1,23 +1,12 @@
----
-title: config.h File Reference
-meta:
-  - name: keywords
-    content: config.h file
----
 
-# config.h File Reference
+# File config.h
 
-This is a config file. [More...](#detailed-description)
+[**File List**](files.md) **>** [**src**](dir_68267d1309a1af8e8297ef4c3efbcdba.md) **>** [**config.h**](config_8h.md)
 
-**[Go to the documentation of this file.](config_8h.md)**
-Source: `src/config.h`
+[Go to the documentation of this file.](config_8h.md) 
 
-    
-      
-    
-    
-    
-```cpp
+
+````cpp
 #ifndef EXAMPLE_CONFIG_H
 #define EXAMPLE_CONFIG_H
 
@@ -26,11 +15,5 @@ Source: `src/config.h`
 #define PI (3.14159265358979323846)
 
 #endif
-```
+````
 
-
-    
-  
-## Detailed Description
-
-This is a detailed description 

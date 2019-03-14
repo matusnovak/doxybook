@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='doxybook',
-    version='2.1.6',
+    version='3.0.0',
     description='Convert Doxygen XML to GitBook or Vuepress markdown files',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -20,7 +20,7 @@ setup(
     license='MIT',
     keywords='doxygen gitbook vuepress markdown generator',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=['Jinja2'],
     entry_points={
         'console_scripts': [
             'doxybook=doxybook:main',

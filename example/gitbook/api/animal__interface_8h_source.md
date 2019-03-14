@@ -1,24 +1,12 @@
----
-search:
-    keywords: ['animal_interface.h', 'file']
----
 
-# animal\_interface.h File Reference
+# File animal\_interface.h
 
-**[Go to the documentation of this file.](animal__interface_8h.md)**
-Source: `src/animal\_interface.h`
+[**File List**](files.md) **>** [**src**](dir_68267d1309a1af8e8297ef4c3efbcdba.md) **>** [**animal\_interface.h**](animal__interface_8h.md)
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-```cpp
+[Go to the documentation of this file.](animal__interface_8h.md) 
+
+
+````cpp
 #ifndef EXAMPLE_ANIMAL_INTERFACE_H
 #define EXAMPLE_ANIMAL_INTERFACE_H
 
@@ -36,8 +24,5 @@ namespace example {
 }
 
 #endif
-```
+````
 
-
-    
-  

@@ -30,6 +30,16 @@
  */
 namespace example {
     /*!
+     * @brief Some inner namespace
+     * @addtogroup animals
+     * @ingroup organism
+     */
+    namespace inner_namespace {
+        class Vector {
+            int x, y, z;
+        };
+    }
+    /*!
      * @ingroup animals
      * @brief Base class for all animals from which Bird derives
      * @details Lorem Ipsum Donor. Some [Random link with **bold** and _italics_](http://github.com)
@@ -58,6 +68,7 @@ namespace example {
         /*!
          * @brief The 6 classes of animal kingdom
          * @details Lorem Ipsum Donor.
+         * @ingroup animals
          */
         enum Type {
             NONE = 0,
@@ -189,6 +200,7 @@ namespace example {
      * @brief Some random namespace function that modifies Animal
      * @see Animal
      * @param animal The pointer to the animal instance
+     * @ingroup animals
      */
     void some_namespace_function(Animal* animal);
     /*!
