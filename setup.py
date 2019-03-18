@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 from codecs import open
 from os import path
 
@@ -19,7 +19,7 @@ setup(
     author_email='matusnov@gmail.com',
     license='MIT',
     keywords='doxygen gitbook vuepress markdown generator',
-    packages=find_packages(),
+    packages=['doxybook', 'doxybook.templates'],
     install_requires=['Jinja2'],
     entry_points={
         'console_scripts': [
