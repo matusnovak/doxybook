@@ -74,10 +74,10 @@ typedef std::function<void*(Animal*)> example::Callback;
 
 ```cpp
 enum example::CallbackType {
-    **NONE** = 0,
-    **EAT**,
-    **SLEEP**,
-    **ATTACK**
+    NONE = 0,
+    EAT,
+    SLEEP,
+    ATTACK
 };
 ```
 

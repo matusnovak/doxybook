@@ -568,7 +568,15 @@ class Node:
         elif self.is_enum:
             if self._values.has():
                 code.append('enum ' + self.name_full_unescaped + ' {')
-                values = self._values.array(plain=True)
+                
+                values = []
+                for enumvalue in self._xml.findall('enumvalue'):
+                    p = enumvalue.find('name').text
+                    initializer = enumvalue.find('initializer')
+                    if initializer is not None:
+                        p += ' ' + self._parser.paras_as_str(initializer, plain=True)
+                    values.append(p)
+                    
                 for i, value in enumerate(values):
                     if i + 1 >= len(values):
                         code.append('    ' + value)

@@ -114,13 +114,13 @@ typedef std::pair<Animal*, Animal*> example::Animal::Parents;
 
 ```cpp
 enum example::Animal::Type {
-    **NONE** = 0,
-    **INSECT** = 1,
-    **AMPHIBIAN** = 2,
-    **BIRD** = 3,
-    **FISH** = 4,
-    **REPTILE** = 5,
-    **MAMMAL** = 6
+    NONE = 0,
+    INSECT = 1,
+    AMPHIBIAN = 2,
+    BIRD = 3,
+    FISH = 4,
+    REPTILE = 5,
+    MAMMAL = 6
 };
 ```
 
