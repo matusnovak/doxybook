@@ -6,9 +6,9 @@ TEMPLATE = """
 
 {% for node in children -%}
 * [**{{node.name_short}}**]({{node.url}})
-{%- if node.parent.is_language %}
+{% if node.parent.is_language -%}
  ([**{{node.parent.name_long}}**]({{node.parent.url}}))
-{%- endif -%}
+{% endif -%}
 {% endfor %}
 {% endfor %}
 """
