@@ -25,25 +25,28 @@ jobs:
       - run:
           name: VuePress
           command: |
-            python3 -m doxybook -t vuepress -i example/temp/xml -o example/vuepress/api
+            mkdir -p example/vuepress/api
+            python3 -m doxybook -t vuepress -i tmp/xml -o example/vuepress/api
             cp -rf ./example/vuepress /tmp/vuepress
       
       - run:
           name: GitBook
           command: |
-            python3 -m doxybook -t gitbook -i example/temp/xml -o example/gitbook/api -s example/gitbook/SUMMARY.md
+            mkdir -p example/gitbook/api
+            python3 -m doxybook -t gitbook -i tmp/xml -o example/gitbook/api -s example/gitbook/SUMMARY.md
             cp -rf ./example/gitbook /tmp/gitbook
 
       - run:
           name: Docsify
           command: |
-            python3 -m doxybook -t docsify -i example/temp/xml -o example/docsify/api
+            mkdir -p example/docsify/api
+            python3 -m doxybook -t docsify -i tmp/xml -o example/docsify/api
             cp -rf ./example/docsify /tmp/docsify
 
       - run:
           name: MkDocs
           command: |
-            python3 -m doxybook -t mkdocs -i example/temp/xml -o example/mkdocs/docs/api
+            python3 -m doxybook -t mkdocs -i tmp/xml -o example/mkdocs/docs/api
             cp -rf ./example/mkdocs /tmp/mkdocs
 
       - persist_to_workspace:
