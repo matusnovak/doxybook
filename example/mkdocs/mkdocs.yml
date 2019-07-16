@@ -1,2 +1,24 @@
 site_name: My Docs
 theme: readthedocs
+nav:
+    - 'Home': 'index.md'
+    - 'Modules': 'api/modules.md'
+    - 'Classes':
+        - 'Class List': 'api/annotated.md'
+        - 'Class Index': 'api/classes.md'
+        - 'Class Hierarchy': 'api/hierarchy.md'
+        - 'Class Members': 'api/class_members.md'
+        - 'Class Member Functions': 'api/class_member_functions.md'
+        - 'Class Member Variables': 'api/class_member_variables.md'
+        - 'Class Member Typedefs': 'api/class_member_typedefs.md'
+        - 'Class Member Enumerations': 'api/class_member_enums.md'
+    - 'Namespaces':
+        - 'Namespace List': 'api/namespaces.md'
+        - 'Namespace Members': 'api/namespace_members.md'
+        - 'Namespace Member Functions': 'api/namespace_member_functions.md'
+        - 'Namespace Member Variables': 'api/namespace_member_variables.md'
+        - 'Namespace Member Typedefs': 'api/namespace_member_typedefs.md'
+        - 'Namespace Member Enumerations': 'api/namespace_member_enums.md'
+    - 'Files': 'api/files.md'
+    - 'Pages': 'api/pages.md'
+    - 'Bugs': 'api/bug.md'
