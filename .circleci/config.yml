@@ -22,6 +22,7 @@ jobs:
             mkdir -p /tmp/gh-pages
             cp -rf ./example/temp/xml /tmp/xml
             cp -rf ./example/temp/html /tmp/gh-pages/original
+            cp ./example/index.html /tmp/gh-pages/index.html
 
       - run:
           name: VuePress
@@ -54,11 +55,11 @@ jobs:
           root: /tmp
           paths:
             - xml
-            - html
             - vuepress
             - gitbook
             - docsify
             - mkdocs
+            - gh-pages
 
   build_1:
     docker:
@@ -80,6 +81,15 @@ jobs:
             cd /tmp/mkdocs
             mkdocs build
             cp -rf ./site /tmp/gh-pages/mkdocs
+
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - xml
+            - vuepress
+            - gitbook
+            - docsify
+            - gh-pages
   
   build_2:
     docker:
@@ -109,6 +119,11 @@ jobs:
             gitbook install
             gitbook build
             cp -rf ./_book /tmp/gh-pages/gitbook
+
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - gh-pages
 
   deploy:
     docker:
