@@ -19,8 +19,8 @@ jobs:
             cd ..
 
             mkdir -p /tmp/gh-pages
-            cp -rf ./example/xml /tmp/xml
-            cp -rf ./example/html /tmp/gh-pages/original
+            cp -rf ./example/temp/xml /tmp/xml
+            cp -rf ./example/temp/html /tmp/gh-pages/original
 
       - run:
           name: VuePress
