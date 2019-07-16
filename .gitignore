@@ -117,3 +117,4 @@ example/gitbook/api/*.md
 example/docsify/api/*.md
 example/mkdocs/docs/api/*.md
 example/gitbook/SUMMARY.md
+example/mkdocs/site
