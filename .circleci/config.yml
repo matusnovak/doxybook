@@ -103,7 +103,7 @@ jobs:
       - run:
           name: Dependencies
           command: |
-            sudo npm install gitbook vuepress docsify-cli -g
+            sudo npm install -g gitbook vuepress
 
       - run:
           name: Build static pages - VuePress
@@ -141,7 +141,7 @@ jobs:
       - run:
           name: Dependencies
           command: |
-            sudo npm install gh-pages@2.0.1 -g
+            sudo npm install -g gh-pages@2.0.1
       
       - run:
           name: Deploy
