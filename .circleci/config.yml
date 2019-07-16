@@ -103,9 +103,8 @@ jobs:
       - run:
           name: Dependencies
           command: |
-            sudo npm install -g vuepress
-            sudo -s
-            sudo npm install -g gitbook
+            sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+            npm install -g vuepress gitbook
 
       - run:
           name: Build static pages - VuePress
