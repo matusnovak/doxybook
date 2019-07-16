@@ -7,35 +7,36 @@ from doxybook.xml_parser import XmlParser
 
 
 class Doxygen:
-    def __init__(self, index_path: str, parser: XmlParser, cache: Cache):
+    def __init__(self, index_path: str, parser: XmlParser, cache: Cache, options: dict = {}):
         path = os.path.join(index_path, 'index.xml')
         print('Loading XML from: ' + path)
         xml = ElementTree.parse(path).getroot()
 
         self.parser = parser
         self.cache = cache
-        self.root = Node('root', None, self.cache, self.parser, None)
-        self.groups = Node('root', None, self.cache, self.parser, None)
-        self.files = Node('root', None, self.cache, self.parser, None)
-        self.pages = Node('root', None, self.cache, self.parser, None)
+        self._options = options
+        self.root = Node('root', None, self.cache, self.parser, None, options=self._options)
+        self.groups = Node('root', None, self.cache, self.parser, None, options=self._options)
+        self.files = Node('root', None, self.cache, self.parser, None, options=self._options)
+        self.pages = Node('root', None, self.cache, self.parser, None, options=self._options)
 
         for compound in xml.findall('compound'):
             kind = Kind.from_str(compound.get('kind'))
             refid = compound.get('refid')
             if kind.is_language():
-                node = Node(os.path.join(index_path, refid + '.xml'), None, self.cache, self.parser, self.root)
+                node = Node(os.path.join(index_path, refid + '.xml'), None, self.cache, self.parser, self.root, options=self._options)
                 node._visibility = Visibility.PUBLIC
                 self.root.add_child(node)
             if kind == Kind.GROUP:
-                node = Node(os.path.join(index_path, refid + '.xml'), None, self.cache, self.parser, self.root)
+                node = Node(os.path.join(index_path, refid + '.xml'), None, self.cache, self.parser, self.root, options=self._options)
                 node._visibility = Visibility.PUBLIC
                 self.groups.add_child(node)
             if kind == Kind.FILE or kind == Kind.DIR:
-                node = Node(os.path.join(index_path, refid + '.xml'), None, self.cache, self.parser, self.root)
+                node = Node(os.path.join(index_path, refid + '.xml'), None, self.cache, self.parser, self.root, options=self._options)
                 node._visibility = Visibility.PUBLIC
                 self.files.add_child(node)
             if kind == Kind.PAGE:
-                node = Node(os.path.join(index_path, refid + '.xml'), None, self.cache, self.parser, self.root)
+                node = Node(os.path.join(index_path, refid + '.xml'), None, self.cache, self.parser, self.root, options=self._options)
                 node._visibility = Visibility.PUBLIC
                 self.pages.add_child(node)
 

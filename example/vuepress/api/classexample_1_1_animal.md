@@ -62,7 +62,9 @@ Inherited by the following classes: [example::Bird](classexample_1_1_bird.md)
 |  void | [**swap**](classexample_1_1_animal.md#function-swap) ([**Animal**](classexample_1_1_animal.md) & other) noexcept<br> |
 | virtual  | [**~Animal**](classexample_1_1_animal.md#function-animal) () = default<br> |
 
-## Public Functions inherited from [example::AnimalInterface](classexample_1_1_animal_interface.md)
+## Public Functions inherited from example::AnimalInterface
+
+See [example::AnimalInterface](classexample_1_1_animal_interface.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -97,6 +99,93 @@ Inherited by the following classes: [example::Bird](classexample_1_1_bird.md)
 
 
 
+# Detailed Description
+
+
+Lorem Ipsum Donor. Some [Random link with **bold** and _italics_](http://github.com) And the following is a `typewritter` font.
+
+
+Example code:
+
+
+
+````cpp
+Animal animal = Animal("Hello World", nullptr, nullptr);
+std::cout << animal.get_name() << std::endl;
+````
+
+ 
+
+**See also:** [**Bird**](classexample_1_1_bird.md) 
+::: danger Bug:
+Some random bug 
+
+:::
+
+
+::: tip Note:
+Some random note 
+
+:::
+
+
+
+::: warning Warning:
+Some random warning 
+
+:::
+
+
+
+**Test**
+
+Some random test description 
+
+
+
+**Todo**
+
+Some random todo 
+
+
+
+**Template parameters:**
+
+
+* T Some random template paramater description which actually does not exist in the code! 
+
+
+
+**Precondition:**
+
+First initialize the system. 
+
+
+
+
+**Date:**
+
+2017-2018 
+
+
+
+
+**Author:**
+
+Matus Novak 
+
+
+
+
+**Author:**
+
+Hello World 
+
+
+
+
+
+    
 ## Public Types Documentation
 
 
@@ -150,15 +239,15 @@ Use this constructor to allocate a new instance of [**Animal**](classexample_1_1
 **Parameters:**
 
 
-* **type** The type of the animal that matches [**Animal::Type**](classexample_1_1_animal.md#enum-type) 
-* **name** Any name to associate the animal with 
+* type The type of the animal that matches [**Animal::Type**](classexample_1_1_animal.md#enum-type) 
+* name Any name to associate the animal with 
 
 
 
 **Exception:**
 
 
-* **[**CustomException**](classexample_1_1_custom_exception.md)** If either only mother or father is assigned 
+* [**CustomException**](classexample_1_1_custom_exception.md) If either only mother or father is assigned 
 
 
 
@@ -268,8 +357,8 @@ virtual bool example::Animal::has_tail () override const
 **Return value:**
 
 
-* **true** Does have a tail 
-* **false** Does not have a tail 
+* true Does have a tail 
+* false Does not have a tail 
 
 
 
@@ -349,7 +438,7 @@ inline void example::Animal::some_inline_member_function (
 **Parameters:**
 
 
-* **animal** The pointer to the animal instance
+* animal The pointer to the animal instance
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
@@ -463,7 +552,7 @@ friend void example::Animal::some_global_function (
 **Parameters:**
 
 
-* **animal** The pointer to the animal instance 
+* animal The pointer to the animal instance 
 
 
 

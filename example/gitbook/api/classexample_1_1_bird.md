@@ -23,7 +23,9 @@ Inherited by the following classes: [example::SpecialBird](classexample_1_1_spec
 
 
 
-## Public Types inherited from [example::Animal](classexample_1_1_animal.md)
+## Public Types inherited from example::Animal
+
+See [example::Animal](classexample_1_1_animal.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -54,7 +56,9 @@ Inherited by the following classes: [example::SpecialBird](classexample_1_1_spec
 |  void | [**swap**](classexample_1_1_bird.md#function-swap) ([**Bird**](classexample_1_1_bird.md) & other) noexcept<br> |
 |   | [**~Bird**](classexample_1_1_bird.md#function-bird) () = default<br> |
 
-## Public Functions inherited from [example::Animal](classexample_1_1_animal.md)
+## Public Functions inherited from example::Animal
+
+See [example::Animal](classexample_1_1_animal.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -75,7 +79,9 @@ Inherited by the following classes: [example::SpecialBird](classexample_1_1_spec
 |  void | [**swap**](classexample_1_1_animal.md#function-swap) ([**Animal**](classexample_1_1_animal.md) & other) noexcept<br> |
 | virtual  | [**~Animal**](classexample_1_1_animal.md#function-animal) () = default<br> |
 
-## Public Functions inherited from [example::AnimalInterface](classexample_1_1_animal_interface.md)
+## Public Functions inherited from example::AnimalInterface
+
+See [example::AnimalInterface](classexample_1_1_animal_interface.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -84,7 +90,9 @@ Inherited by the following classes: [example::SpecialBird](classexample_1_1_spec
 | virtual bool | [**has\_tail**](classexample_1_1_animal_interface.md#function-has-tail) () const = 0<br>_Returns true if the animal has a tail._  |
 
 
-## Public Static Functions inherited from [example::Animal](classexample_1_1_animal.md)
+## Public Static Functions inherited from example::Animal
+
+See [example::Animal](classexample_1_1_animal.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -99,7 +107,9 @@ Inherited by the following classes: [example::SpecialBird](classexample_1_1_spec
 
 
 
-## Protected Attributes inherited from [example::Animal](classexample_1_1_animal.md)
+## Protected Attributes inherited from example::Animal
+
+See [example::Animal](classexample_1_1_animal.md)
 
 | Type | Name |
 | ---: | :--- |

@@ -33,10 +33,14 @@ class Property:
             self.kind = kind
 
         def md(self, plain: bool = False) -> str:
-            briefdescription = self.xml.find('briefdescription').findall('para')
-            if len(briefdescription) > 0:
+            briefdescription = self.xml.find('briefdescription')
+            if not briefdescription:
+                return ''
+
+            paras = briefdescription.findall('para')
+            if len(paras) > 0:
                 text = []
-                for para in briefdescription:
+                for para in paras:
                     text.append(self.parser.paras_as_str(para, italic=True, plain=plain))
                 return ' '.join(text)
             else:

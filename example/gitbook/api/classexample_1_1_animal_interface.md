@@ -91,8 +91,8 @@ virtual bool example::AnimalInterface::has_tail () const = 0
 **Return value:**
 
 
-* **true** Does have a tail 
-* **false** Does not have a tail 
+* true Does have a tail 
+* false Does not have a tail 
 
 
 

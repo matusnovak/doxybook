@@ -103,7 +103,7 @@ void example::some_namespace_function (
 **Parameters:**
 
 
-* **animal** The pointer to the animal instance 
+* animal The pointer to the animal instance 
 
 
 

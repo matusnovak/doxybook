@@ -23,7 +23,9 @@ Inherits the following classes: [example::Bird](classexample_1_1_bird.md)
 
 
 
-## Public Types inherited from [example::Animal](classexample_1_1_animal.md)
+## Public Types inherited from example::Animal
+
+See [example::Animal](classexample_1_1_animal.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -56,7 +58,9 @@ Inherits the following classes: [example::Bird](classexample_1_1_bird.md)
 |  void | [**swap**](classexample_1_1_special_bird.md#function-swap) ([**SpecialBird**](classexample_1_1_special_bird.md) & other) noexcept<br> |
 |   | [**~SpecialBird**](classexample_1_1_special_bird.md#function-specialbird) () = default<br> |
 
-## Public Functions inherited from [example::Bird](classexample_1_1_bird.md)
+## Public Functions inherited from example::Bird
+
+See [example::Bird](classexample_1_1_bird.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -70,7 +74,9 @@ Inherits the following classes: [example::Bird](classexample_1_1_bird.md)
 |  void | [**swap**](classexample_1_1_bird.md#function-swap) ([**Bird**](classexample_1_1_bird.md) & other) noexcept<br> |
 |   | [**~Bird**](classexample_1_1_bird.md#function-bird) () = default<br> |
 
-## Public Functions inherited from [example::Animal](classexample_1_1_animal.md)
+## Public Functions inherited from example::Animal
+
+See [example::Animal](classexample_1_1_animal.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -91,7 +97,9 @@ Inherits the following classes: [example::Bird](classexample_1_1_bird.md)
 |  void | [**swap**](classexample_1_1_animal.md#function-swap) ([**Animal**](classexample_1_1_animal.md) & other) noexcept<br> |
 | virtual  | [**~Animal**](classexample_1_1_animal.md#function-animal) () = default<br> |
 
-## Public Functions inherited from [example::AnimalInterface](classexample_1_1_animal_interface.md)
+## Public Functions inherited from example::AnimalInterface
+
+See [example::AnimalInterface](classexample_1_1_animal_interface.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -101,7 +109,9 @@ Inherits the following classes: [example::Bird](classexample_1_1_bird.md)
 
 
 
-## Public Static Functions inherited from [example::Animal](classexample_1_1_animal.md)
+## Public Static Functions inherited from example::Animal
+
+See [example::Animal](classexample_1_1_animal.md)
 
 | Type | Name |
 | ---: | :--- |
@@ -119,7 +129,9 @@ Inherits the following classes: [example::Bird](classexample_1_1_bird.md)
 
 
 
-## Protected Attributes inherited from [example::Animal](classexample_1_1_animal.md)
+## Protected Attributes inherited from example::Animal
+
+See [example::Animal](classexample_1_1_animal.md)
 
 | Type | Name |
 | ---: | :--- |

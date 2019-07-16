@@ -44,8 +44,8 @@ def generate_link(name, url) -> str:
     return '* [' + name + '](' + url + ')\n'
 
 class Generator:
-    def __init__(self, target: str, ignore_errors: bool = False):
-        self.target = target
+    def __init__(self, ignore_errors: bool = False, options: dict = {}):
+        self.options = options
 
         on_undefined_class = None
         if not ignore_errors:
@@ -71,6 +71,7 @@ class Generator:
     def _render(self, tmpl: Template, path: str, data: dict) -> str:
         try: 
             print('Generating', path)
+            data.update(self.options)
             output = tmpl.render(data)
 
             with open(path, 'w', encoding='utf-8') as file:
@@ -100,8 +101,7 @@ class Generator:
         path = os.path.join(output_dir, 'annotated.md')
 
         data = {
-            'nodes': nodes,
-            'target': self.target
+            'nodes': nodes
         }
         self._render(self.annotated_template, path, data) 
 
@@ -109,8 +109,7 @@ class Generator:
         path = os.path.join(output_dir, node.refid + '_source.md')
 
         data = {
-            'node': node,
-            'target': self.target
+            'node': node
         }
         self._render(self.programlisting_template, path, data) 
 
@@ -118,8 +117,7 @@ class Generator:
         path = os.path.join(output_dir, 'files.md')
 
         data = {
-            'nodes': nodes,
-            'target': self.target
+            'nodes': nodes
         }
         self._render(self.files_template, path, data) 
 
@@ -127,8 +125,7 @@ class Generator:
         path = os.path.join(output_dir, 'namespaces.md')
 
         data = {
-            'nodes': nodes,
-            'target': self.target
+            'nodes': nodes
         }
         self._render(self.namespaces_template, path, data)
 
@@ -136,8 +133,7 @@ class Generator:
         path = os.path.join(output_dir, node.name + '.md')
 
         data = {
-            'node': node,
-            'target': self.target
+            'node': node
         }
         self._render(self.page_template, path, data)
 
@@ -149,8 +145,7 @@ class Generator:
         path = os.path.join(output_dir, 'pages.md')
 
         data = {
-            'nodes': nodes,
-            'target': self.target
+            'nodes': nodes
         }
         self._render(self.pages_template, path, data)
 
@@ -173,8 +168,7 @@ class Generator:
                 del dictionary[letter]
 
         data = {
-            'dictionary': dictionary,
-            'target': self.target
+            'dictionary': dictionary
         }
         self._render(self.classes_template, path, data) 
 
@@ -198,8 +192,7 @@ class Generator:
         path = os.path.join(output_dir, 'modules.md')
 
         data = {
-            'nodes': nodes,
-            'target': self.target
+            'nodes': nodes
         }
         self._render(self.modules_template, path, data) 
 
@@ -241,8 +234,7 @@ class Generator:
                     deduplicated_arr.append(found)
 
         data = {
-            'classes': deduplicated_arr,
-            'target': self.target
+            'classes': deduplicated_arr
         }
         self._render(self.hiearchy_template, path, data) 
 
@@ -251,7 +243,6 @@ class Generator:
 
         data = {
             'node': node,
-            'target': self.target,
             'member_definition_template': self.member_definition_template,
             'member_table_template': self.member_table_template
         }
@@ -265,7 +256,6 @@ class Generator:
 
         data = {
             'node': node,
-            'target': self.target,
             'member_definition_template': self.member_definition_template,
             'member_table_template': self.member_table_template
         }
@@ -332,8 +322,7 @@ class Generator:
 
         data = {
             'title': title,
-            'dictionary': sorted_dictionary,
-            'target': self.target
+            'dictionary': sorted_dictionary
         }
         self._render(self.index_template, path, data)
 

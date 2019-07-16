@@ -46,6 +46,13 @@ _This is a directory._ [More...](#detailed-description)
 
 
 
+# Detailed Description
+
+
+This is a detailed description 
+
+
+    
 
 ------------------------------
 The documentation for this class was generated from the following file `src/`

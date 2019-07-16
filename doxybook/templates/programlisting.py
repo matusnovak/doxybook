@@ -1,7 +1,7 @@
 TEMPLATE = """
 # {{node.kind.value|title}} {{node.name_long}}
 
-[**File List**](files.md)
+[**File List**]({{link_prefix}}files.md)
 {%- for child in node.parents -%}
 {{'**>**'|indent(1, true)}} [**{{child.name_long if node.is_group else child.name_short}}**]({{child.url}})
 {%- endfor %}

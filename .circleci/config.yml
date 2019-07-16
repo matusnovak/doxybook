@@ -1,0 +1,160 @@
+version: 2
+jobs:
+  doxygen:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+      
+      - run:
+          name: Dependencies
+          command: |
+            sudo apt install doxygen
+
+      - run:
+          name: Generate
+          command: |
+            cd example
+            doxygen Doxyfile
+            cd ..
+
+            mkdir -p /tmp/gh-pages
+            cp -rf ./example/xml /tmp/xml
+            cp -rf ./example/html /tmp/gh-pages/original
+
+      - run:
+          name: VuePress
+          command: |
+            python3 -m doxybook -t vuepress -i example/temp/xml -o example/vuepress/api
+            cp -rf ./example/vuepress /tmp/vuepress
+      
+      - run:
+          name: GitBook
+          command: |
+            python3 -m doxybook -t gitbook -i example/temp/xml -o example/gitbook/api -s example/gitbook/SUMMARY.md
+            cp -rf ./example/gitbook /tmp/gitbook
+
+      - run:
+          name: Docsify
+          command: |
+            python3 -m doxybook -t docsify -i example/temp/xml -o example/docsify/api
+            cp -rf ./example/docsify /tmp/docsify
+
+      - run:
+          name: MkDocs
+          command: |
+            python3 -m doxybook -t mkdocs -i example/temp/xml -o example/mkdocs/docs/api
+            cp -rf ./example/mkdocs /tmp/mkdocs
+
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - xml
+            - html
+            - vuepress
+            - gitbook
+            - docsify
+            - mkdocs
+
+  build_2:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: /tmp
+
+      - run:
+          name: Dependencies
+          command: |
+            sudo python3 -m pip install mkdocs
+
+      - run:
+          name: Build static pages - MkDocs
+          command: |
+            cd /tmp/mkdocs
+            mkdocs build
+            cp ./site /tmp/gh-pages/mkdocs
+  
+  build_2:
+    docker:
+      - image: circleci/nodejs:latest
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: /tmp
+
+      - run:
+          name: Dependencies
+          command: |
+            sudo npm install gitbook vuepress docsify-cli -g
+
+      - run:
+          name: Build static pages - VuePress
+          command: |
+            cd /tmp/vuepress
+            sudo vuepress build
+            cp ./.vuepress/dist /tmp/gh-pages/vuepress
+
+      - run:
+          name: Build static pages - GitBook
+          command: |
+            cd /tmp/gitbook
+            gitbook install
+            gitbook build
+            cp ./_book /tmp/gh-pages/gitbook
+
+  deploy:
+    docker:
+      - image: circleci/nodejs:latest
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: /tmp
+
+      - run:
+          name: Dependencies
+          command: |
+            sudo npm install gh-pages@2.0.1 -g
+      
+      - run:
+          name: Deploy
+          command: |
+            git config --global user.email "$GITHUB_USER_EMAIL"
+            git config --global user.name "$GITHUB_USER_NAME"
+            gh-pages --dist /tmp/gh-pages
+      
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - doxygen:
+          filters:
+            branches:
+              only:
+                - master
+      - build_1:
+          requires:
+            - doxygen
+          filters:
+            branches:
+              only:
+                - master
+      - build_2:
+          requires:
+            - build_1
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+          requires:
+            - build_2
+          filters:
+            branches:
+              only:
+                - master
+      

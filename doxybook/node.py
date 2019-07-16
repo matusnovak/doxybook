@@ -12,11 +12,12 @@ from doxybook.property import Property
 
 
 class Node:
-    def __init__(self, xml_file: str, xml: Element, cache: Cache, parser: XmlParser, parent: 'Node', refid: str = None):
+    def __init__(self, xml_file: str, xml: Element, cache: Cache, parser: XmlParser, parent: 'Node', refid: str = None, options: dict = {}):
         self._children: ['Node'] = []
         self._cache: Cache = cache
         self._parser: XmlParser = parser
         self._parent = parent
+        self._options = options
 
         if xml_file == 'root':
             self._refid = 'root'
@@ -87,7 +88,7 @@ class Node:
                     continue
                 except:
                     pass
-            child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self)
+            child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self, options=self._options)
             child._visibility = Visibility.PUBLIC
             self.add_child(child)
 
@@ -106,9 +107,9 @@ class Node:
                     pass
 
             try:
-                child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self)
+                child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self, options=self._options)
             except FileNotFoundError as e:
-                child = Node(os.path.join(self._dirname, refid + '.xml'), Element('compounddef'), self._cache, self._parser, self, refid=refid)
+                child = Node(os.path.join(self._dirname, refid + '.xml'), Element('compounddef'), self._cache, self._parser, self, refid=refid, options=self._options)
                 child._name = innerclass.text
             child._visibility = prot
             self.add_child(child)
@@ -123,7 +124,7 @@ class Node:
                 except:
                     pass
 
-            child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self)
+            child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self, options=self._options)
             child._visibility = Visibility.PUBLIC
             self.add_child(child)
 
@@ -137,7 +138,7 @@ class Node:
                 except:
                     pass
 
-            child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self)
+            child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self, options=self._options)
             child._visibility = Visibility.PUBLIC
             self.add_child(child)
 
@@ -152,7 +153,7 @@ class Node:
                 except:
                     pass
 
-            child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self)
+            child = Node(os.path.join(self._dirname, refid + '.xml'), None, self._cache, self._parser, self, options=self._options)
             child._visibility = Visibility.PUBLIC
             self.add_child(child)
 
@@ -168,7 +169,7 @@ class Node:
                             continue
                         except:
                             pass
-                    child = Node(None, memberdef, self._cache, self._parser, self)
+                    child = Node(None, memberdef, self._cache, self._parser, self, options=self._options)
                     self.add_child(child)
 
     def _check_attrs(self):
@@ -373,7 +374,10 @@ class Node:
     @property
     def name_url_safe(self) -> str:
         name = self.name_tokens[-1]
-        name = name.replace(' ', '-').replace('_', '-').replace('=', '').replace('~', '').lower()
+        if self._options['target'] == 'docsify':
+            name = name.replace(' ', '-').replace('=', '').replace('~', '').lower()
+        else:
+            name = name.replace(' ', '-').replace('_', '-').replace('=', '').replace('~', '').lower()
         return name
 
     @property
@@ -382,11 +386,19 @@ class Node:
         if self._name.replace(' ', '') in OVERLOAD_OPERATORS:
             num = self.operator_num
             if num > 1:
-                name = 'operator-' + str(self.operator_num)
+                if self._options['target'] == 'docsify':
+                    name = 'operator-' + str(self.operator_num - 1)
+                elif self._options['target'] == 'mkdocs':
+                    name = 'operator_' + str(self.operator_num - 1)
+                else:
+                    name = 'operator-' + str(self.operator_num)
             else:
                 name = 'operator'
         elif self.is_overloaded:
-            name = self.name_url_safe + '-' + str(self.overload_num) + '-' + str(self.overload_total)
+            if self._options['target'] in ['docsify', 'mkdocs']:
+                name = self.name_url_safe + '-' + str(self.overload_num) + str(self.overload_total)
+            else:
+                name = self.name_url_safe + '-' + str(self.overload_num) + '-' + str(self.overload_total)
         else:
             name = self.name_url_safe
 
@@ -397,16 +409,16 @@ class Node:
     @property
     def url(self) -> str:
         if self.is_parent or self.is_group or self.is_file or self.is_dir or self.is_page:
-            return self._refid + '.md'
+            return self._options['link_prefix'] + self._refid + '.md'
         else:
             return self._parent.url + '#' + self.anchor
 
     @property
     def url_source(self) -> str:
         if self.is_parent or self.is_group or self.is_file or self.is_dir:
-            return self._refid + '_source.md'
+            return self._options['link_prefix'] + self._refid + '_source.md'
         else:
-            return self._refid + '.md'
+            return self._options['link_prefix'] + self._refid + '.md'
 
     @property
     def filename(self) -> str:

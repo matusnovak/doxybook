@@ -4,7 +4,9 @@ TEMPLATE = """
 {%- if parent is none -%}
 ## {{title}}
 {%- else -%}
-## {{title}} inherited from [{{node.name_long}}]({{node.url}})
+## {{title}} inherited from {{node.name}}
+
+See [{{node.name_long}}]({{node.url}})
 {%- endif %}
 
 | Type | Name |

@@ -37,5 +37,12 @@ _This is a brief description to the organism group._ [More...](#detailed-descrip
 
 
 
+# Detailed Description
+
+
+Some detailed description here 
+
+
+    
 
 ------------------------------

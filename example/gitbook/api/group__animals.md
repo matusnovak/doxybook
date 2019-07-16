@@ -65,6 +65,19 @@ _This is a brief description to the animals group._ [More...](#detailed-descript
 | define  | [**CONFIG\_WORLD**](config_8h.md#define-config-world)  () ("abx")<br> |
 | define  | [**PI**](config_8h.md#define-pi)  () (3.14159265358979323846)<br> |
 
+# Detailed Description
+
+
+Some inner namespace.
+
+
+Some random brief description.
+
+
+Some detailed description here 
+
+
+    
 ## Public Types Documentation
 
 
@@ -109,7 +122,7 @@ void some_global_function (
 **Parameters:**
 
 
-* **animal** The pointer to the animal instance 
+* animal The pointer to the animal instance 
 
 
 
@@ -134,12 +147,13 @@ void example::some_namespace_function (
 **Parameters:**
 
 
-* **animal** The pointer to the animal instance 
+* animal The pointer to the animal instance 
 
 
 
 
-        ## Macro Definition Documentation
+        
+## Macro Definition Documentation
 
 
 

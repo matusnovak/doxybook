@@ -72,7 +72,7 @@ void some_global_function (
 **Parameters:**
 
 
-* **animal** The pointer to the animal instance 
+* animal The pointer to the animal instance 
 
 
 
