@@ -59,7 +59,7 @@ jobs:
             - docsify
             - mkdocs
 
-  build_2:
+  build_1:
     docker:
       - image: circleci/python:3.7
     steps:
@@ -114,6 +114,10 @@ jobs:
       - image: circleci/nodejs:latest
     steps:
       - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "ae:5f:de:d6:cc:b5:34:ce:5b:85:bd:60:a8:b8:79:ed"
 
       - attach_workspace:
           at: /tmp
