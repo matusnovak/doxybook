@@ -93,7 +93,7 @@ jobs:
   
   build_2:
     docker:
-      - image: circleci/nodejs:latest
+      - image: circleci/node:latest
     steps:
       - checkout
 
@@ -127,7 +127,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/nodejs:latest
+      - image: circleci/node:latest
     steps:
       - checkout
 
