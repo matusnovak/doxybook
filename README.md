@@ -8,7 +8,7 @@ Version v3.0.0 uses Jinja templates to generate Markdown files. The v3.0.0 is a 
 
 ## Live Demo
 
-See live demo here for [Gitbook here](https://matusnovak.github.io/doxybook/gitbook/api/classexample_1_1_animal.html) or [Vuepress here](https://matusnovak.github.io/doxybook/vuepress/api/classexample_1_1_animal.html).
+See live demo here for [Gitbook here](https://matusnovak.github.io/doxybook/gitbook/api/classexample_1_1Animal.html), [Vuepress here](https://matusnovak.github.io/doxybook/vuepress/api/classexample_1_1Animal.html), [MkDocs here](https://matusnovak.github.io/doxybook/mkdocs/api/classexample_1_1Animal), or [Original here](https://matusnovak.github.io/doxybook/original/classexample_1_1Animal.html).
 
 Alternativelly, the markdown files are located in the `doxybook/example/gitbook/api` and `doxybook/example/vuepress/api` folders.
 
