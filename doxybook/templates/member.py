@@ -5,11 +5,11 @@ TEMPLATE = """
 {% endif %}
 
 {% if node.is_group -%}
-[**Modules**](modules.md)
+[**Modules**]({{link_prefix}}modules.md)
 {% elif node.is_file or node.is_dir -%}
-[**File List**](files.md)
+[**File List**]({{link_prefix}}files.md)
 {%- else -%}
-[**Class List**](annotated.md)
+[**Class List**]({{link_prefix}}annotated.md)
 {%- endif %}
 {%- for parent in node.parents -%}
 {{'**>**'|indent(1, true)}} [**{{parent.name_long if node.is_group else parent.name_short}}**]({{parent.url}})
@@ -66,6 +66,12 @@ Inherited by the following classes:
 
 {{ member_table_template.render({'target': target, 'node': node, 'parent': None, 'title': 'Macros', 'visibility': 'public', 'kinds': ['define'], 'static': False}) }}
 
+{%- if node.has_details %}
+# Detailed Description
+
+{{node.details}}
+{%- endif %}
+
 {%- for visibility in ['public', 'protected'] -%}
 {%- for query in [['types', ['enum', 'union', 'typedef']], ['attributes', ['variable']], ['functions', ['function']]] -%}
 {%- for static in [['', False], ['static ', True]] %}
@@ -79,7 +85,7 @@ Inherited by the following classes:
 {%- endfor -%}
 {%- endfor -%}
 
-{%- if node.has('public', ['define'], False) -%}
+{%- if node.has('public', ['define'], False) %}
 ## Macro Definition Documentation
 
 {% for member in node.query('public', ['define'], False) -%}

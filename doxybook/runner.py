@@ -13,18 +13,24 @@ def run(output: str,
         hints: bool = True, 
         debug: bool = False, 
         ignore_errors: bool = False,
-        summary: str = None):
+        summary: str = None,
+        link_prefix: str = ''):
 
     os.makedirs(output, exist_ok=True)
 
+    options = {
+        'target': target,
+        'link_prefix': link_prefix
+    }
+
     cache = Cache()
     parser = XmlParser(cache=cache, target=target, hints=hints)
-    doxygen = Doxygen(input, parser, cache)
+    doxygen = Doxygen(input, parser, cache, options=options)
     
     if debug:
         doxygen.print()
 
-    generator = Generator(target=target, ignore_errors=ignore_errors)
+    generator = Generator(ignore_errors=ignore_errors, options=options)
     generator.annotated(output, doxygen.root.children)
     generator.fileindex(output, doxygen.files.children)
     generator.members(output, doxygen.root.children)

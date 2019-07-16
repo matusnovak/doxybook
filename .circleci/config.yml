@@ -1,0 +1,186 @@
+version: 2
+jobs:
+  doxygen:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+      
+      - run:
+          name: Dependencies
+          command: |
+            sudo apt install doxygen
+            sudo python3 -m pip install jinja2
+
+      - run:
+          name: Generate
+          command: |
+            cd example
+            doxygen Doxyfile
+            cd ..
+
+            mkdir -p /tmp/gh-pages
+            cp -rf ./example/temp/xml /tmp/xml
+            cp -rf ./example/temp/html /tmp/gh-pages/original
+            cp ./example/index.html /tmp/gh-pages/index.html
+
+      - run:
+          name: VuePress
+          command: |
+            mkdir -p example/vuepress/api
+            python3 -m doxybook -t vuepress -i /tmp/xml -o example/vuepress/api
+            cp -rf ./example/vuepress /tmp/vuepress
+      
+      - run:
+          name: GitBook
+          command: |
+            mkdir -p example/gitbook/api
+            python3 -m doxybook -t gitbook -i /tmp/xml -o example/gitbook/api -s example/gitbook/SUMMARY.md
+            cp -rf ./example/gitbook /tmp/gitbook
+
+      - run:
+          name: Docsify
+          command: |
+            mkdir -p example/docsify/api
+            python3 -m doxybook -t docsify -i /tmp/xml -o example/docsify/api
+            cp -rf ./example/docsify /tmp/docsify
+
+      - run:
+          name: MkDocs
+          command: |
+            python3 -m doxybook -t mkdocs -i /tmp/xml -o example/mkdocs/docs/api
+            cp -rf ./example/mkdocs /tmp/mkdocs
+
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - xml
+            - vuepress
+            - gitbook
+            - docsify
+            - mkdocs
+            - gh-pages
+
+  build_1:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: /tmp
+
+      - run:
+          name: Dependencies
+          command: |
+            sudo python3 -m pip install mkdocs
+
+      - run:
+          name: Build static pages - MkDocs
+          command: |
+            cd /tmp/mkdocs
+            mkdocs build
+            cp -rf ./site /tmp/gh-pages/mkdocs
+
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - xml
+            - vuepress
+            - gitbook
+            - docsify
+            - gh-pages
+  
+  build_2:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: /tmp
+
+      - run:
+          name: Dependencies
+          command: |
+            sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+            npm install -g vuepress gitbook-cli
+
+      - run:
+          name: Build static pages - VuePress
+          command: |
+            cd /tmp/vuepress
+            sudo vuepress build
+            cp -rf ./.vuepress/dist /tmp/gh-pages/vuepress
+
+      - run:
+          name: Build static pages - GitBook
+          command: |
+            cd /tmp/gitbook
+            gitbook install
+            gitbook build
+            cp -rf ./_book /tmp/gh-pages/gitbook
+
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - gh-pages
+
+  deploy:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "ae:5f:de:d6:cc:b5:34:ce:5b:85:bd:60:a8:b8:79:ed"
+
+      - attach_workspace:
+          at: /tmp
+
+      - run:
+          name: Dependencies
+          command: |
+            sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+            npm install -g gh-pages@2.0.1
+      
+      - run:
+          name: Deploy
+          command: |
+            git config --global user.email "$GITHUB_USER_EMAIL"
+            git config --global user.name "$GITHUB_USER_NAME"
+            cp -rf /tmp/gh-pages ./site
+            gh-pages --dist ./site
+      
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - doxygen
+          filters:
+            branches:
+              only:
+                - master
+      - build_1:
+          requires:
+            - doxygen
+          filters:
+            branches:
+              only:
+                - master
+      - build_2:
+          requires:
+            - build_1
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+          requires:
+            - build_2
+          filters:
+            branches:
+              only:
+                - master
+      
