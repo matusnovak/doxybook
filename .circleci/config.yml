@@ -142,6 +142,7 @@ jobs:
       - run:
           name: Dependencies
           command: |
+            sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
             npm install -g gh-pages@2.0.1
       
       - run:
