@@ -1,0 +1,9 @@
+digraph "An animal group example"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node1 [label="Some organism example",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__organism.html",tooltip="This is a brief description to the organism group. "];
+  Node0 [label="An animal group example",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1->Node0 [shape=plaintext, dir="back", style="solid"];
+}

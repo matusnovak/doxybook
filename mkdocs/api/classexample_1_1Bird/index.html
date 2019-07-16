@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Class example::Bird - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Class example::Bird";
+    var mkdocs_page_input_path = "api/classexample_1_1Bird.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Doxybook Example Output</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">My Personal Index Page</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../animal_8h/">File animal.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../animal_8h_source/">File animal.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../animal__interface_8h/">File animal\_interface.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../animal__interface_8h_source/">File animal\_interface.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../annotated/">Class List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bird_8h/">File bird.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bird_8h_source/">File bird.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bug/">Bug List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../class_member_enums/">Class Member Enums</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../class_member_functions/">Class Member Functions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../class_member_typedefs/">Class Member Typedefs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../class_member_variables/">Class Member Variables</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../class_members/">Class Members</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../classes/">Class Index</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../classexample_1_1Animal/">Class example::Animal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../classexample_1_1AnimalInterface/">Interface example::AnimalInterface</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Class example::Bird</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#class-examplebird">Class example::Bird</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#public-types-inherited-from-exampleanimal">Public Types inherited from example::Animal</a></li>
+        
+            <li><a class="toctree-l4" href="#public-functions">Public Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#public-functions-inherited-from-exampleanimal">Public Functions inherited from example::Animal</a></li>
+        
+            <li><a class="toctree-l4" href="#public-functions-inherited-from-exampleanimalinterface">Public Functions inherited from example::AnimalInterface</a></li>
+        
+            <li><a class="toctree-l4" href="#public-static-functions-inherited-from-exampleanimal">Public Static Functions inherited from example::Animal</a></li>
+        
+            <li><a class="toctree-l4" href="#protected-attributes-inherited-from-exampleanimal">Protected Attributes inherited from example::Animal</a></li>
+        
+            <li><a class="toctree-l4" href="#public-functions-documentation">Public Functions Documentation</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../classexample_1_1CustomException/">Class example::CustomException</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../classexample_1_1NumericException/">Class example::NumericException</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../classexample_1_1SpecialBird/">Class example::SpecialBird</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../classexample_1_1inner__namespace_1_1Vector/">Class example::inner\_namespace::Vector</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../config_8h/">File config.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../config_8h_source/">File config.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dir_313caf1132e152dd9b58bea13a4052ca/">Dir src/utils</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../dir_68267d1309a1af8e8297ef4c3efbcdba/">Dir src</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example_8h/">File example.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../example_8h_source/">File example.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../exception_8h/">File exception.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../exception_8h_source/">File exception.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../files/">File List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../functions/">Functions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../group__animals/">Group animals</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../group__organism/">Group organism</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hierarchy/">Class Hierarchy</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../macros/">Macros</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../markdown-demo_8md/">File markdown-demo.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../markdown-demo_8md_source/">File markdown-demo.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../md_src_markdown-demo/">Markdown test</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../modules/">Modules</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../namespace_member_enums/">Namespace Member Enums</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../namespace_member_functions/">Namespace Member Functions</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../namespace_member_typedefs/">Namespace Member Typedefs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../namespace_member_variables/">Namespace Member Variables</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../namespace_members/">Namespace Members</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../namespaceexample/">Namespace example</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../namespaceexample_1_1inner__namespace/">Namespace example::inner\_namespace</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../namespaces/">Namespace List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pages/">Related Pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../special__bird_8h/">File special\_bird.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../special__bird_8h_source/">File special\_bird.h</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../structexample_1_1Animal_1_1Result/">Struct example::Animal::Result</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../test/">Test List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../todo/">Todo List</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../variables/">Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api &raquo;</li>
+        
+      
+    
+    <li>Class example::Bird</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="class-examplebird">Class example::Bird</h1>
+<p><a href="../annotated/"><strong>Class List</strong></a> <strong>&gt;</strong> <a href="../namespaceexample/"><strong>example</strong></a> <strong>&gt;</strong> <a href="./"><strong>Bird</strong></a></p>
+<ul>
+<li><code>#include &lt;bird.h&gt;</code></li>
+</ul>
+<p>Inherits the following classes: <a href="../classexample_1_1Animal/">example::Animal</a></p>
+<p>Inherited by the following classes: <a href="../classexample_1_1SpecialBird/">example::SpecialBird</a></p>
+<h2 id="public-types-inherited-from-exampleanimal">Public Types inherited from example::Animal</h2>
+<p>See <a href="../classexample_1_1Animal/">example::Animal</a></p>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">typedef std::pair&lt; <a href="../classexample_1_1Animal/"><strong>Animal</strong></a> *, <a href="../classexample_1_1Animal/"><strong>Animal</strong></a> * &gt;</td>
+<td align="left"><a href="../classexample_1_1Animal/#typedef-parents"><strong>Parents</strong></a>  <br></td>
+</tr>
+<tr>
+<td align="right">enum</td>
+<td align="left"><a href="../classexample_1_1Animal/#enum-type"><strong>Type</strong></a>  <br><em>The 6 classes of animal kingdom.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"></td>
+<td align="left"><a href="./#function-bird-13"><strong>Bird</strong></a> (const std::string &amp; name, <a href="./"><strong>Bird</strong></a> * mother=nullptr, <a href="./"><strong>Bird</strong></a> * father=nullptr) <br></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left"><a href="./#function-bird-23"><strong>Bird</strong></a> (const <a href="./"><strong>Bird</strong></a> &amp; other) = delete<br></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left"><a href="./#function-bird-33"><strong>Bird</strong></a> (<a href="./"><strong>Bird</strong></a> &amp;&amp; Bird) noexcept<br></td>
+</tr>
+<tr>
+<td align="right">virtual void</td>
+<td align="left"><a href="./#function-make-sound"><strong>make_sound</strong></a> () override<br></td>
+</tr>
+<tr>
+<td align="right">virtual void</td>
+<td align="left"><a href="./#function-move"><strong>move</strong></a> () override<br></td>
+</tr>
+<tr>
+<td align="right"><a href="./"><strong>Bird</strong></a> &amp;</td>
+<td align="left"><a href="./#function-operator"><strong>operator=</strong></a> (const <a href="./"><strong>Bird</strong></a> &amp; other) = delete<br><em>Deleted copy operator.</em></td>
+</tr>
+<tr>
+<td align="right"><a href="./"><strong>Bird</strong></a> &amp;</td>
+<td align="left"><a href="./#function-operator_1"><strong>operator=</strong></a> (<a href="./"><strong>Bird</strong></a> &amp;&amp; other) noexcept<br><em>Move operator.</em></td>
+</tr>
+<tr>
+<td align="right">void</td>
+<td align="left"><a href="./#function-swap"><strong>swap</strong></a> (<a href="./"><strong>Bird</strong></a> &amp; other) noexcept<br></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left"><a href="./#function-bird"><strong>~Bird</strong></a> () = default<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-inherited-from-exampleanimal">Public Functions inherited from example::Animal</h2>
+<p>See <a href="../classexample_1_1Animal/">example::Animal</a></p>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"></td>
+<td align="left"><a href="../classexample_1_1Animal/#function-animal-13"><strong>Animal</strong></a> (<a href="../classexample_1_1Animal/#enum-type"><strong>Type</strong></a> type, const std::string &amp; name, <a href="../classexample_1_1Animal/"><strong>Animal</strong></a> * mother=nullptr, <a href="../classexample_1_1Animal/"><strong>Animal</strong></a> * father=nullptr) <br><em>The main constructor.</em></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left"><a href="../classexample_1_1Animal/#function-animal-23"><strong>Animal</strong></a> (const <a href="../classexample_1_1Animal/"><strong>Animal</strong></a> &amp; other) = delete<br></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left"><a href="../classexample_1_1Animal/#function-animal-33"><strong>Animal</strong></a> (<a href="../classexample_1_1Animal/"><strong>Animal</strong></a> &amp;&amp; animal) noexcept<br></td>
+</tr>
+<tr>
+<td align="right">const std::string &amp;</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-get-name"><strong>get_name</strong></a> () const<br><em>Get the name of the animal.</em></td>
+</tr>
+<tr>
+<td align="right">virtual int</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-get-num-of-eyes"><strong>get_num_of_eyes</strong></a> () override const<br><em>Returns the number of eyes.</em></td>
+</tr>
+<tr>
+<td align="right">virtual int</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-get-num-of-limbs"><strong>get_num_of_limbs</strong></a> () override const<br><em>Returns the number of limbs.</em></td>
+</tr>
+<tr>
+<td align="right"><a href="../classexample_1_1Animal/#typedef-parents"><strong>Parents</strong></a></td>
+<td align="left"><a href="../classexample_1_1Animal/#function-get-parents"><strong>get_parents</strong></a> () const<br></td>
+</tr>
+<tr>
+<td align="right">virtual bool</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-has-tail"><strong>has_tail</strong></a> () override const<br><em>Returns true if the animal has a tail.</em></td>
+</tr>
+<tr>
+<td align="right">virtual void</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-make-sound"><strong>make_sound</strong></a> () = 0<br></td>
+</tr>
+<tr>
+<td align="right">virtual void</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-move"><strong>move</strong></a> () <br></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="left"><a href="../classexample_1_1Animal/#function-operator-bool"><strong>operator bool</strong></a> () const<br><em>Returns true if this is an valid animal.</em></td>
+</tr>
+<tr>
+<td align="right"><a href="../classexample_1_1Animal/"><strong>Animal</strong></a> &amp;</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-operator"><strong>operator=</strong></a> (const <a href="../classexample_1_1Animal/"><strong>Animal</strong></a> &amp; other) = delete<br><em>Deleted copy operator.</em></td>
+</tr>
+<tr>
+<td align="right"><a href="../classexample_1_1Animal/"><strong>Animal</strong></a> &amp;</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-operator_1"><strong>operator=</strong></a> (<a href="../classexample_1_1Animal/"><strong>Animal</strong></a> &amp;&amp; other) noexcept<br><em>Move operator.</em></td>
+</tr>
+<tr>
+<td align="right">void</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-some-inline-member-function"><strong>some_inline_member_function</strong></a> (<a href="../classexample_1_1Animal/"><strong>Animal</strong></a> * animal) <br><em>Lorem Ipsum.</em></td>
+</tr>
+<tr>
+<td align="right">void</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-swap"><strong>swap</strong></a> (<a href="../classexample_1_1Animal/"><strong>Animal</strong></a> &amp; other) noexcept<br></td>
+</tr>
+<tr>
+<td align="right">virtual</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-animal"><strong>~Animal</strong></a> () = default<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-inherited-from-exampleanimalinterface">Public Functions inherited from example::AnimalInterface</h2>
+<p>See <a href="../classexample_1_1AnimalInterface/">example::AnimalInterface</a></p>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">virtual int</td>
+<td align="left"><a href="../classexample_1_1AnimalInterface/#function-get-num-of-eyes"><strong>get_num_of_eyes</strong></a> () const = 0<br><em>Returns the number of eyes.</em></td>
+</tr>
+<tr>
+<td align="right">virtual int</td>
+<td align="left"><a href="../classexample_1_1AnimalInterface/#function-get-num-of-limbs"><strong>get_num_of_limbs</strong></a> () const = 0<br><em>Returns the number of limbs.</em></td>
+</tr>
+<tr>
+<td align="right">virtual bool</td>
+<td align="left"><a href="../classexample_1_1AnimalInterface/#function-has-tail"><strong>has_tail</strong></a> () const = 0<br><em>Returns true if the animal has a tail.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-static-functions-inherited-from-exampleanimal">Public Static Functions inherited from example::Animal</h2>
+<p>See <a href="../classexample_1_1Animal/">example::Animal</a></p>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><a href="../classexample_1_1Animal/"><strong>Animal</strong></a> *</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-find-child-by-name"><strong>find_child_by_name</strong></a> (<a href="../classexample_1_1Animal/"><strong>Animal</strong></a> * parent) <br></td>
+</tr>
+<tr>
+<td align="right"><a href="../classexample_1_1Animal/"><strong>Animal</strong></a> *</td>
+<td align="left"><a href="../classexample_1_1Animal/#function-find-parent-by-name"><strong>find_parent_by_name</strong></a> (<a href="../classexample_1_1Animal/"><strong>Animal</strong></a> * child) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protected-attributes-inherited-from-exampleanimal">Protected Attributes inherited from example::Animal</h2>
+<p>See <a href="../classexample_1_1Animal/">example::Animal</a></p>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><a href="../classexample_1_1Animal/"><strong>Animal</strong></a> *</td>
+<td align="left"><a href="../classexample_1_1Animal/#variable-father"><strong>father</strong></a>  <br><em>The pointer to the father.</em></td>
+</tr>
+<tr>
+<td align="right"><a href="../classexample_1_1Animal/"><strong>Animal</strong></a> *</td>
+<td align="left"><a href="../classexample_1_1Animal/#variable-mother"><strong>mother</strong></a>  <br><em>The pointer to the mother.</em></td>
+</tr>
+<tr>
+<td align="right">std::string</td>
+<td align="left"><a href="../classexample_1_1Animal/#variable-name"><strong>name</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-bird-13">function Bird [1/3]</h3>
+<pre><code class="cpp">example::Bird::Bird (
+    const std::string &amp; name,
+    Bird * mother=nullptr,
+    Bird * father=nullptr
+) 
+</code></pre>
+
+<h3 id="function-bird-23">function Bird [2/3]</h3>
+<pre><code class="cpp">example::Bird::Bird (
+    const Bird &amp; other
+) = delete
+</code></pre>
+
+<h3 id="function-bird-33">function Bird [3/3]</h3>
+<pre><code class="cpp">example::Bird::Bird (
+    Bird &amp;&amp; Bird
+) noexcept
+</code></pre>
+
+<h3 id="function-make95sound">function make_sound</h3>
+<pre><code class="cpp">virtual void example::Bird::make_sound () override
+</code></pre>
+
+<p>Implements <a href="../classexample_1_1Animal/#function-make-sound"><em>example::Animal::make_sound</em></a></p>
+<h3 id="function-move">function move</h3>
+<pre><code class="cpp">virtual void example::Bird::move () override
+</code></pre>
+
+<p>Implements <a href="../classexample_1_1Animal/#function-move"><em>example::Animal::move</em></a></p>
+<h3 id="function-operator">function operator=</h3>
+<pre><code class="cpp">Bird &amp; example::Bird::operator= (
+    const Bird &amp; other
+) = delete
+</code></pre>
+
+<h3 id="function-operator_1">function operator=</h3>
+<pre><code class="cpp">Bird &amp; example::Bird::operator= (
+    Bird &amp;&amp; other
+) noexcept
+</code></pre>
+
+<h3 id="function-swap">function swap</h3>
+<pre><code class="cpp">void example::Bird::swap (
+    Bird &amp; other
+) noexcept
+</code></pre>
+
+<h3 id="function-bird">function ~Bird</h3>
+<pre><code class="cpp">example::Bird::~Bird () = default
+</code></pre>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>src/bird.h</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../classexample_1_1CustomException/" class="btn btn-neutral float-right" title="Class example::CustomException">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../classexample_1_1AnimalInterface/" class="btn btn-neutral" title="Interface example::AnimalInterface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../classexample_1_1AnimalInterface/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../classexample_1_1CustomException/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
