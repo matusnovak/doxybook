@@ -71,13 +71,9 @@ jobs:
           at: /tmp
 
       - run:
-          name: Dependencies
-          command: |
-            sudo python3 -m pip install mkdocs
-
-      - run:
           name: Build static pages - MkDocs
           command: |
+            sudo python3 -m pip install mkdocs
             cd /tmp/mkdocs
             mkdocs build
             cp -rf ./site /tmp/gh-pages/mkdocs
@@ -101,13 +97,9 @@ jobs:
           at: /tmp
 
       - run:
-          name: Dependencies
-          command: |
-            npm install -g gitbook vuepress
-
-      - run:
           name: Build static pages - VuePress
           command: |
+            sudo npm install -g vuepress
             cd /tmp/vuepress
             sudo vuepress build
             cp -rf ./.vuepress/dist /tmp/gh-pages/vuepress
@@ -115,6 +107,7 @@ jobs:
       - run:
           name: Build static pages - GitBook
           command: |
+            sudo npm install -g gitbook
             cd /tmp/gitbook
             gitbook install
             gitbook build
