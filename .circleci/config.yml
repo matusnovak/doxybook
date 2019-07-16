@@ -79,7 +79,7 @@ jobs:
           command: |
             cd /tmp/mkdocs
             mkdocs build
-            cp ./site /tmp/gh-pages/mkdocs
+            cp -rf ./site /tmp/gh-pages/mkdocs
   
   build_2:
     docker:
@@ -100,7 +100,7 @@ jobs:
           command: |
             cd /tmp/vuepress
             sudo vuepress build
-            cp ./.vuepress/dist /tmp/gh-pages/vuepress
+            cp -rf ./.vuepress/dist /tmp/gh-pages/vuepress
 
       - run:
           name: Build static pages - GitBook
@@ -108,7 +108,7 @@ jobs:
             cd /tmp/gitbook
             gitbook install
             gitbook build
-            cp ./_book /tmp/gh-pages/gitbook
+            cp -rf ./_book /tmp/gh-pages/gitbook
 
   deploy:
     docker:
