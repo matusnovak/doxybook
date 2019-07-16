@@ -10,6 +10,7 @@ jobs:
           name: Dependencies
           command: |
             sudo apt install doxygen
+            sudo python3 -m pip install jinja2
 
       - run:
           name: Generate
