@@ -219,7 +219,7 @@ class Property:
 
         def plain(self) -> str:
             argss = self.xml.find('argsstring')
-            if argss is None:
+            if argss is None or argss.text is None:
                 return ''
             
             argsstring = argss.text

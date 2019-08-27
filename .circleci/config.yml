@@ -157,25 +157,21 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - doxygen:
-          filters:
-            branches:
-              only:
-                - master
+      - doxygen
       - build_1:
           requires:
             - doxygen
           filters:
             branches:
-              only:
-                - master
+              ignore:
+                - gh-pages
       - build_2:
           requires:
             - build_1
           filters:
             branches:
-              only:
-                - master
+              ignore:
+                - gh-pages
       - deploy:
           requires:
             - build_2

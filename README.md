@@ -36,23 +36,24 @@ To verify doxybook has installed properly, run:
 doxybook -h
 ```
 
-## Running example
+## Compile the example
 
-See the live demo, alternatively you can run the examples in the following way:
-
-**Vuepress:**
+See the live demo [here](https://matusnovak.github.io/doxybook) or alternatively you can run the examples in the following way:
 
 ```bash
+# Clone this repository
+git clone https://github.com/matusnovak/doxybook.git
+
 # Go to the example folder
-cd example
+cd doxybook/example
 
 # Run doxygen and generate xml folder
 doxygen Doxyfile
 
 # Convert xml to md for Vuepress
 doxybook -i temp/xml -o vuepress/api -t vuepress
-# or:
-# python -m doxybook doxybook -i temp/xml -o vuepress/api -t vuepress
+# Note! GitBook requires SUMMARY.md as the following:
+# doxybook -i temp/xml -o gitbook/api -t gitbook -s gitbook/SUMMARY.md
 
 # Run vuepress in dev mode
 cd vuepress
@@ -60,31 +61,6 @@ vuepress dev
 
 # Open http://localhost:8080
 ```
-
-**Gitbook:**
-
-```bash
-# Go to the example folder
-cd example
-
-# Run doxygen and generate xml folder
-doxygen Doxyfile
-
-# Convert xml to md for GitBook
-doxybook -i temp/xml -o gitbook/api -s gitbook/SUMMARY.md -t gitbook
-# or:
-# python -m doxybook doxybook -i temp/xml -o gitbook/api -s gitbook/SUMMARY.md -t gitbook
-
-# Run gitbook in dev mode
-cd gitbook
-gitbook serve
-
-# Open http://localhost:4000
-```
-
-**Docsify or MkDocs:**
-
-They work exactly same as above, simply use `-t docsify` or `-t mkdocs` when running doxybook.
 
 ## What files are generated?
 
@@ -121,9 +97,9 @@ Convert doxygen XML output into GitBook or Vuepress markdown output.
 optional arguments:
   -h, --help            show this help message and exit
   -t TARGET, --target TARGET
-                        Select the target: Gitbook (default), Docsify, or
-                        Vuepress, for example: "-t vuepress", "-t docsify", or
-                        "-t gitbook"
+                        Select the target: Gitbook (default), Docsify, MkDocs,
+                        or Vuepress, for example: "-t vuepress", "-t docsify",
+                        "-t mkdocs", or "-t gitbook"
   -i INPUT, --input INPUT
                         Path to doxygen generated xml folder
   -o OUTPUT, --output OUTPUT
@@ -199,57 +175,16 @@ After running doxybook, the summary will become this code below. Notice how `* [
 * [Introduction](README.md)
 * [Documentation](api/index.md)
   * [Related Pages](api/pages.md)
-    * [Bug List](api/bug.md)
-    * [My Personal Index Page](api/indexpage.md)
-    * [Markdown test](api/md_src_markdown-demo.md)
-    * [Test List](api/test.md)
-    * [Todo List](api/todo.md)
+    ... etc
   * [Modules](api/modules.md)
     * [Some organism example](api/group__organism.md)
       * [An animal group example](api/group__animals.md)
   * [Class List](api/annotated.md)
     * [namespace example](api/namespaceexample.md)
       * [class example::Animal](api/classexample_1_1_animal.md)
-        * [struct example::Animal::Result](api/structexample_1_1_animal_1_1_result.md)
-      * [interface example::AnimalInterface](api/classexample_1_1_animal_interface.md)
-      * [class example::Bird](api/classexample_1_1_bird.md)
-      * [class example::CustomException](api/classexample_1_1_custom_exception.md)
-      * [class example::NumericException](api/classexample_1_1_numeric_exception.md)
-      * [class example::SpecialBird](api/classexample_1_1_special_bird.md)
-      * [namespace example::inner_namespace](api/namespaceexample_1_1inner__namespace.md)
-        * [class example::inner_namespace::Vector](api/classexample_1_1inner__namespace_1_1_vector.md)
+        ... etc
   * [Namespace List](api/namespaces.md)
-  * [Namespace Members](api/namespace_members.md)
-  * [Namespace Member Functions](api/namespace_member_functions.md)
-  * [Namespace Member Variables](api/namespace_member_variables.md)
-  * [Namespace Member Typedefs](api/namespace_member_typedefs.md)
-  * [Namespace Member Enumerations](api/namespace_member_enums.md)
-  * [Class Index](api/classes.md)
-  * [Class Hierarchy](api/hierarchy.md)
-  * [Class Members](api/class_members.md)
-  * [Class Member Functions](api/class_member_functions.md)
-  * [Class Member Variables](api/class_member_variables.md)
-  * [Class Member Typedefs](api/class_member_typedefs.md)
-  * [Class Member Enumerations](api/class_member_enums.md)
-  * [Files](api/files.md)
-    * [markdown-demo.md](api/markdown-demo_8md.md)
-    * [markdown-demo.md source](api/markdown-demo_8md_source.md)
-    * [src](api/dir_68267d1309a1af8e8297ef4c3efbcdba.md)
-      * [animal.h](api/animal_8h.md)
-      * [animal.h source](api/animal_8h_source.md)
-      * [animal_interface.h](api/animal__interface_8h.md)
-      * [animal_interface.h source](api/animal__interface_8h_source.md)
-      * [bird.h](api/bird_8h.md)
-      * [bird.h source](api/bird_8h_source.md)
-      * [config.h](api/config_8h.md)
-      * [config.h source](api/config_8h_source.md)
-      * [example.h](api/example_8h.md)
-      * [example.h source](api/example_8h_source.md)
-      * [special_bird.h](api/special__bird_8h.md)
-      * [special_bird.h source](api/special__bird_8h_source.md)
-      * [src/utils](api/dir_313caf1132e152dd9b58bea13a4052ca.md)
-        * [exception.h](api/exception_8h.md)
-        * [exception.h source](api/exception_8h_source.md)
+  ... etc
 * [Something else](something-else.md)
 * [Go to my website](http://mywebsite.com/)
 ```
@@ -261,6 +196,10 @@ After running doxybook, the summary will become this code below. Notice how `* [
 ## Pull requests
 
 [Pull requests are welcome](https://github.com/matusnovak/doxybook/pulls)
+
+## Contact
+
+Use GitHub issues or contact me through my email (see my GitHub profile page).
 
 ## License
 
