@@ -1,3 +1,2 @@
-python setup.py sdist
-python setup.py bdist_wheel
-python -m twine upload dist/*
+python setup.py sdist bdist_wheel
+python -m twine upload --skip-existing dist/*

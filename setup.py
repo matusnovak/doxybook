@@ -1,13 +1,5 @@
 from setuptools import setup
-from codecs import open
-from os import path
 from subprocess import Popen, PIPE
-
-here = path.abspath(path.dirname(__file__))
-
-# Get the long description from the README file
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
 
 
 def git_describe_abbrev():
@@ -22,12 +14,19 @@ def git_describe_abbrev():
         return None
 
 
+README = """
+DoxyBook
+========
+
+Please follow the information provided on GitHub here: https://github.com/matusnovak/doxybook
+"""
+
 setup(
     name='doxybook',
     version=git_describe_abbrev(),
     description='Convert Doxygen XML to GitBook or Vuepress markdown files',
-    long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description=README,
+    long_description_content_type='text/x-rst',
     url='https://github.com/matusnovak/doxybook',
     author='Matus Novak',
     author_email='matusnov@gmail.com',
