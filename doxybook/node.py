@@ -500,9 +500,6 @@ class Node:
 
     @property
     def parents(self) -> ['Node']:
-        if self._refid == 'dir_e76b55871a3ceedcbe1f9359e5753575':
-            print(id(self))
-            print('debugger')
         ret = []
         if self._parent is not None:
             if self._parent.is_language or self._parent.is_dir:

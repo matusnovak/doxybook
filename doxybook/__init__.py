@@ -9,7 +9,7 @@ def parse_options():
         description='Convert doxygen XML output into GitBook or Vuepress markdown output.')
     parser.add_argument('-t', '--target',
                         type=str,
-                        help='Select the target: Gitbook (default), Docsify, or Vuepress, for example: "-t vuepress", "-t docsify", or "-t gitbook"',
+                        help='Select the target: Gitbook (default), Docsify, MkDocs, or Vuepress, for example: "-t vuepress", "-t docsify", "-t mkdocs", or "-t gitbook"',
                         required=False,
                         default='gitbook'
                         )
