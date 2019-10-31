@@ -5,7 +5,7 @@ import traceback
 from typing import TextIO
 from jinja2 import Template
 from jinja2.exceptions import TemplateSyntaxError, TemplateError
-from jinja2 import StrictUndefined
+from jinja2 import StrictUndefined, Undefined
 from doxybook.node import Node, DummyNode
 from doxybook.constants import Kind
 from doxybook.templates.annotated import TEMPLATE as ANNOTATED_TEMPLATE
@@ -47,7 +47,7 @@ class Generator:
     def __init__(self, ignore_errors: bool = False, options: dict = {}):
         self.options = options
 
-        on_undefined_class = None
+        on_undefined_class = Undefined
         if not ignore_errors:
             on_undefined_class = StrictUndefined
 
