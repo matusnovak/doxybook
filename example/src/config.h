@@ -11,7 +11,8 @@
 
 #define CONFIG_HELLO (123)
 #define CONFIG_WORLD ("abx")
-#define PI (3.14159265358979323846)
+#define PI 3.14159265358979323846
+#define PRINT_PRETTY(MSG, ...) printf(MSG, __VA_ARGS__)
 
 /*! @} */
 #endif

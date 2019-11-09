@@ -522,12 +522,10 @@ class Node:
             else:
                 return ''
         elif self.is_define:
-            params = self._params.md()
             test = self._initializer.md()
-            # Do not use variable_initializer if it is
             if '\n' in test:
-                return ' (' + params + ')'
-            return '(' + params + ') ' + test
+                return ''
+            return test
         else:
             return ''
 
@@ -606,7 +604,7 @@ class Node:
                         code.append('    ' + param + ',')
                 code.append(') ' + self._initializer.plain())
             else:
-                code.append('#define ' + self.name_full_unescaped + ' () ' + self._specifiers.plain())
+                code.append('#define ' + self.name_full_unescaped + ' ' + self._initializer.plain())
 
         else:
             code.append(self._definition.plain())
