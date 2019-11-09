@@ -522,12 +522,10 @@ class Node:
             else:
                 return ''
         elif self.is_define:
-            params = self._params.md()
             test = self._initializer.md()
-            # Do not use variable_initializer if it is
             if '\n' in test:
-                return ' (' + params + ')'
-            return '(' + params + ') ' + test
+                return ''
+            return test
         else:
             return ''
 
