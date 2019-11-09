@@ -274,15 +274,19 @@
 <tbody>
 <tr>
 <td align="right">define</td>
-<td align="left"><a href="../config_8h/#define-config-hello"><strong>CONFIG_HELLO</strong></a>  () (123)<br></td>
+<td align="left"><a href="../config_8h/#define-config-hello"><strong>CONFIG_HELLO</strong></a>  (123)<br></td>
 </tr>
 <tr>
 <td align="right">define</td>
-<td align="left"><a href="../config_8h/#define-config-world"><strong>CONFIG_WORLD</strong></a>  () ("abx")<br></td>
+<td align="left"><a href="../config_8h/#define-config-world"><strong>CONFIG_WORLD</strong></a>  ("abx")<br></td>
 </tr>
 <tr>
 <td align="right">define</td>
-<td align="left"><a href="../config_8h/#define-pi"><strong>PI</strong></a>  () (3.14159265358979323846)<br></td>
+<td align="left"><a href="../config_8h/#define-pi"><strong>PI</strong></a>  3.14159265358979323846<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="../config_8h/#define-print-pretty"><strong>PRINT_PRETTY</strong></a> (MSG, ...) printf(MSG, __VA_ARGS__)<br></td>
 </tr>
 </tbody>
 </table>
@@ -329,15 +333,22 @@
 </ul>
 <h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
 <h3 id="define-config95hello">define CONFIG_HELLO</h3>
-<pre><code class="cpp">#define CONFIG_HELLO () 
+<pre><code class="cpp">#define CONFIG_HELLO (123)
 </code></pre>
 
 <h3 id="define-config95world">define CONFIG_WORLD</h3>
-<pre><code class="cpp">#define CONFIG_WORLD () 
+<pre><code class="cpp">#define CONFIG_WORLD (&quot;abx&quot;)
 </code></pre>
 
 <h3 id="define-pi">define PI</h3>
-<pre><code class="cpp">#define PI () 
+<pre><code class="cpp">#define PI 3.14159265358979323846
+</code></pre>
+
+<h3 id="define-print95pretty">define PRINT_PRETTY</h3>
+<pre><code class="cpp">#define PRINT_PRETTY (
+    MSG,
+    ...
+) printf(MSG, __VA_ARGS__)
 </code></pre>
 
 <hr />
