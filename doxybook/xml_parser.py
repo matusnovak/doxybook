@@ -246,7 +246,10 @@ class XmlParser:
                     name = parameteritem.find('parameternamelist').find('parametername')
                     description = parameteritem.find('parameterdescription').findall('para')
                     par = MdParagraph([])
-                    par.extend(self.paras(name))
+                    if len(name) > 0:
+                        par.extend(self.paras(name))
+                    else:
+                        par.append(Code(name.text))
                     par.append(Text(' '))
                     for ip in description:
                         par.extend(self.paras(ip))
